@@ -23,6 +23,7 @@ class ReplyController extends Controller
     public function store(Thread $thread)
     {
         $thread->addReply([
+            'title' => request('body'),
             'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
