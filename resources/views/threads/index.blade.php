@@ -10,7 +10,7 @@
                         @foreach( $threads as $thread)
                             <article>
                                 <h1>
-                                    {{ $thread->title }}
+                                    <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
                                 </h1>
                                 <p>
                                     {{ $thread->body }}
