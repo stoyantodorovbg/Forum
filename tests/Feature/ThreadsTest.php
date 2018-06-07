@@ -13,7 +13,7 @@ class ThreadsTest extends TestCase
     {
         parent::setUp();
 
-        $this->thread = factory('App\Models\Thread')->create();
+        $this->thread = create('App\Models\Thread');
     }
 
     /** @test */
@@ -40,8 +40,7 @@ class ThreadsTest extends TestCase
     /** @test */
     public function a_user_can_read_replies_associated_with_a_thread()
     {
-        $reply = factory('App\Models\Reply')
-            ->create(['thread_id' => $this->thread->id]);
+        $reply = create('App\Models\Reply', ['thread_id' => $this->thread->id]);
 
         $this->get($this->thread->path())
             ->assertSee('');

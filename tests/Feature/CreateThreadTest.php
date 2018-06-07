@@ -14,7 +14,7 @@ class CreateThreadTest extends TestCase
     {
         $this->expectException('Illuminate\Auth\AuthenticationException');
 
-        $thread = factory('App\Models\Thread')->make();
+        $thread = make('App\Models\Thread');
 
         $this->post('/threads', $thread->toArray());
     }
@@ -24,7 +24,7 @@ class CreateThreadTest extends TestCase
     {
         $this->actingAs(factory('App\User')->create());
 
-        $thread = factory('App\Models\Thread')->make();
+        $thread = make('App\Models\Thread');
         $this->post('/threads', $thread->toArray());
 
         $this->get($thread->path())
