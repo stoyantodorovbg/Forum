@@ -22,7 +22,7 @@ class CreateThreadTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_create_a_thread()
     {
-        $this->actingAs(factory('App\User')->create());
+        $this->signIn();
 
         $thread = make('App\Models\Thread');
         $this->post('/threads', $thread->toArray());
