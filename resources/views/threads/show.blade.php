@@ -2,49 +2,56 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <h1 class="panel-heading">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
                         <a href="#">
                             {{ $thread->owner->name }} posted:
                         </a>
                         {{ $thread->title }}
-                    </h1>
-                    <div class="panel-body">
+                    </div>
+                    <div class="card-body">
                         {{ $thread->body }}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                @foreach($thread->replies as $reply)
-                    @include('threads.reply')
-                @endforeach
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Replies</div>
+                    @foreach($thread->replies as $reply)
+                        <div class="card-body">
+                            @include('threads.reply')
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
 
         @if (auth()->check())
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <form method="POST" action="{{ $thread->path(). '/replies' }}">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <textarea
-                                    class="form-control"
-                                    name="body"
-                                    id="body"
-                                    placeholder="Have you something to say?"
-                                    rows="5"
-                            ></textarea>
-                        </div>
-                        <button
-                                class="btn btn-default"
-                                type="submit"
-                        >Post</button>
-                    </form>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <form method="POST" action="{{ $thread->path(). '/replies' }}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <textarea
+                                        class="form-control"
+                                        name="body"
+                                        id="body"
+                                        placeholder="Have you something to say?"
+                                        rows="5"
+                                ></textarea>
+                            </div>
+                            <button
+                                    class="btn btn-default"
+                                    type="submit"
+                            >Post</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @else
