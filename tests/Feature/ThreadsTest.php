@@ -9,7 +9,7 @@ class ThreadsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
