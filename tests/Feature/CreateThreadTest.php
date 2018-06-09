@@ -33,10 +33,23 @@ class CreateThreadTest extends TestCase
         $this->signIn();
 
         $thread = make('App\Models\Thread');
-        $this->post('/threads', $thread->toArray());
+        $response = $this->post('/threads', $thread->toArray());
 
-        $this->get($thread->path())
+        $this->get($response->headers->get('Location'))
             ->assertSee($thread->title)
             ->assertSee($thread->body);
     }
+
+      /** doesn't work because of enabling exceptions */
+//    /** @test */
+//    public function a_request_requires_a_title()
+//    {
+//        $this->signIn();
+//
+//        $thread = make('App\Models\Thread', ['title' => null]);
+//
+//        $this->post('/threads', $thread->toArray())
+//            ->assertSessionHasErrors('title');
+//    }
+
 }

@@ -17,11 +17,16 @@ class ReplyController extends Controller
 
 
     /**
+     //* integer $channel_id
      * @param Thread $thread
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Thread $thread)
+    public function store( Thread $thread)
     {
+        $this->validate(request(), [
+            'body' => 'required',
+            //'channel_id' => 'required|exists:channels,id'
+        ]);
         $thread->addReply([
             'title' => request('body'),
             'body' => request('body'),

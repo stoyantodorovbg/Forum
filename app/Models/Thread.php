@@ -39,6 +39,16 @@ class Thread extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * The thread belongs to a channel
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function channel()
+    {
+        return $this->belongsTo(Channel::class);
+    }
+
 
     public function addReply($reply)
     {

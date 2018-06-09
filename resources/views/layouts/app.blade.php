@@ -34,7 +34,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="{{ route('threads.index') }}">{{ __('Threads') }}</a></li>
+                        <li>
+                            <a class="nav-link" href="{{ route('threads.index') }}">{{ __('Threads') }}</a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle"
+                                        type="button"
+                                        id="dropdownMenuButton"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                >
+                                    Channels
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @foreach(App\Models\Channel::all() as $channel)
+                                        <a class="dropdown-item" href="/channels/{{ $channel->slug }}">{{ $channel->name }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
