@@ -38,6 +38,9 @@
                             <a class="nav-link" href="{{ route('threads.index') }}">{{ __('Threads') }}</a>
                         </li>
                         <li>
+                            <a class="nav-link" href="{{ route('threads.create') }}">{{ __('Create a thread') }}</a>
+                        </li>
+                        <li>
                             <div class="dropdown">
                                 <button class="btn btn-light dropdown-toggle"
                                         type="button"
@@ -55,7 +58,6 @@
                                 </div>
                             </div>
                         </li>
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

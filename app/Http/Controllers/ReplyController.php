@@ -25,7 +25,7 @@ class ReplyController extends Controller
     {
         $this->validate(request(), [
             'body' => 'required',
-            //'channel_id' => 'required|exists:channels,id'
+            'channel_id' => 'required|exists:channels,id'
         ]);
         $thread->addReply([
             'title' => request('body'),

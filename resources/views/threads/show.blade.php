@@ -44,12 +44,25 @@
                                         id="body"
                                         placeholder="Have you something to say?"
                                         rows="5"
-                                ></textarea>
+                                        required>
+                                    {{ old('body') }}
+                                </textarea>
                             </div>
-                            <button
-                                    class="btn btn-default"
-                                    type="submit"
-                            >Post</button>
+                            <div class="form-group">
+                                <button
+                                        class="btn btn-default"
+                                        type="submit">
+                                    Post
+                                </button>
+                            </div>
+
+                            @if(count($errors))
+                                <ul class="alert alert-danger">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </form>
                     </div>
                 </div>

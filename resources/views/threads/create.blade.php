@@ -9,13 +9,33 @@
                     <div class="card-body">
                         <form method="POST" action="/threads">
                             {{ csrf_field() }}
+
+                            <div class="form-group">
+                                <label for="channel_id">Choose a channel</label>
+                                <select class="form-control"
+                                       name="channel_id"
+                                       id="channel_id"
+                                       value="{{ old('channel_id') }}"
+                                       required>
+                                    <option value="">
+                                        Choose one
+                                    </option>
+                                    @foreach(App\Models\Channel::all() as $channel)
+                                        <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? "selected" : "" }}>
+                                            {{ $channel->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="title">Title</label>
                                 <input class="form-control"
                                        type="text"
                                        name="title"
                                        id="title"
-                                >
+                                       value="{{ old('title') }}"
+                                       required>
                             </div>
 
                             <div class="form-group">
@@ -24,12 +44,24 @@
                                           name="body"
                                           id="body"
                                           rows="8"
-                                ></textarea>
+                                          required>
+                                    {{ old('body') }}
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default" type="submit">
+                                    Publish
+                                </button>
                             </div>
 
-                            <button class="btn btn-default" type="submit">Publish</button>
+                            @if(count($errors))
+                                <ul class="alert alert-danger">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </form>
-
                     </div>
                 </div>
             </div>
