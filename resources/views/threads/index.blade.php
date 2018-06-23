@@ -13,7 +13,7 @@
                                     <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
                                 </h1>
                                 <p>
-                                    {{ $thread->body }}
+                                    {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
                                 </p>
                             </article>
                         @endforeach
