@@ -50,8 +50,23 @@ class Thread extends Model
     }
 
 
+    /**
+     * Add a reply to the thread
+     *
+     * @param $reply
+     */
     public function addReply($reply)
     {
         $this->replies()->create($reply);
+    }
+
+    /**
+     * @param $query
+     * @param $filters
+     * @return mixed
+     */
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
     }
 }

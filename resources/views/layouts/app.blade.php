@@ -35,10 +35,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <a class="nav-link" href="{{ route('threads.index') }}">{{ __('Threads') }}</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('threads.create') }}">{{ __('Create a thread') }}</a>
+                            <a class="nav-link" href="{{ route('threads.create') }}">Create a thread</a>
                         </li>
                         <li>
                             <div class="dropdown">
@@ -52,9 +49,28 @@
                                     Channels
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @foreach(App\Models\Channel::all() as $channel)
+                                    @foreach($channels as $channel)
                                         <a class="dropdown-item" href="/channels/{{ $channel->slug }}">{{ $channel->name }}</a>
                                     @endforeach
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle"
+                                        type="button"
+                                        id="dropdownMenuButton"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                >
+                                    Browse
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('threads.index') }}">All Threads</a>
+                                    @if(auth()->check())
+                                        <a class="dropdown-item" href="/threads?by={{ auth()->user()->name }}">My threads</a>
+                                    @endif
                                 </div>
                             </div>
                         </li>
@@ -64,8 +80,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
