@@ -9,12 +9,16 @@
                     <div class="card-body">
                         @foreach( $threads as $thread)
                             <article>
-                                <h1>
+                                <h4>
                                     <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
-                                </h1>
+                                </h4>
+                                <p>
+                                    {{ $thread->body }}
+                                </p>
                                 <p>
                                     {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
                                 </p>
+                                <br>
                             </article>
                         @endforeach
                     </div>
