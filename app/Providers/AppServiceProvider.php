@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Channel;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,14 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \View::composer(
-//            [
-//            'threads.create',
-//            'layouts.app'
-//        ]
-            '*',
-            function ($view) {
-            $view->with('channels', Channel::all());
+        \View::composer('*', function ($view) {
+            $channels = Cache::rememberForever('channels', function () {
+                return Channel::all();
+            });
+
+            $view->with('channels', $channels);
         });
     }
 
@@ -32,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->isLocal()) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 }

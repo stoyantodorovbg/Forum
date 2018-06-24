@@ -13,7 +13,7 @@
             {{ $reply->created_at->diffForHumans() }}
         </p>
         <p>
-        Likes: {{ $reply->favorites()->count() }}
+        {{ $reply->favorites()->count() }} {{ str_plural('Like', $reply->favorites_count) }}
         </p>
         <div>
             <form method="POST" action="/replies/{{ $reply->id }}/favorites">
