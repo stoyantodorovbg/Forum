@@ -15,8 +15,14 @@ class FavoriteController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @param Reply $reply
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Reply $reply)
     {
-        return $reply->favorite(auth()->id());
+        $reply->favorite(auth()->id());
+
+        return back();
     }
 }

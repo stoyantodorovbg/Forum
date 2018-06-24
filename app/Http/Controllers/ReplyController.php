@@ -15,7 +15,6 @@ class ReplyController extends Controller
         $this->middleware('auth');
     }
 
-
     /**
      //* integer $channel_id
      * @param Thread $thread
