@@ -6,10 +6,13 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <a href="#">
+                        <a href="{{ route('profile', $thread->owner->name) }}">
                             {{ $thread->owner->name }} posted:
                         </a>
                         {{ $thread->title }}
+                        <p>
+                            Before {{ $thread->created_at->diffForHumans() }}
+                        </p>
                     </div>
                     <div class="card-body">
                         {{ $thread->body }}
