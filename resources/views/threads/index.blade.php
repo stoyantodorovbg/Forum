@@ -4,25 +4,31 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <div class="card-header">
+                    <h1>
+                        FORUM THREADS
+                    </h1>
+                </div>
+                @foreach( $threads as $thread)
                 <div class="card">
-                    <div class="card-header">Forum threads</div>
+                    <div class="card-header">
+                        <h4>
+                            <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
+                        </h4>
+                    </div>
                     <div class="card-body">
-                        @foreach( $threads as $thread)
-                            <article>
-                                <h4>
-                                    <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
-                                </h4>
-                                <p>
-                                    {{ $thread->body }}
-                                </p>
-                                <p>
-                                    {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
-                                </p>
-                                <br>
-                            </article>
-                        @endforeach
+                        <article>
+                            <p>
+                                {{ $thread->body }}
+                            </p>
+                            <p>
+                                {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
+                            </p>
+                            <br>
+                        </article>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

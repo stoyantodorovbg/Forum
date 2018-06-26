@@ -71,4 +71,36 @@ class ThreadsTest extends TestCase
             ->assertSee($threadTestName->title)
             ->assertDontSee($otherThread->title);
     }
+
+    /** @test */
+    public function a_thread_can_be_deleted()
+    {
+        $this->signIn();
+
+        $thread = create('App\Models\Thread');
+        $reply = create('App\Models\Reply', ['thread_id' => $thread->id]);
+
+        $response = $this->json('DELETE', $thread->path());
+
+        $response->assertStatus(204);
+
+        $this->assertDatabaseMissing('threads', ['id' => $thread->id]);
+        $this->assertDatabaseMissing('replies', ['id' => $reply->id]);
+
+    }
+
+    /** @test */
+    public function guests_cannot_delete_threads()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $thread = create('App\Models\Thread');
+
+        $response = $this->json('DELETE', $thread->path());
+    }
+
+//    public function threads_may_only_be_deleted_by_those_who_have_a_permission()
+//    {
+//
+//    }
 }

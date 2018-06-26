@@ -22,10 +22,12 @@ class CreateRepliesTable extends Migration
             $table->timestamps();
 
             $table->foreign('thread_id')
-                ->references('id')->on('threads');
+                ->references('id')
+                ->on('threads');
 
             $table->foreign('user_id')
-                ->references('id')->on('users');
+                ->references('id')
+                ->on('users');
         });
     }
 
