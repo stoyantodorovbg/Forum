@@ -41,15 +41,17 @@ class CreateThreadTest extends TestCase
     }
 
       /** doesn't work because of enabling exceptions */
-//    /** @test */
-//    public function a_request_requires_a_title()
-//    {
-//        $this->signIn();
-//
-//        $thread = make('App\Models\Thread', ['title' => null]);
-//
-//        $this->post('/threads', $thread->toArray())
-//            ->assertSessionHasErrors('title');
-//    }
+    /** @test */
+    public function a_request_requires_a_title()
+    {
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $this->signIn();
+
+        $thread = make('App\Models\Thread', ['title' => null]);
+
+        $this->post('/threads', $thread->toArray())
+            ->assertSessionHasErrors('title');
+    }
 
 }

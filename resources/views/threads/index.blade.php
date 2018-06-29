@@ -9,26 +9,28 @@
                         FORUM THREADS
                     </h1>
                 </div>
-                @foreach( $threads as $thread)
-                <div class="card">
-                    <div class="card-header">
-                        <h4>
-                            <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
-                        </h4>
+                @forelse( $threads as $thread)
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>
+                                <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <article>
+                                <p>
+                                    {{ $thread->body }}
+                                </p>
+                                <p>
+                                    {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
+                                </p>
+                                <br>
+                            </article>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <article>
-                            <p>
-                                {{ $thread->body }}
-                            </p>
-                            <p>
-                                {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
-                            </p>
-                            <br>
-                        </article>
-                    </div>
-                </div>
-                @endforeach
+                @empty
+                    <p>There are no relevant results at this time.</p>
+                @endforelse
             </div>
         </div>
     </div>

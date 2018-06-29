@@ -18,18 +18,20 @@
                         {{ $thread->body }}
                     </div>
 
-                    <form action="{{ $thread->path() }}" method="POST">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
+                    @can('update', $thread)
+                        <form action="{{ $thread->path() }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
 
-                        <div class="form-group">
-                            <button
-                                    class="btn btn-danger"
-                                    type="submit">
-                                Delete
-                            </button>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <button
+                                        class="btn btn-danger"
+                                        type="submit">
+                                    Delete
+                                </button>
+                            </div>
+                        </form>
+                    @endcan
                 </div>
                 <div class="card">
                     <div class="card-header">Replies</div>

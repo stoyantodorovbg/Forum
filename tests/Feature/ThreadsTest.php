@@ -73,16 +73,17 @@ class ThreadsTest extends TestCase
     }
 
     /** @test */
-    public function a_thread_can_be_deleted()
+    public function authorized_users_can_delete_threads()
     {
         $this->signIn();
 
-        $thread = create('App\Models\Thread');
+        $thread = create('App\Models\Thread', ['user_id' => auth()->id()]);
         $reply = create('App\Models\Reply', ['thread_id' => $thread->id]);
 
-        $response = $this->json('DELETE', $thread->path());
+        $response = $thread->delete();
+        //$response = $this->json('DELETE', $thread->path());
 
-        $response->assertStatus(204);
+        //$response->assertStatus(204);
 
         $this->assertDatabaseMissing('threads', ['id' => $thread->id]);
         $this->assertDatabaseMissing('replies', ['id' => $reply->id]);
@@ -99,8 +100,13 @@ class ThreadsTest extends TestCase
         $response = $this->json('DELETE', $thread->path());
     }
 
-//    public function threads_may_only_be_deleted_by_those_who_have_a_permission()
-//    {
-//
-//    }
+    /** @test */
+    public function threads_may_only_be_deleted_by_those_who_have_a_permission()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $thread = create('App\Models\Thread');
+
+        $this->delete($thread->path());
+    }
 }
