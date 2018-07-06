@@ -13,31 +13,19 @@
             </div>
         </div>
 
-        @foreach($threads as $thread )
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <a href="{{ route('profile', $thread->owner->name) }}">
-                                {{ $thread->owner->name }} posted:
-                            </a>
-                            <a href="{{ $thread->path() }}">
-                                {{ $thread->title }}
-                            </a>
-                            <p>
-                                Before {{ $thread->created_at->diffForHumans() }}
-                            </p>
-                        </div>
-                        <div class="card-body">
-                            {{ $thread->body }}
-                        </div>
-                    </div>
+        @foreach($activities as $date => $activity )
+            <h3 class="page-header">
+                {{ $date }}
+            </h3>
+            @foreach ($activity as $record)
+                <div class="row">
+                    @include("profiles.activities.$record->type", ['activity' => $record])
                 </div>
-            </div>
+            @endforeach
         @endforeach
     </div>
 
-    {{ $threads->links() }}
+    {{--{{ $activity->links() }}--}}
 
 @endsection
 

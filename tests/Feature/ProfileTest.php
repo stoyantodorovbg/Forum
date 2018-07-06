@@ -27,7 +27,7 @@ class ProfileTest extends TestCase
         $username = $user->name;
 
         $thread = create('App\Models\Thread', [
-            'user_id' => $user->id
+                'user_id' => $user->id
             ]);
 
         $this->get("/profiles/$username")
