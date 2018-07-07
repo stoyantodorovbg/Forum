@@ -19,7 +19,9 @@
             </h3>
             @foreach ($activity as $record)
                 <div class="row">
-                    @include("profiles.activities.$record->type", ['activity' => $record])
+                    @if (view()->exists("profiles.activities.$record->type"))
+                        @include("profiles.activities.$record->type", ['activity' => $record])
+                    @endif
                 </div>
             @endforeach
         @endforeach

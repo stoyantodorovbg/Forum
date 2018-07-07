@@ -19,6 +19,16 @@ class Reply extends Model
         ];
 
     /**
+     * Fetch a path to the related threat
+     *
+     * @return string
+     */
+    public function path()
+    {
+        return $this->thread->path() . "#reply-{$this->id}";
+    }
+
+    /**
      * The owner of the reply
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
