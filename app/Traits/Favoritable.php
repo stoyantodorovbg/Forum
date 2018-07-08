@@ -6,7 +6,7 @@ namespace App\Traits;
 
 trait Favoritable
 {
-    public function getFavoritesCount()
+    public function getFavoritesCountAttribute()
     {
         return $this->favorites->count();
     }
@@ -22,7 +22,10 @@ trait Favoritable
     }
 
     /**
-     * Add a vote to the reply
+     * Add a vote to the model
+     *
+     * @param $userId
+     * @return \Illuminate\Database\Eloquent\Model
      */
     public function favorite($userId)
     {
@@ -34,6 +37,20 @@ trait Favoritable
     }
 
     /**
+     * Delete a vote for the model
+     *
+     * @param $userId
+     */
+    public function unfavorite($userId)
+    {
+        $attributes = ['user_id' => $userId];
+
+        $this->favorites()->where($attributes)->delete();
+    }
+
+    /**
+     * Determine if the current model has been favorited
+     *
      * @return bool
      */
     public function isFavorited()
@@ -42,5 +59,13 @@ trait Favoritable
             ->favorites
             ->where('user_id', auth()->id())
             ->count();
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsFavoritedAttribute()
+    {
+        return $this->isFavorited();
     }
 }

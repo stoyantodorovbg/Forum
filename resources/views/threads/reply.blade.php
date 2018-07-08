@@ -25,12 +25,7 @@
         <br>
         <div class="panel-footer level">
             @can('update', $reply)
-                <form method="POST" action="/replies/{{ $reply->id }}/favorites">
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-default mr-1" {{ $reply->isFavorited() ? 'disabled' : '' }}>
-                        Like
-                    </button>
-                </form>
+                <favorite :reply="{{ $reply }}"></favorite>
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
                 <button class="btn btn-danger btn-xs mr-1" @click="destroy">delete</button>
             @endcan

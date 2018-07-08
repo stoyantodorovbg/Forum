@@ -18,6 +18,11 @@ class Reply extends Model
         'favorites',
         ];
 
+    protected $appends = [
+        'favoritesCount',
+        'isFavorited',
+    ];
+
     /**
      * Fetch a path to the related threat
      *
