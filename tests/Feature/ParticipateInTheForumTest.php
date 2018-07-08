@@ -69,4 +69,40 @@ class ParticipateInForum extends TestCase
 
         $this->assertDatabaseMissing('replies', ['id' => $reply->id]);
     }
+
+    /** @test */
+    public function authorized_users_can_update_threads()
+    {
+        $this->signIn();
+
+        $reply = create('App\Models\Reply', ['user_id' => auth()->id()]);
+
+        $updatedReply = 'the body has been edited';
+        $this->patch("/replies/{$reply->id}", [
+            'body' => $updatedReply,
+        ]);
+
+        $this->assertDatabaseHas('replies', [
+            'id' => $reply->id,
+            'body' => $updatedReply,
+        ]);
+    }
+
+    /** @test */
+    public function un_authorized_users_cannot_update_threads()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $reply = create('App\Models\Reply');
+
+        $updatedReply = 'the body has been edited';
+        $this->patch("/replies/{$reply->id}", [
+            'body' => $updatedReply,
+        ]);
+
+        $this->assertDatabaseHas('replies', [
+            'id' => $reply->id,
+            'body' => $updatedReply,
+        ]);
+    }
 }
