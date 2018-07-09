@@ -25,7 +25,9 @@
         <br>
         <div class="panel-footer level">
             @can('update', $reply)
-                <favorite :reply="{{ $reply }}"></favorite>
+                @if (Auth::check())
+                    <favorite :reply="{{ $reply }}"></favorite>
+                @endif
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
                 <button class="btn btn-danger btn-xs mr-1" @click="destroy">delete</button>
             @endcan

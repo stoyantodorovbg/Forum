@@ -37,7 +37,7 @@ class ParticipateInForum extends TestCase
     }
 
     /** @test */
-    public function anauthenticated_users_cannot_delete_replies()
+    public function unauthenticated_users_cannot_delete_replies()
     {
         $this->expectException('Illuminate\Auth\AuthenticationException');
 
