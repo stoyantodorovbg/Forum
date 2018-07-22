@@ -35,6 +35,7 @@
                         @endcan
                     </div>
                     <replies :data="{{ $thread->replies }}"
+                             @added="repliesCount++"
                              @removed="repliesCount--">
                     </replies>
 
@@ -48,42 +49,12 @@
 
                         {{--{{ $replies->links() }}--}}
                     {{--</div>--}}
-                    @if (auth()->check())
-                        <div class="card">
-                            <form method="POST" action="{{ $thread->path(). '/replies' }}">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                            <textarea
-                                    class="form-control"
-                                    name="body"
-                                    id="body"
-                                    placeholder="Have you something to say?"
-                                    rows="5"
-                                    required>
-                                {{ old('body') }}
-                            </textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button
-                                            class="btn btn-default"
-                                            type="submit">
-                                        Post
-                                    </button>
-                                </div>
-                                @if(count($errors))
-                                    <ul class="alert alert-danger">
-                                        @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </form>
-                        </div>
-                    @else
-                        <p class="text-left">
-                            If you want to participate in this discussion, please, sign in:
-                            <a href="{{ route('login') }}">Login</a>
-                        </p>
+                    @if(count($errors))
+                        <ul class="alert alert-danger">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
                 <div class="col-md-4">
@@ -99,8 +70,7 @@
                             </p>
                             <p>
                                 <a href="#">
-                                    <span v-text="repliesCount"></span>
-                                    {{ str_plural('Comment', $thread->replies_count) }}:  {{ $thread->replies_count }}
+                                    {{ str_plural('Comment', $thread->replies_count) }}:  <span v-text="repliesCount"></span>
                                 </a>
                             </p>
                         </div>

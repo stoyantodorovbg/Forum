@@ -17,9 +17,9 @@ class ReplyController extends Controller
     }
 
     /**
-     //* integer $channel_id
+     * //* integer $channel_id
      * @param Thread $thread
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Http\RedirectResponse
      */
     public function store( Thread $thread)
     {
@@ -27,11 +27,15 @@ class ReplyController extends Controller
             'body' => 'required',
             'channel_id' => 'exists:channels,id'
         ]);
-        $thread->addReply([
+        $reply = $thread->addReply([
             'title' => request('body'),
             'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
+
+        if (request()->expectsJson()) {
+            return $reply->load('owner');
+        }
 
         return back()->with('flash', 'Your reply has been left');
     }

@@ -72,7 +72,7 @@
                 $(this.$el).fadeOut(300);
 
                 flash('Deleted.');
-        },
+            },
         },
 
     }
