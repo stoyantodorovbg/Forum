@@ -23,8 +23,18 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.App.csrfToken;
+
 
 window.Vue = require('vue');
+
+Vue.prototype.authorize = function(handler) {
+    let user = window.App.user;
+
+    if (! user) return false;
+
+    return handler(user);
+};
 
 window.events = new Vue();
 

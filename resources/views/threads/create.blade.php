@@ -9,7 +9,22 @@
                     <div class="card-body">
                         <form method="POST" action="/threads">
                             {{ csrf_field() }}
-
+                            
+                            {{--<form class="form-horizontal" role="form">--}}
+                                <div class="row form-group form-horizontal">
+                                    <div class="col-lg-5 custom-row">
+                                        <label for="input1" style="height: 60px;" class="control-label custom-label">
+                                            Labdas kjas kljas dlkjasd lksjd el1 Labdas kjas kljas dlkjasd lksjd el1
+                                        </label>
+                                        <input type="text" class="form-control input-custom" id="input1" placeholder="Input1">
+                                    </div>
+                                    <div class="col-lg-5 custom-row">
+                                        <label for="input2" style="height: 60px;" class="control-label custom-label">
+                                            Label2
+                                        </label>
+                                        <input type="password" class="form-control input-custom" id="input2" placeholder="Input2">
+                                    </div>
+                                </div>
                             <div class="form-group">
                                 <label for="channel_id">Choose a channel</label>
                                 <select class="form-control"
