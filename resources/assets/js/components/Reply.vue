@@ -4,7 +4,7 @@
             <a :href="'/profiles/' + data.owner.name"
                 v-text="data.owner.name">
             </a>
-            said:
+            said: <span v-text="ago"></span>
             <div v-if="editing">
                 <div class="form-group">
                     <textarea class="form-control" v-model="body"></textarea>
@@ -19,7 +19,7 @@
             <div v-if="signedIn">
                 <favorite :reply="data"></favorite>
             </div>
-            <div v-if="canUpdate">
+            <div v-if="canUpdateReply">
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
                 <button class="btn btn-danger btn-xs mr-1" @click="destroy">delete</button>
             </div>
@@ -29,6 +29,7 @@
 
 <script>
     import Favorite from './Favorite.vue';
+    import moment from 'moment';
 
     export default {
         props: ['data', 'can-update'],
@@ -44,11 +45,14 @@
         },
 
         computed: {
+            ago(){
+                return moment(this.data.created_at).fromNow();
+            },
             signedIn() {
                 return window.App.signedIn;
             },
 
-            canUpdate() {
+            canUpdateReply() {
                 return this.authorize(user => this.data.user_id == user.id)
             },
         },
