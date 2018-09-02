@@ -23,16 +23,25 @@ trait RecordActivity
         });
     }
 
+    /**
+     * @return array
+     */
     protected static function getActivitiesRecord()
     {
         return ['created'];
     }
 
+    /**
+     * @return mixed
+     */
     public function activity()
     {
         return $this->morphMany('App\Models\Activity', 'subject');
     }
 
+    /**
+     * @param $event
+     */
     protected function recordActivity($event)
     {
         $this->activity()->create([
@@ -41,6 +50,10 @@ trait RecordActivity
         ]);
     }
 
+    /**
+     * @param $event
+     * @return string
+     */
     protected function getActivityType($event)
     {
         $type = strtolower((new \ReflectionClass($this))->getShortName());

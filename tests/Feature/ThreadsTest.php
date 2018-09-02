@@ -38,15 +38,6 @@ class ThreadsTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_read_replies_associated_with_a_thread()
-    {
-        $reply = create('App\Models\Reply', ['thread_id' => $this->thread->id]);
-
-        $this->get($this->thread->path())
-            ->assertSee($reply->body);
-    }
-
-    /** @test */
     public function a_user_can_filter_threads_according_to_the_tags()
     {
         $channel = create('App\Models\Channel');
@@ -71,6 +62,19 @@ class ThreadsTest extends TestCase
             ->assertSee($threadTestName->title)
             ->assertDontSee($otherThread->title);
     }
+    /** @test */
+    public function a_user_can_filter_threads_by_those_that_are_unanswered()
+    {
+        $this->signIn();
+
+        $thread = create('App\Models\Thread', ['user_id' => auth()->id()]);
+        $reply = create('App\Models\Reply', ['thread_id' => $thread->id]);
+
+        $response = $this->getJson('threads?unanswered=1')->json();
+
+        $this->assertCount(1, $response);
+    }
+
 
     /** @test */
     public function authorized_users_can_delete_threads()
@@ -123,11 +127,10 @@ class ThreadsTest extends TestCase
     {
         $thread = create('App\Models\Thread');
 
-        create('App\Models\Reply', ['thread_id' => $thread->id], 2);
+        create('App\Models\Reply', ['thread_id' => $thread->id], 5);
 
-        $response = $this->getJson($thread->path() . 'replies')->json();
+        $response = $this->getJson($thread->path() . '/replies')->json();
 
-        $this->assertCount(1, $response['data']);
-        $this->assertEquals(2, $response['data']);
+        $this->assertCount(3, $response['data']);
     }
 }

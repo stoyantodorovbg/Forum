@@ -23,6 +23,19 @@ class Reply extends Model
         'isFavorited',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($reply) {
+            $reply->thread->increment('replies_count');
+        });
+
+        static::deleted(function ($reply) {
+            $reply->thread->decrement('replies_count');
+        });
+    }
+
     /**
      * Fetch a path to the related threat
      *
