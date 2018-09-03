@@ -18,9 +18,13 @@ Route::resource('/threads', 'ThreadController');
 Route::get('threads/{channel}', 'ThreadsController@index');
 Route::post('/threads/{channel}/{thread}/replies', 'ReplyController@store');
 Route::post('/threads/{thread}/replies', 'ReplyController@store');
+Route::get('/threads/{thread}/replies', 'ReplyController@index');
+
+Route::post('/threads/{thread}/subscriptions', 'ThreadSubscriptionController@store')->middleware('auth');
+Route::delete('/threads/{thread}/subscriptions', 'ThreadSubscriptionController@destroy')->middleware('auth');
+
 Route::patch('/replies/{reply}', 'ReplyController@update');
 Route::delete('/replies/{reply}', 'ReplyController@destroy');
-Route::get('/threads/{thread}/replies', 'ReplyController@index');
 Route::get('/channels/{channel}', 'ThreadController@index');
 
 Route::post('/replies/{reply}/favorites', 'FavoriteController@store');

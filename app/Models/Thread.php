@@ -26,6 +26,8 @@ class Thread extends Model
         });
     }
 
+    protected $appends = ['isSubscribedTo'];
+
     /**
      * Fetch a path to the current threat
      *
@@ -120,5 +122,17 @@ class Thread extends Model
     public function subscriptions()
     {
         return $this->hasMany(ThreadSubscription::class);
+    }
+
+    /**
+     * Show if the authenticated user is subscribed to this thread
+     *
+     * @return mixed
+     */
+    public function getIsSubscribedToAttribute()
+    {
+        return $this->subscriptions()
+            ->where('user_id', auth()->id())
+            ->exists();
     }
 }
