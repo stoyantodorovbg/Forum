@@ -77,7 +77,14 @@ class Thread extends Model
      */
     public function addReply($reply)
     {
-        return $this->replies()->create($reply);
+        $reply = $this->replies()->create($reply);
+
+        //notify users for the replies of the other user for the subscribed thread
+        $this->subscriptions->filter(function ($sub) use($reply) {
+            return $sub->user_id != $reply->user_id;
+        })->each->notify($reply);;
+
+        return $reply;
     }
 
     /**

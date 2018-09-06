@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Models\Activity;
 use App\Models\Thread;
+use App\Models\Activity;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->hasMany(Thread::class)->latest();
     }
 
+    /**
+     * Activities, associated with the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function activity()
     {
         return $this->hasMany(Activity::class);
