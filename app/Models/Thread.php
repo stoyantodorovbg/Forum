@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use App\Traits\RecordActivity;
+use App\Events\ThreadHasNewReply;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
@@ -80,10 +81,7 @@ class Thread extends Model
         $reply = $this->replies()->create($reply);
 
         //notify users for the replies of the other user for the subscribed thread
-        $this->subscriptions
-            ->where('user_id', '!=', $reply->user_id)
-            ->each
-            ->notify($reply);;
+        event(new ThreadHasNewReply($this, $reply));
 
         return $reply;
     }
@@ -143,4 +141,18 @@ class Thread extends Model
             ->where('user_id', auth()->id())
             ->exists();
     }
+
+    /**
+     * @param $reply
+     *
+     * @return void
+     */
+    public function notifySubscribers($reply)
+    {
+        $this->subscriptions
+            ->where('user_id', '!=', $reply->user_id)
+            ->each
+            ->notify($reply);
+    }
+
 }
