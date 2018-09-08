@@ -107,4 +107,20 @@ class ParticipateInForum extends TestCase
             'body' => $updatedReply,
         ]);
     }
+
+    /** @test */
+    public function replies_that_contain_spam_can_not_be_created()
+    {
+        $this->signIn(create('App\User'));
+
+        $thread = create('App\Models\Thread');
+
+        $reply = make('App\Models\Reply', [
+            'body' => 'Yahoo Customer Support',
+        ]);
+
+        $this->expectException(\Exception::class);
+
+        $this->post($thread->path().'/replies', $reply->toArray());
+    }
 }

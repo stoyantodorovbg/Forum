@@ -14,7 +14,7 @@
                         <div class="card-header">
                             <h4>
                                 <a href="{{ $thread->path() }}">
-                                    @if($thread->hasUpdatesFor())
+                                    @if(auth()->check() && $thread->hasUpdatesFor())
                                         <strong>
                                             {{ $thread->title }}
                                         </strong>
