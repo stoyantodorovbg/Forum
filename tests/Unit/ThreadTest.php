@@ -3,6 +3,8 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use App\Notifications\ThreadWasUpdated;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ThreadTest extends TestCase
@@ -45,6 +47,25 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
+    public function a_thread_notifies_all_subscribers_when_a_reply_is_added()
+    {
+        Notification::fake();
+
+        $this->signIn();
+
+        $this->thread->subscribe();
+
+        $this->thread->addReply([
+            'body' => 'foobar',
+            'title' => 'bar',
+            'user_id' => 1,
+        ]);
+
+        Notification::assertSentTo(auth()->user(), ThreadWasUpdated::class);
+    }
+
+
+    /** @test */
     public function a_user_can_filter_threads_by_popularity()
     {
         $threadWithTwoReplies = create('App\Models\Thread');
@@ -64,10 +85,13 @@ class ThreadTest extends TestCase
     public function a_user_can_filter_threads_according_to_the_tags()
     {
         $channel = create('App\Models\Channel');
+
         $threadInChannel = create('App\Models\Thread',
             ['channel_id' => $channel->id]);
+
         $threadNotInChannel = create('App\Models\Thread',
             ['channel_id' => $channel->id - 1]);
+
         $this->get('/channels/'.$channel->slug)
             ->assertSee($threadInChannel->body)
             ->assertDontSee($threadNotInChannel->body);
