@@ -80,9 +80,10 @@ class Thread extends Model
         $reply = $this->replies()->create($reply);
 
         //notify users for the replies of the other user for the subscribed thread
-        $this->subscriptions->filter(function ($sub) use($reply) {
-            return $sub->user_id != $reply->user_id;
-        })->each->notify($reply);;
+        $this->subscriptions
+            ->where('user_id', '!=', $reply->user_id)
+            ->each
+            ->notify($reply);;
 
         return $reply;
     }

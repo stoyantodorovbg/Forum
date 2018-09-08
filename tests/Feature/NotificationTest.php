@@ -10,11 +10,16 @@ class NotificationTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->signIn();
+    }
+
     /** @test */
     public function a_notification_is_prepared_when_the_subscribed_thread_receives_a_notification_from_the_other_user()
     {
-        $this->signIn();
-
         $thread = create('App\Models\Thread', ['user_id' => auth()->id()]);
 
         $this->post($thread->path() . '/subscriptions');
@@ -33,8 +38,6 @@ class NotificationTest extends TestCase
     /** @test */
     public function a_notification_is_prepared_when_the_subscribed_thread_receives_a_notification_which_is_not_from_the_current_user()
     {
-        $this->signIn();
-
         $thread = create('App\Models\Thread', ['user_id' => auth()->id()]);
 
         $this->post($thread->path() . '/subscriptions');
@@ -53,7 +56,6 @@ class NotificationTest extends TestCase
     /** @test */
     public function a_user_can_fetch_their_unread_notifications()
     {
-        $this->signIn();
 
         $thread = create('App\Models\Thread', ['user_id' => auth()->id()]);
 
