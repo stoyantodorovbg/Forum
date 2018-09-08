@@ -155,4 +155,18 @@ class Thread extends Model
             ->notify($reply);
     }
 
+    /**
+     * Check if the thread has unread from the user updates
+     *
+     * @param null $user
+     * @return bool
+     */
+    public function hasUpdatesFor($user = null)
+    {
+//        $user = $user ?: auth()->user();
+//        $key = $user->visitedThreadCacheKey($this);
+        $key = sprintf("users.%s.visits.%s", auth()->id(), $this->id);
+
+        return $this->updated_at > cache($key);
+    }
 }

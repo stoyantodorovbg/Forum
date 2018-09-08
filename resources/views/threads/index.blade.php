@@ -13,7 +13,15 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>
-                                <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
+                                <a href="{{ $thread->path() }}">
+                                    @if($thread->hasUpdatesFor())
+                                        <strong>
+                                            {{ $thread->title }}
+                                        </strong>
+                                    @else
+                                        {{ $thread->title }}
+                                    @endif
+                                </a>
                             </h4>
                         </div>
                         <div class="card-body">

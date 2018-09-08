@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use Carbon\Carbon;
 use App\Models\Thread;
 use App\Models\Channel;
 use Illuminate\Http\Request;
@@ -83,7 +83,10 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //$replies = $thread->replies()->paginate(10);
+        // Record when the user has visited this page
+        if(auth()->check()) {
+            auth()->user()->readThread($thread);
+        }
 
         return view('threads.show', compact('thread'));
     }
