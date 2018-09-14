@@ -91,10 +91,8 @@ class ReplyController extends Controller
     protected function validateReply()
     {
         $this->validate(request(), [
-            'body' => 'required',
+            'body' => 'required|spamfree',
             'channel_id' => 'exists:channels,id'
         ]);
-
-        resolve(Spam::class)->detect(request('body'));
     }
 }
