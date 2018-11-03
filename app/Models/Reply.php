@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use Carbon\Carbon;
 use App\Traits\Favoritable;
 use App\Traits\RecordActivity;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,13 @@ class Reply extends Model
     public function thread()
     {
         return $this->belongsTo(Thread::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function wasJustPublished()
+    {
+        return $this->created_at->gt(Carbon::now()->subMinute());
     }
 }

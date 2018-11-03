@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use Carbon\Carbon;
 use Tests\TestCase;
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Support\Facades\Notification;

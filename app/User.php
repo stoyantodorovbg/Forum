@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Reply;
 use Carbon\Carbon;
 use App\Models\Thread;
 use App\Models\Activity;
@@ -51,6 +52,14 @@ class User extends Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|\Illuminate\Database\Query\Builder
+     */
+    public function lastReply()
+    {
+        return $this->hasOne(Reply::class)->latest();
+    }
+
+    /**
      * Activities, associated with the user
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -61,9 +70,8 @@ class User extends Authenticatable
     }
 
     /**
-     * Write the cache key
-     *
      * @param Thread $thread
+     * @throws \Exception
      */
     public function readThread(Thread $thread)
     {

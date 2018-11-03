@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reply;
 use App\Models\Thread;
-use App\Inspections\Spam;
+use Illuminate\Support\Facades\Gate;
 
 class ReplyController extends Controller
 {
@@ -33,6 +33,13 @@ class ReplyController extends Controller
      */
     public function store(Thread $thread)
     {
+        if (Gate::denies('create', new Reply)) {
+            return response(
+                'Sorry, your could not replies twice per minute',
+                422
+            );
+        }
+
         try {
             $this->validateReply();
 
@@ -60,6 +67,7 @@ class ReplyController extends Controller
     /**
      * @param Reply $reply
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Reply $reply)
     {
