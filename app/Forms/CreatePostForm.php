@@ -2,10 +2,12 @@
 
 namespace App\Forms;
 
+use App\User;
 use App\Models\Reply;
 use App\Models\Thread;
 use Illuminate\Support\Facades\Gate;
 use App\Exceptions\ThrottleException;
+use App\Notifications\YouWereMentioned;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreatePostForm extends FormRequest
@@ -38,11 +40,24 @@ class CreatePostForm extends FormRequest
      */
     public function persist(Thread $thread)
     {
-        return $reply = $thread->addReply([
+        $reply = $thread->addReply([
             'title' => request('body'),
             'body' => request('body'),
             'user_id' => auth()->id(),
-        ])->load('owner');
+        ]);
+
+        preg_match_all('/\@([^\s\.\,\!\?\:\;]+)/', $reply->body, $matches);
+        $names = $matches[1];
+
+        foreach ($names as $name) {
+            $user = User::whereName($name)->first();
+
+            if ($user) {
+                $user->notify(new YouWereMentioned($reply));
+            }
+        }
+
+        return $reply->load('owner');
     }
 
     /**

@@ -3,7 +3,6 @@
 
 namespace Tests\Feature;
 
-use PHPUnit\Runner\Exception;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 

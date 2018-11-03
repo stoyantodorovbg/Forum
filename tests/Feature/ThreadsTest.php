@@ -19,14 +19,14 @@ class ThreadsTest extends TestCase
     /** @test */
     public function a_user_can_browse_threads()
     {
-        $response = $this->get('/threads')
+        $this->get('/threads')
             ->assertStatus(200);
     }
 
     /** @test */
     public function displaying_correctly_thread_content()
     {
-        $response = $this->get('/threads')
+        $this->get('/threads')
             ->assertSee($this->thread->title);
     }
 
