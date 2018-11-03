@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reply;
 use App\Models\Thread;
+use App\Forms\CreatePostForm;
 use Illuminate\Support\Facades\Gate;
 
 class ReplyController extends Controller
@@ -31,7 +32,7 @@ class ReplyController extends Controller
      * @param Thread $thread
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Http\RedirectResponse
      */
-    public function store(Thread $thread)
+    public function store(Thread $thread, CreatePostForm $form)
     {
         if (Gate::denies('create', new Reply)) {
             return response(
@@ -40,28 +41,9 @@ class ReplyController extends Controller
             );
         }
 
-        try {
-            $this->validateReply();
+        $this->validateReply();
 
-            $reply = $thread->addReply([
-                'title' => request('body'),
-                'body' => request('body'),
-                'user_id' => auth()->id(),
-            ]);
-        } catch (\Exception $e) {
-            return response(
-                'Sorry, your reply could not be saved at this time',
-                422
-            );
-        }
-
-        return $reply->load('owner');
-
-//        if (request()->expectsJson()) {
-//
-//        }
-//
-//        return back()->with('flash', 'Your reply has been left');
+        return $form->persist($thread);
     }
 
     /**

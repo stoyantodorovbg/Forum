@@ -119,6 +119,8 @@ class ParticipateInForum extends TestCase
             'body' => 'Yahoo Customer Support',
         ]);
 
+        $this->expectException('Illuminate\Validation\ValidationException');
+
         $this->post($thread->path().'/replies', $reply->toArray())
             ->assertStatus(422);
     }
@@ -136,8 +138,8 @@ class ParticipateInForum extends TestCase
 
         $this->post($thread->path().'/replies', $reply->toArray())
             ->assertStatus(201);
-
+        
         $this->post($thread->path().'/replies', $reply->toArray())
-            ->assertStatus(422);
+            ->assertStatus(429);
     }
 }
