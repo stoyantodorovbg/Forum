@@ -19,7 +19,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <script>
         window.App = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -36,6 +35,7 @@
         [v-cloak] {display: none}
 
     </style>
+    @yield('head')
 </head>
 <body>
     <div id="app">
