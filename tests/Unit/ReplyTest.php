@@ -39,4 +39,16 @@ class ReplyTest extends TestCase
 
         $this->assertEquals(['Mariika', 'Ivancho'], $reply->mentionedUsers());
     }
+
+    /** @test */
+    public function it_wraps_mentioned_users_in_the_body_within_author_tags()
+    {
+        $reply = create('App\Models\Reply', [
+            'body' => 'Hello @Mariika!'
+        ]);
+
+        $this->assertEquals(
+            'Hello <a href="/profiles/Mariika">@Mariika</a>!',
+            $reply->body);
+    }
 }

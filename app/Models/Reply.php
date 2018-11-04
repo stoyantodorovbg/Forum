@@ -75,10 +75,24 @@ class Reply extends Model
         return $this->created_at->gt(Carbon::now()->subMinute());
     }
 
+    /**
+     * @return mixed
+     */
     public function mentionedUsers()
     {
-        preg_match_all('/\@([^\s\.\,\!\?\:\;]+)/', $this->body, $matches);
+        preg_match_all('/\@([^\s\.\,\!\?\:\;\<]+)/', $this->body, $matches);
 
         return $matches[1];
+    }
+
+    /**
+     * @param $body
+     */
+    public function setBodyAttribute($body)
+    {
+        $this->attributes['body'] = preg_replace(
+            '/@([^\s\.\,\!\?\:\;]+)/',
+            '<a href="/profiles/$1">$0</a>',
+            $body);
     }
 }
