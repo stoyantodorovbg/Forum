@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Thread;
 
-class ThreadSubscriptionController extends Controller
+class ThreadSubscriptionsController extends Controller
 {
     /**
      * @param Thread $thread

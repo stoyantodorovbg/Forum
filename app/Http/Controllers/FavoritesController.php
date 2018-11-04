@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class FavoriteController extends Controller
+class FavoritesController extends Controller
 {
     public function __construct()
     {

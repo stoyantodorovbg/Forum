@@ -143,23 +143,11 @@ class Thread extends Model
     }
 
     /**
-     * @param $reply
-     *
-     * @return void
-     */
-    public function notifySubscribers($reply)
-    {
-        $this->subscriptions
-            ->where('user_id', '!=', $reply->user_id)
-            ->each
-            ->notify($reply);
-    }
-
-    /**
      * Check if the thread has unread from the user updates
      *
      * @param null $user
      * @return bool
+     * @throws \Exception
      */
     public function hasUpdatesFor($user = null)
     {

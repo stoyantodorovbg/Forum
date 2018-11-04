@@ -6,7 +6,7 @@ use App\User;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class ProfilesController extends Controller
 {
     public function show(User $user)
     {

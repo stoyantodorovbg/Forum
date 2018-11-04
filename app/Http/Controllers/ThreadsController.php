@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
 use Illuminate\Support\Facades\Auth;
 
-class ThreadController extends Controller
+class ThreadsController extends Controller
 {
     /**
-     * ThreadController constructor.
+     * ThreadsController constructor.
      */
     public function __construct()
     {

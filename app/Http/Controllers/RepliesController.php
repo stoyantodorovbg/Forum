@@ -7,10 +7,10 @@ use App\Models\Thread;
 use App\Forms\CreatePostForm;
 use Illuminate\Support\Facades\Gate;
 
-class ReplyController extends Controller
+class RepliesController extends Controller
 {
     /**
-     * ReplyController constructor.
+     * RepliesController constructor.
      */
     public function __construct()
     {
