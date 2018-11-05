@@ -117,8 +117,10 @@ class ThreadsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Thread  $thread
-     * @return \Illuminate\Http\Response
+     * @param Channel $channel
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Channel $channel, Thread $thread)
     {
@@ -142,11 +144,11 @@ class ThreadsController extends Controller
     {
         if ($channel && $channel->exists()) {
             //filter threads by channel
-            $threads = $channel->threads;
-        } elseif ($threads = Thread::filter($filters)->get()) {
+            $threads = Thread::where('channel_id', $channel->id)->paginate(12);
+        } elseif ($threads = Thread::filter($filters)->paginate(12)) {
         } else {
             // all threads
-            $threads = Thread::all();
+            $threads = Thread::paginate(12);
         }
 
         return $threads;
