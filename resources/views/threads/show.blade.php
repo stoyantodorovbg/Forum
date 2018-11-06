@@ -11,6 +11,10 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
+                            <img src="/storage/{{ $thread->owner->avatar() }}"
+                                 calss="mr-1"
+                                 width="70" height="70"
+                                 alt="{{ $thread->owner->name }}">
                             <a href="{{ route('profile', $thread->owner->name) }}">
                                 {{ $thread->owner->name }} posted:
                             </a>

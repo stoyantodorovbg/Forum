@@ -16,6 +16,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@mail.com',
             'password' => bcrypt('123456'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
         factory(App\User::class, 50)->create();

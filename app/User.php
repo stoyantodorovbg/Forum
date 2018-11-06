@@ -96,4 +96,17 @@ class User extends Authenticatable
 
     }
 
+    /**
+     * Get the user's avatar path
+     *
+     * @return mixed
+     */
+    public function avatar()
+    {
+        if (! $this->avatar_path) {
+            return 'avatars/default.jpeg';
+        }
+
+        return $this->avatar_path;
+    }
 }

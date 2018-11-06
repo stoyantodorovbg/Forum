@@ -17,7 +17,7 @@ class UserTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function a_user_can_fetch_their_most_recent_reply()
+    public function an_user_can_fetch_their_most_recent_reply()
     {
         $user = create('App\User');
 
@@ -26,5 +26,17 @@ class UserTest extends TestCase
         ]);
 
         $this->assertEquals($user->lastReply->id, $reply->id);
+    }
+
+    /** @test */
+    public function an_user_can_determine_their_avatar_path()
+    {
+        $user = create('App\User');
+
+        $this->assertEquals($user->avatar(), 'avatars/default.jpeg');
+
+        $user->avatar_path = 'avatars/avatar.jpg';
+
+        $this->assertEquals($user->avatar_path, $user->avatar());
     }
 }
