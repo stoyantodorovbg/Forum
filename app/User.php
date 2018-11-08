@@ -101,12 +101,12 @@ class User extends Authenticatable
      *
      * @return mixed
      */
-    public function avatar()
+    public function avatar($avatar)
     {
-        if (! $this->avatar_path) {
+        if (! $avatar) {
             return 'avatars/default.jpeg';
         }
 
-        return $this->avatar_path;
+        return $avatar;
     }
 }

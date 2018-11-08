@@ -11,7 +11,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <img src="/storage/{{ $thread->owner->avatar() }}"
+                            <img src="/storage/{{ $thread->owner->avatar_path }}"
                                  calss="mr-1"
                                  width="70" height="70"
                                  alt="{{ $thread->owner->name }}">
