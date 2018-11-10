@@ -1,4 +1,4 @@
-<div class="panel-heading default">
+<div class="panel-heading default m-2">
     <div class="card">
         <div class="card-header">
             <h4>
@@ -26,6 +26,9 @@
                 </p>
                 <br>
             </article>
+        </div>
+        <div class="card-footer">
+            {{ $thread->visits() }} Visits
         </div>
     </div>
 </div>

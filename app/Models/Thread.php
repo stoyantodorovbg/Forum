@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\User;
+use App\Traits\RecordVisits;
 use App\Traits\RecordActivity;
 use App\Events\ThreadHasNewReply;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
-    use RecordActivity;
+    use RecordActivity, RecordVisits;
 
     protected $guarded = [];
 
