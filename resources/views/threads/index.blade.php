@@ -14,22 +14,24 @@
                 {{ $threads->render() }}
             </div>
             <div class="col-md-4">
-                <div class="panel-heading default">
-                    <div class="card">
-                        <div class="card-heading p-4">
-                            <h4 class>Trending Threads</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                @foreach($trending as $thread)
-                                    <li class="list-group-item">
-                                        <a href="{{ url($thread->path) }}">{{ $thread->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                @if(count($trending))
+                    <div class="panel-heading default">
+                        <div class="card">
+                            <div class="card-heading p-4">
+                                <h4 class>Trending Threads</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    @foreach($trending as $thread)
+                                        <li class="list-group-item">
+                                            <a href="{{ url($thread->path) }}">{{ $thread->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

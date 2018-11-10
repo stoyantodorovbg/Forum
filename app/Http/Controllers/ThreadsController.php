@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Thread;
 use App\Models\Channel;
+use App\Redis\Trending;
 use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class ThreadsController extends Controller
 {
@@ -29,18 +29,15 @@ class ThreadsController extends Controller
      * @return \Illuminate\Http\Response
      * @internal param $
      */
-    public function index(Channel $channel = null, ThreadFilters $filters)
+    public function index(Channel $channel = null, ThreadFilters $filters, Trending $trending)
     {
         $threads = $this->filterThreads($channel, $filters);
+
+        $trending = $trending->get();
 
         if(request()->wantsJson()) {
             return $threads;
         }
-
-        $trending = collect(Redis::zrevrange('trending_threads', 0, 4))
-            ->map(function ($thread) {
-                return json_decode($thread);
-            });
 
         return view('threads.index', compact('threads', 'trending'));
     }
@@ -86,17 +83,14 @@ class ThreadsController extends Controller
      * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
+    public function show(Thread $thread, Trending $trending)
     {
         // Record when the user has visited this page
         if(auth()->check()) {
             auth()->user()->readThread($thread);
         }
 
-        Redis::zincrby('trending_threads', 1, json_encode([
-            'title' => $thread->title,
-            'path' => $thread->path(),
-        ]));
+        $trending->push($thread);
 
         return view('threads.show', compact('thread'));
     }
