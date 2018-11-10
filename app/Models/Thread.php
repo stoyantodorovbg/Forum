@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\User;
-use App\Traits\RecordVisits;
+use App\Redis\Visits;
 use App\Traits\RecordActivity;
 use App\Events\ThreadHasNewReply;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
-    use RecordActivity, RecordVisits;
+    use RecordActivity;
 
     protected $guarded = [];
 
@@ -156,5 +156,15 @@ class Thread extends Model
         $key = $user->visitedThreadCacheKey($this);
 
         return $this->updated_at > cache($key);
+    }
+
+    /**
+     * Get the number of the thread visits
+     *
+     * @return mixed
+     */
+    public function visits()
+    {
+        return new Visits($this);
     }
 }
