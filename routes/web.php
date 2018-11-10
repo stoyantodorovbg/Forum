@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/threads', 'ThreadsController');
+Route::post('/threads', 'ThreadsController@store')->middleware('must-be-confirmed');
 Route::get('threads/{channel}', 'ThreadsController@index');
 Route::post('/threads/{channel}/{thread}/replies', 'RepliesController@store');
 Route::post('/threads/{thread}/replies', 'RepliesController@store');
