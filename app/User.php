@@ -23,6 +23,14 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar_path',
+        'confirmation_token',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'confirmed' => 'boolean'
     ];
 
     /**
@@ -108,5 +116,18 @@ class User extends Authenticatable
         }
 
         return $avatar;
+    }
+
+    /**
+     * When the user confirms his email address
+     *
+     * @return $this
+     */
+    public function confirm()
+    {
+        $this->confirmed = true;
+        $this->save();
+
+        return $this;
     }
 }
