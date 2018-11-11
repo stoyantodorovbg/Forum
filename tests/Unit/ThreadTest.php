@@ -34,6 +34,14 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
+    public function a_thread_has_a_path()
+    {
+        $thread = create('App\Models\Thread');
+
+        $this->assertEquals("/threads/{$thread->slug}", $thread->path());
+    }
+
+    /** @test */
     public function a_thread_can_add_a_reply()
     {
         $this->thread->addReply([

@@ -37,7 +37,7 @@ class Thread extends Model
      */
     public function path()
     {
-        return '/threads/'.$this->id;
+        return '/threads/'.$this->slug;
     }
 
     /**
@@ -166,5 +166,13 @@ class Thread extends Model
     public function visits()
     {
         return new Visits($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
