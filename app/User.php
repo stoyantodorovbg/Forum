@@ -120,14 +120,11 @@ class User extends Authenticatable
 
     /**
      * When the user confirms his email address
-     *
-     * @return $this
      */
     public function confirm()
     {
         $this->confirmed = true;
+        $this->confirmation_token = NULL;
         $this->save();
-
-        return $this;
     }
 }
