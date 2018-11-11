@@ -175,4 +175,33 @@ class Thread extends Model
     {
         return 'slug';
     }
+
+    /**
+     * @param $value
+     */
+    public function setSlugAttribute($value)
+    {
+        if(static::whereSlug($slug = str_slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+
+        $this->attributes['slug'] = $slug;
+    }
+
+    /**
+     * @param $slug
+     * @return null|string|string[]
+     */
+    protected function incrementSlug($slug)
+    {
+        $maxSlug = static::whereTitle($this->title)->latest('id')->value('slug');
+
+        if (is_numeric($maxSlug[-1])) {
+            return preg_replace_callback('/(\d+)$/', function ($matches) {
+                return $matches[1] + 1;
+            }, $maxSlug);
+        }
+
+        return "{$slug}-2";
+    }
 }
