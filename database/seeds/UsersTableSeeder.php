@@ -16,6 +16,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@mail.com',
             'password' => bcrypt('123456'),
+            'confirmed' => 1,
+            'confirmation_token' => str_random(25),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

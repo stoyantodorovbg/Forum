@@ -28,9 +28,11 @@ class CreateThreadTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_must_confirm_theirs_email_address_before_create_a_thread()
+    public function new_users_must_confirm_theirs_email_address_before_create_a_thread()
     {
-        $this->signIn();
+        $user = factory('App\User')->states('unconfirmed')->create();
+
+        $this->signIn($user);
 
         $thread = make('App\Models\Thread');
 
@@ -40,7 +42,7 @@ class CreateThreadTest extends TestCase
     }
 
     /** @test */
-    public function an_authenticated_user_can_create_a_thread()
+    public function an_user_can_create_a_thread()
     {
         $this->signIn();
 
