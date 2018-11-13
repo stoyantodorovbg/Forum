@@ -74,20 +74,35 @@ class CreateThreadTest extends TestCase
     {
         $this->signIn();
 
+        create('App\Models\Thread', [], 2);
+
         $thread = create('App\Models\Thread', [
             'title' => 'Foo title',
-            'slug' => 'foo-title'
         ]);
 
         $this->assertEquals($thread->fresh()->slug, 'foo-title');
 
-        $this->post('/threads', $thread->toArray());
+        $thread = $this->postJson('/threads', $thread->toArray())->json();
 
-        $this->assertTrue(Thread::where('slug', 'foo-title-2')->exists());
+        $this->assertTrue(Thread::where('slug', 'foo-title-' . $thread['id'])->exists());
 
-        $this->post('/threads', $thread->toArray());
+        $thread = $this->postJson('/threads', $thread)->json();
 
-        $this->assertTrue(Thread::where('slug', 'foo-title-3')->exists());
+        $this->assertTrue(Thread::where('slug', 'foo-title-' . $thread['id'])->exists());
     }
 
+    /** @test */
+    public function a_thread_with_a_title_that_ends_with_a_number_should_generate_a_proper_slug()
+    {
+        $this->signIn();
+
+        $thread = create('App\Models\Thread', [
+            'title' => 'Foo title 24',
+        ]);
+
+        $this->post('/threads', $thread->toArray());
+
+        $this->assertTrue(Thread::where('slug', 'foo-title-24-2')->exists());
+
+    }
 }
