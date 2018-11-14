@@ -1,10 +1,14 @@
 <template>
-    <div :id="'reply-' + id" class="panel panel-default">
-        <div class="panel-heading">
-            <a :href="'/profiles/' + data.owner.name"
-                v-text="data.owner.name">
-            </a>
-            said: <span v-text="ago"></span>
+    <div :id="'reply-' + id" class="panel panel-default mr-3">
+        <div class="card-header" :class="isBest ? 'panel-green' : ''">
+            <div class="level">
+                <a :href="'/profiles/' + data.owner.name"
+                    v-text="data.owner.name">
+                </a>
+                said: <span v-text="ago"></span>
+            </div>
+        </div>
+        <div class="card-body">
             <div v-if="editing">
                 <form @submit="update">
                     <div class="form-group">
@@ -14,17 +18,17 @@
                     <button class="btn xs btn-link" @click="editing=false" type="button">Cancel</button>
                 </form>
             </div>
-            <div v-else v-html="body"></div>
+            <div  v-else v-html="body"></div>
         </div>
-        <br>
         <div class="panel-footer level">
             <div v-if="signedIn">
                 <favorite :reply="data"></favorite>
             </div>
             <div v-if="canUpdateReply">
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
-                <button class="btn btn-danger btn-xs mr-1" @click="destroy">delete</button>
+                <button class="btn btn-danger btn-xs mr-1" @click="destroy">Delete</button>
             </div>
+            <button class="btn btn-success btn-xs mr-1" @click="markBestReply" v-show="!isBest">Best reply</button>
         </div>
     </div>
 </template>
@@ -43,6 +47,7 @@
                 editing: false,
                 id: this.data.id,
                 body: this.data.body,
+                isBest: false,
             };
         },
 
@@ -80,6 +85,10 @@
                 $(this.$el).fadeOut(300);
 
                 flash('Deleted.');
+            },
+
+            markBestReply() {
+                this.isBest = true;
             },
         },
 

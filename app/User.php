@@ -112,7 +112,7 @@ class User extends Authenticatable
     public function avatar($avatar)
     {
         if (! $avatar) {
-            return 'avatars/default.jpeg';
+            return 'avatars/default.jpg';
         }
 
         return $avatar;
