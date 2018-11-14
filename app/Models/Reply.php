@@ -76,6 +76,8 @@ class Reply extends Model
     }
 
     /**
+     * Find the user names in the reply body
+     *
      * @return mixed
      */
     public function mentionedUsers()
@@ -86,6 +88,8 @@ class Reply extends Model
     }
 
     /**
+     * Add link to to mentioned user's name that leads to the user's profile
+     *
      * @param $body
      */
     public function setBodyAttribute($body)
@@ -94,5 +98,15 @@ class Reply extends Model
             '/@([^\s\.\,\!\?\:\;]+)/',
             '<a href="/profiles/$1">$0</a>',
             $body);
+    }
+
+    /**
+     * Check if the reply is marked as best for the thread
+     *
+     * @return bool
+     */
+    public function isBest()
+    {
+        return $this->thread->best_reply_id == $this->id;
     }
 }

@@ -21,6 +21,8 @@ Route::post('/threads/{channel}/{thread}/replies', 'RepliesController@store');
 Route::post('/threads/{thread}/replies', 'RepliesController@store');
 Route::get('/threads/{thread}/replies', 'RepliesController@index');
 
+Route::post('/replies/{reply}/best', 'BestRepliesController@store')->name('best-replies.store');
+
 Route::post('/threads/{thread}/subscriptions', 'ThreadSubscriptionsController@store')->middleware('auth');
 Route::delete('/threads/{thread}/subscriptions', 'ThreadSubscriptionsController@destroy')->middleware('auth');
 

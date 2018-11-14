@@ -173,6 +173,17 @@ class Thread extends Model
     }
 
     /**
+     * Set the best reply for the thread
+     *
+     * @param Reply $reply
+     */
+    public function markBestReply(Reply $reply)
+    {
+        $this->best_reply_id = $reply->id;
+        $this->save();
+    }
+
+    /**
      * @return string
      */
     public function getRouteKeyName()
