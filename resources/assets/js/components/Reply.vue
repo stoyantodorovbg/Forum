@@ -24,7 +24,7 @@
             <div v-if="signedIn">
                 <favorite :reply="data"></favorite>
             </div>
-            <div v-if="canUpdateReply">
+            <div v-if="authorize('updateReply', reply)">
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
                 <button class="btn btn-danger btn-xs mr-1" @click="destroy">Delete</button>
             </div>
@@ -48,19 +48,13 @@
                 id: this.data.id,
                 body: this.data.body,
                 isBest: false,
+                reply: this.data,
             };
         },
 
         computed: {
             ago(){
                 return moment(this.data.created_at).fromNow();
-            },
-            signedIn() {
-                return window.App.signedIn;
-            },
-
-            canUpdateReply() {
-                return this.authorize(user => this.data.user_id == user.id)
             },
         },
 
