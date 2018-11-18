@@ -21,9 +21,9 @@ class CreateRepliesTable extends Migration
             $table->string('title');
             $table->timestamps();
 
-            $table->foreign('thread_id')
-                ->references('id')
-                ->on('threads');
+//            $table->foreign('thread_id')
+//                ->references('id')
+//                ->on('threads');
 
             $table->foreign('user_id')
                 ->references('id')

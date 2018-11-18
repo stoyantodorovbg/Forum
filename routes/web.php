@@ -27,7 +27,7 @@ Route::post('/threads/{thread}/subscriptions', 'ThreadSubscriptionsController@st
 Route::delete('/threads/{thread}/subscriptions', 'ThreadSubscriptionsController@destroy')->middleware('auth');
 
 Route::patch('/replies/{reply}', 'RepliesController@update');
-Route::delete('/replies/{reply}', 'RepliesController@destroy');
+Route::delete('/replies/{reply}', 'RepliesController@destroy')->name('replies.destroy');
 Route::get('/channels/{channel}', 'ThreadsController@index');
 
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');

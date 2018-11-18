@@ -26,6 +26,10 @@ class CreateThreadsTable extends Migration
 
             $table->foreign('user_id')
                 ->references('id')->on('users');
+
+            $table->foreign('best_reply_id')
+                ->references('id')->on('replies')
+                ->onDelete('set null');
         });
     }
 
