@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
 use App\Notifications\ThreadWasUpdated;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -210,5 +211,20 @@ class ThreadTest extends TestCase
         $thread->visits()->record();
 
         $this->assertEquals(2, $thread->visits()->count());
+    }
+
+    /** @test */
+    public function a_valid_image_must_be_provided()
+    {
+        $this->signIn();
+
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $this->post('/threads', [
+            'title' => 'title',
+            'body' => 'body',
+            'channel_id' => 1,
+            'image' => 'not_valid_image'
+        ]);
     }
 }

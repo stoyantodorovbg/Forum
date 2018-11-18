@@ -22,6 +22,7 @@ class CreateThreadsTable extends Migration
             $table->unsignedInteger('replies_count')->default(0);
             $table->string('title');
             $table->text('body');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

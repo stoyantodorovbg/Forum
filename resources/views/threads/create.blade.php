@@ -7,24 +7,10 @@
                 <div class="card">
                     <div class="card-header">Create a new thread</div>
                     <div class="card-body">
-                        <form method="POST" action="/threads">
+                        <form method="POST" action="/threads" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             
                             {{--<form class="form-horizontal" role="form">--}}
-                                <div class="row form-group form-horizontal">
-                                    <div class="col-lg-5 custom-row">
-                                        <label for="input1" style="height: 60px;" class="control-label custom-label">
-                                            Labdas kjas kljas dlkjasd lksjd el1 Labdas kjas kljas dlkjasd lksjd el1
-                                        </label>
-                                        <input type="text" class="form-control input-custom" id="input1" placeholder="Input1">
-                                    </div>
-                                    <div class="col-lg-5 custom-row">
-                                        <label for="input2" style="height: 60px;" class="control-label custom-label">
-                                            Label2
-                                        </label>
-                                        <input type="password" class="form-control input-custom" id="input2" placeholder="Input2">
-                                    </div>
-                                </div>
                             <div class="form-group">
                                 <label for="channel_id">Choose a channel</label>
                                 <select class="form-control"
@@ -56,12 +42,19 @@
                             <div class="form-group">
                                 <label for="body">Body</label>
                                 <textarea class="form-control"
-                                          name="body"
-                                          id="body"
-                                          rows="8"
-                                          required>
+                                       name="body"
+                                       id="body"
+                                       rows="8"
+                                       required>
                                     {{ old('body') }}
                                 </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Select image</label>
+                                <input class="form-control"
+                                       type="file"
+                                       name="image"
+                                       id="image">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-default" type="submit">

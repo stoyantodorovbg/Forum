@@ -24,7 +24,10 @@
                             </p>
                         </div>
                         <div class="card-body">
-                            {{ $thread->body }}
+                            <img class="thread-image" src="/storage/{{ $thread->image }}" alt="{{ $thread->title }}">
+                            <p>
+                                {{ $thread->body }}
+                            </p>
                         </div>
 
                         @can('update', $thread)

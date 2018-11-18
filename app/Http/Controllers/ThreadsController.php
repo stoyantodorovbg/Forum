@@ -63,16 +63,13 @@ class ThreadsController extends Controller
         $this->validate($request, [
             'title' => 'required|spamfree',
             'body' => 'required|spamfree',
-            'channel_id' => 'required|exists:channels,id'
+            'channel_id' => 'required|exists:channels,id',
+            'image' => 'image',
         ]);
 
-        $thread = Thread::create([
-            'user_id' => Auth::user()->id,
-            'title' => $request['title'],
-            'body' => $request['body'],
-            'channel_id' => $request['channel_id'],
-            //'slug' => $request['title'],
-        ]);
+        $threadData = $this->processThreadData($request);
+
+        $thread = Thread::create($threadData);
 
         if($request->wantsJson()) {
             return response($thread, 201);
@@ -163,5 +160,26 @@ class ThreadsController extends Controller
         }
 
         return $threads;
+    }
+
+    /**
+     * Prepare the data for the thread
+     *
+     * @param Request $request
+     * @return array
+     */
+    protected function processThreadData(Request $request): array
+    {
+        $threadData = ['user_id' => Auth::user()->id,
+            'title' => $request['title'],
+            'body' => $request['body'],
+            'channel_id' => $request['channel_id']
+        ];
+
+        if (isset($request->image)) {
+            $threadData['image'] = request()->file('image')->store('threads', 'public');
+        }
+
+        return $threadData;
     }
 }

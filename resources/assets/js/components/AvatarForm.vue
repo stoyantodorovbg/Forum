@@ -44,7 +44,7 @@
                 let data = new FormData();
 
                 data.append('avatar_path', avatar);
-//console.log(data)
+
                 axios.post(`/api/users/${this.user.name}/avatar`, data)
                     .then(() => flash('Avatar uploaded.'));
             }
