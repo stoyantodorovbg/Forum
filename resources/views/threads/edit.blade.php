@@ -5,16 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create a new thread</div>
+                    <div class="card-header">Update the thread</div>
                     <div class="card-body">
-                        <form method="POST" action="/threads" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                        <form method="POST" action="/threads/{{ $thread->slug }}" enctype="multipart/form-data">
+                            @csrf
+
+                            @method('PUT')
 
                             @include('threads._fields')
 
                             <div class="form-group">
                                 <button class="btn btn-default" type="submit">
-                                    Publish
+                                    Edit
                                 </button>
                             </div>
                         </form>

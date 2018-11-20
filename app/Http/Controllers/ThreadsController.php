@@ -107,7 +107,7 @@ class ThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        return view('threads.edit', compact('thread'));
     }
 
     /**
@@ -119,7 +119,11 @@ class ThreadsController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
-        //
+        $threadData = $this->processThreadData($request);
+
+        $thread->update($threadData);
+
+        return view('threads.show', compact('thread'));
     }
 
     /**

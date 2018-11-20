@@ -31,14 +31,18 @@
                         </div>
 
                         @can('update', $thread)
+                            <div class="form-group">
+
+                            <a href="{{ route('threads.edit', $thread->slug) }}">
+                                <button class="btn btn-secondary thread-edit" type="button">
+                                    Edit
+                                </button>
+                            </a>
                             <form action="{{ $thread->path() }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <div class="form-group">
-                                    <button
-                                            class="btn btn-danger"
-                                            type="submit">
+                                    <button class="btn btn-danger thread-delete" type="submit">
                                         Delete
                                     </button>
                                 </div>
