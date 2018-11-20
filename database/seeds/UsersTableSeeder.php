@@ -22,6 +22,8 @@ class UsersTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
+        factory(App\User::class, 1)->states('administrator')->create();
+
         factory(App\User::class, 50)->create();
     }
 }

@@ -127,4 +127,14 @@ class User extends Authenticatable
         $this->confirmation_token = NULL;
         $this->save();
     }
+
+    /**
+     * Permanently check for admin rights
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return in_array($this->name, ['Admin']);
+    }
 }
