@@ -94,4 +94,18 @@ class ThreadsTest extends TestCase
 
         $this->assertCount(3, $response['data']);
     }
+
+    /** @test */
+    public function a_thread_may_be_locked()
+    {
+        $this->signIn();
+
+        $thread = create('App\Models\Thread');
+
+        $this->assertFalse($thread->locked);
+
+        $thread->lock();
+
+        $this->assertTrue($thread->locked);
+    }
 }

@@ -34,6 +34,10 @@ class RepliesController extends Controller
      */
     public function store(Thread $thread, CreatePostForm $form)
     {
+        if($thread->locked) {
+            return response('This thread is locked', 422);
+        }
+
         if (Gate::denies('create', new Reply)) {
             return response(
                 'Sorry, your could not replies twice per minute',

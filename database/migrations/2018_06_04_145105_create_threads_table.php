@@ -23,6 +23,7 @@ class CreateThreadsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->string('image')->nullable();
+            $table->boolean('locked')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')

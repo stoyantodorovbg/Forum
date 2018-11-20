@@ -16,5 +16,6 @@ $factory->define(\App\Models\Thread::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'slug' => str_slug($title),
         'image' => 'threads/default.jpg',
+        'locked' => false,
     ];
 });

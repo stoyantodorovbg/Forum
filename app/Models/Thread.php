@@ -173,6 +173,14 @@ class Thread extends Model
     }
 
     /**
+     * Lock the thread
+     */
+    public function lock()
+    {
+        $this->update(['locked' => true]);
+    }
+
+    /**
      * Set the best reply for the thread
      *
      * @param Reply $reply
