@@ -20,15 +20,15 @@
             </div>
             <div  v-else v-html="body"></div>
         </div>
-        <div class="panel-footer level">
+        <div class="panel-footer level" v-if="authorize('owns', reply) || authorize('owns', reply.thread)">
             <div v-if="signedIn">
                 <favorite :reply="data"></favorite>
             </div>
-            <div v-if="authorize('updateReply', reply)">
+            <div v-if="authorize('owns', reply)">
                 <button class="btn btn-xs mr-1" @click="editing = true">Edit</button>
                 <button class="btn btn-danger btn-xs mr-1" @click="destroy">Delete</button>
             </div>
-            <button class="btn btn-success btn-xs mr-1" @click="markBestReply" v-show="!isBest">Best reply</button>
+            <button class="btn btn-success btn-xs mr-1" @click="markBestReply" v-if="authorize('owns', reply.thread)">Best reply</button>
         </div>
     </div>
 </template>
