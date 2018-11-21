@@ -41,7 +41,7 @@ $factory->state(App\User::class, 'unconfirmed', function (Faker $faker) {
 $factory->state(App\User::class, 'administrator', function (Faker $faker) {
     return [
         'name' => 'Admin',
-        'email' => $faker->unique()->safeEmail,
+        'email' => 'admin@example.com',
         'avatar_path' => 'avatars/default.jpg',
         'confirmed' => 0,
         'confirmation_token' => NULL,
