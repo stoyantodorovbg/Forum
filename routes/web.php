@@ -22,6 +22,7 @@ Route::post('/threads/{thread}/replies', 'RepliesController@store');
 Route::get('/threads/{thread}/replies', 'RepliesController@index');
 
 Route::post('locked-threads/{thread}', 'LockedThreadsController@store')->name('locked-threads.store')->middleware('admin');
+Route::delete('locked-threads/{thread}', 'LockedThreadsController@destroy')->name('locked-threads.destroy')->middleware('admin');
 
 Route::post('/replies/{reply}/best', 'BestRepliesController@store')->name('best-replies.store');
 

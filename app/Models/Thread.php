@@ -19,6 +19,10 @@ class Thread extends Model
         'channel'
     ];
 
+    protected $casts = [
+        'locked' => 'boolean',
+    ];
+
     protected static function boot ()
     {
         parent::boot();;
@@ -178,6 +182,14 @@ class Thread extends Model
     public function lock()
     {
         $this->update(['locked' => true]);
+    }
+
+    /**
+     * Unlock the thread
+     */
+    public function unlock()
+    {
+        $this->update(['locked' => false]);
     }
 
     /**
