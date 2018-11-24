@@ -68,7 +68,7 @@ class ThreadsController extends Controller
             'image' => 'image',
         ]);
 
-        $threadData = $this->processThreadData($request);
+        $threadData = $this->processThreadData($request, auth()->id());
 
         $thread = Thread::create($threadData);
 
@@ -117,11 +117,16 @@ class ThreadsController extends Controller
      * @param Request $request
      * @param Thread $thread
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Thread $thread)
     {
-        $this->authorize('update', $thread);
+        $this->authorize('update', auth()->user(), $thread);
+
+        // Temporarily added
+        if ($thread->user_id != auth()->id())
+            throw new \Illuminate\Auth\Access\AuthorizationException;
 
         $this->validate($request, [
             'title' => 'required|spamfree',
@@ -147,7 +152,7 @@ class ThreadsController extends Controller
      */
     public function destroy(Channel $channel, Thread $thread)
     {
-        $this->authorize('update', $thread);
+        $this->authorize('update', auth()->user(), $thread);
 
         if (request()->wantsJson()) {
             return response([], 204);
@@ -181,15 +186,21 @@ class ThreadsController extends Controller
      * Prepare the data for the thread
      *
      * @param Request $request
+     * @param null $userId
      * @return array
      */
-    protected function processThreadData(Request $request): array
+    protected function processThreadData(Request $request, $userId = NULL): array
     {
-        $threadData = ['user_id' => Auth::user()->id,
+
+        $threadData = [
             'title' => $request['title'],
             'body' => $request['body'],
             'channel_id' => $request['channel_id']
         ];
+
+        if($userId != NULL) {
+            $threadData['user_id'] = $userId;
+        }
 
         if (isset($request->image)) {
             $threadData['image'] = request()->file('image')->store('threads', 'public');

@@ -34,7 +34,9 @@ class UpdateThreadTest extends TestCase
     {
         $this->signIn();
 
-        $thread = create('App\Models\Thread', ['user_id' => create('App\User')->id]);
+        $user = create('App\User');
+
+        $thread = create('App\Models\Thread', ['user_id' => $user->id]);
 
         $this->expectException('Illuminate\Auth\Access\AuthorizationException');
 
