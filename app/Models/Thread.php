@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\User;
 use App\Redis\Visits;
+use Laravel\Scout\Searchable;
 use App\Traits\RecordActivity;
 use App\Events\ThreadHasNewReply;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
-    use RecordActivity;
+    use RecordActivity, Searchable;
 
     protected $guarded = [];
 
