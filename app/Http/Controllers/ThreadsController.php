@@ -55,8 +55,9 @@ class ThreadsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -113,12 +114,22 @@ class ThreadsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Thread  $thread
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Thread $thread
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, Thread $thread)
     {
+        $this->authorize('update', $thread);
+
+        $this->validate($request, [
+            'title' => 'required|spamfree',
+            'body' => 'required|spamfree',
+            'channel_id' => 'required|exists:channels,id',
+            'image' => 'image',
+        ]);
+
         $threadData = $this->processThreadData($request);
 
         $thread->update($threadData);
