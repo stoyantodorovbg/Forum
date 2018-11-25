@@ -40,6 +40,22 @@ class Thread extends Model
     protected $appends = ['isSubscribedTo'];
 
     /**
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'threads';
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getScoutKey()
+    {
+        return $this->body;
+    }
+
+    /**
      * Fetch a path to the current threat
      *
      * @return string
