@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('scan', 'ScanController@index');
+
 Route::get('threads/search', 'SearchController@show');
 Route::get('home', 'HomeController@index')->name('home');
 Route::resource('threads', 'ThreadsController');

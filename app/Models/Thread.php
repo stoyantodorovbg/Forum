@@ -252,4 +252,16 @@ class Thread extends Model
 
         return $slug;
     }
+
+    /**
+     * Add the thread path to data for Algolia
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return $this->toArray() + ['path' => $this->path()];
+    }
+
+
 }
