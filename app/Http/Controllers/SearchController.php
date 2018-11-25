@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Thread;
 use App\Redis\Trending;
-use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
@@ -12,14 +11,12 @@ class SearchController extends Controller
     {
         $search = request('q');
 
-        $threads = Thread::search($search)->paginate(25);
-
         if (request()->expectsJson()) {
-            return $threads;
+            return Thread::search($search)->paginate(25);
         }
 
         $trending = $thrending->get();
 
-        return view('threads.index', compact('threads', 'trending'));
+        return view('threads.search', compact('trending'));
     }
 }
