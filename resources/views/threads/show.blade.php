@@ -9,46 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <img src="/storage/{{ $thread->owner->avatar_path }}"
-                                 calss="mr-1"
-                                 width="70" height="70"
-                                 alt="{{ $thread->owner->name }}">
-                            <a href="{{ route('profile', $thread->owner->name) }}">
-                                {{ $thread->owner->name }} posted:
-                            </a>
-                            {{ $thread->title }}
-                            <p>
-                                Before {{ $thread->created_at->diffForHumans() }}
-                            </p>
-                        </div>
-                        <div class="card-body">
-                            <img class="thread-image" src="/storage/{{ $thread->image }}" alt="{{ $thread->title }}">
-                            <p>
-                                {{ $thread->body }}
-                            </p>
-                        </div>
-
-                        @can('update', $thread)
-                            <div class="form-group">
-
-                            <a href="{{ route('threads.edit', $thread->slug) }}">
-                                <button class="btn btn-secondary thread-edit" type="button">
-                                    Edit
-                                </button>
-                            </a>
-                            <form action="{{ $thread->path() }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-
-                                    <button class="btn btn-danger thread-delete" type="submit">
-                                        Delete
-                                    </button>
-                                </div>
-                            </form>
-                        @endcan
-                    </div>
+                    @include('threads._question')
                     <replies @added="repliesCount++"
                              @removed="repliesCount--">
                     </replies>

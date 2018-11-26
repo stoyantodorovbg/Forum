@@ -101,17 +101,6 @@ class ThreadsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Thread  $thread
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Thread $thread)
-    {
-        return view('threads.edit', compact('thread'));
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param Request $request
@@ -152,7 +141,11 @@ class ThreadsController extends Controller
      */
     public function destroy(Channel $channel, Thread $thread)
     {
-        $this->authorize('update', auth()->user(), $thread);
+        // Temporarily added
+        if ($thread->user_id != auth()->id())
+            throw new \Illuminate\Auth\Access\AuthorizationException;
+
+        $this->authorize('delete', auth()->user(), $thread);
 
         if (request()->wantsJson()) {
             return response([], 204);

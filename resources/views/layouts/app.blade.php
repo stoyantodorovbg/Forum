@@ -18,7 +18,9 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <script>
         window.App = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -34,7 +36,7 @@
         .mr-1 { margin-right: 1em; }
         .ml-a { margin-left: auto; }
         .panel-green { background: lightgreen; }
-        [v-cloak] {display: none}
+        [v-cloak] { display: none }
 
     </style>
     @yield('head')
