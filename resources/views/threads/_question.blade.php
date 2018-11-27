@@ -16,10 +16,10 @@
 
     <div class="card-body">
         <img class="thread-image" src="/storage/{{ $thread->image }}" alt="{{ $thread->title }}">
-        <p v-text="form.body"></p>
+        <p v-html="form.body"></p>
     </div>
 
-    <div class="card-footer" v-clock v-if="authorize('owns', thread)">
+    <div class="card-footer" v-if="authorize('owns', thread)">
         <form action="{{ $thread->path() }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
@@ -69,7 +69,8 @@
         <input class="form-control" type="text" v-model="form.title">
     </div>
     <div class="card-body">
-        <textarea class="form-control"  rows=10 v-model="form.body"></textarea>
+        <wysiwyg rows=10 v-model="form.body" :value="form.body"></wysiwyg>
+        {{--<textarea class="form-control"  rows=10 v-model="form.body"></textarea>--}}
     </div>
 
     <div class="card-footer">

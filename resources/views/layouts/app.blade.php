@@ -12,6 +12,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="trix.js"></script>
+    <script>
+        window.App = {!! json_encode([
+            'csrfToken' => csrf_token(),
+            'user' => Auth::user(),
+            'signedIn' => Auth::check()
+        ]) !!}
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -20,14 +28,6 @@
     <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <script>
-        window.App = {!! json_encode([
-            'csrfToken' => csrf_token(),
-            'user' => Auth::user(),
-            'signedIn' => Auth::check()
-        ]) !!}
-    </script>
 
     <style>
         body { padding-bottom: 100px;}

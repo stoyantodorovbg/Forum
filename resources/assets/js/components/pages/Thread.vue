@@ -31,7 +31,7 @@
                 this.form.body = this.thread.body;
                 this.editing = false;
             },
-            update() {
+            update() {console.log(this.form.body)
                 axios.patch('/threads/' + this.thread.slug, {
                     title: this.form.title,
                     body: this.form.body,
