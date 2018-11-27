@@ -1,17 +1,14 @@
 <template>
-    <!--@if (auth()->check())-->
     <div class="card">
         <div v-if="signedIn">
             <div class="form-group">
-                 <textarea
-                         class="form-control"
-                         name="body"
-                         id="body"
+                <wysiwyg name="body"
+                         v-model="body"
                          placeholder="Have you something to say?"
-                         rows="5"
-                         required
-                         v-model="body">
-                 </textarea>
+                         ref="trix"
+                         :shouldClear="completed">
+                </wysiwyg>
+
             </div>
             <div class="form-group">
                 <button
@@ -37,6 +34,7 @@
         data() {
             return {
                 'body': '',
+                'completed': false,
             };
         },
 
@@ -62,8 +60,11 @@
                     })
                     .then(({ data}) => {
                         this.body = '';
+                        this.completed = true;
 
                         flash('Your reply has been posted');
+
+                        this.$refs.trix.$refs.trix.value = '';
 
                         this.$emit('created', data);
                     });

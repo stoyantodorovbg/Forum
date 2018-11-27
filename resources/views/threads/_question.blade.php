@@ -50,9 +50,7 @@
         <label for="channel_id">Choose a channel</label>
         <select class="form-control"
                 v-model="form.channel_id"
-                {{--name="channel_id"--}}
                 id="channel_id"
-                {{--value="{{ isset($thread) ? $thread->channel_id : old('channel_id') }}"--}}
                 required>
             <option value="">
                 Choose one
@@ -70,7 +68,6 @@
     </div>
     <div class="card-body">
         <wysiwyg rows=10 v-model="form.body" :value="form.body"></wysiwyg>
-        {{--<textarea class="form-control"  rows=10 v-model="form.body"></textarea>--}}
     </div>
 
     <div class="card-footer">

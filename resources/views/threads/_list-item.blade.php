@@ -19,7 +19,7 @@
         <div class="card-body">
             <article>
                 <p>
-                    {{ $thread->body }}
+                    {!! $thread->body !!}
                 </p>
                 <p>
                     {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
