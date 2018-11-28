@@ -7,6 +7,7 @@ use App\Redis\Visits;
 use Laravel\Scout\Searchable;
 use App\Traits\RecordActivity;
 use App\Events\ThreadHasNewReply;
+use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
@@ -263,5 +264,12 @@ class Thread extends Model
         return $this->toArray() + ['path' => $this->path()];
     }
 
-
+    /**
+     * @param $body
+     * @return array|string
+     */
+    public function getBodyAttribute($body)
+    {
+        return Purify::clean($body);
+    }
 }

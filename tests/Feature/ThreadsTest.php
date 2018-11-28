@@ -108,4 +108,12 @@ class ThreadsTest extends TestCase
 
         $this->assertTrue($thread->locked);
     }
+
+    /** @test */
+    public function a_thread_body_is_sanitized_automatically()
+    {
+        $thread = make('App\Models\Thread', ['body' => '<script>alert("BED")</script><h1>this is ok</h1>']);
+
+        $this->assertEquals($thread->body, '<h1>this is ok</h1>');
+    }
 }
