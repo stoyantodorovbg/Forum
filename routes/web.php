@@ -15,8 +15,8 @@ Auth::routes();
 
 Route::get('scan', 'ScanController@index');
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('threads/search', 'SearchController@show');
-Route::get('home', 'HomeController@index')->name('home');
 Route::resource('threads', 'ThreadsController');
 Route::get('threads/{thread}', 'ThreadsController@show')->name('threads.show');
 Route::get('threads/create', 'ThreadsController@create')->name('threads.create');
@@ -52,5 +52,9 @@ Route::delete('profiles/{user}/notifications/{notification}', 'UserNotifications
 
 Route::get('register/confirm', 'Api\RegisterConformationController@index')->name('register.confirm');
 
+// API routes
 Route::get('api/users', 'Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar_path');
+
+// Back-office routes
+Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');

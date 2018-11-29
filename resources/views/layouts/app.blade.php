@@ -37,9 +37,10 @@
         .ml-a { margin-left: auto; }
         .panel-green { background: lightgreen; }
         [v-cloak] { display: none }
-
     </style>
+
     @yield('head')
+
 </head>
 <body>
     <div id="app">
@@ -49,13 +50,7 @@
             @yield('content')
         </main>
 
-        {{--<example>--}}
-
-        {{--</example>--}}
-
-        <flash message="{{ session('flash') }}">
-
-        </flash>
+        <flash message="{{ session('flash') }}"></flash>
     </div>
 </body>
 </html>
