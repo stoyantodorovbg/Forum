@@ -58,3 +58,6 @@ Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middle
 
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
+
+Route::get('/admin/threads', 'Admin\AdminThreadsController@index');
+
