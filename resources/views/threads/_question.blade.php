@@ -1,7 +1,7 @@
 <div class="card" v-if="!editing">
     <div class="card-header">
         <img src="/storage/{{ $thread->owner->avatar_path }}"
-             calss="mr-1"
+             class="mr-1"
              width="70" height="70"
              alt="{{ $thread->owner->name }}">
         <a href="{{ route('profile', $thread->owner->name) }}">

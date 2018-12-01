@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Thread;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,9 +14,7 @@ class AdminThreadsController extends Controller
      */
     public function index()
     {
-        $threads = Thread::all();
-
-        return view('admin.threads.index', compact('threads'));
+        return view('admin.threads.index');
     }
 
     /**

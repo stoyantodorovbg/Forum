@@ -59,7 +59,7 @@
             },
 
             updateUrl () {
-                window.history.pushState(null, null , '?page=' + this.page)
+                //window.history.pushState(null, null, '?page=' + this.page)
             },
         },
     }

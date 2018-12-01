@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class ThreadsController extends Controller
 {
     /**
-     * ThreadsController constructor.
+     * AdminThreadsController constructor.
      */
     public function __construct()
     {

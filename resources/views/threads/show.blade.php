@@ -10,9 +10,7 @@
             <div class="row">
                 <div class="col-md-8">
                     @include('threads._question')
-                    <replies @added="repliesCount++"
-                             @removed="repliesCount--">
-                    </replies>
+                    <replies @added="repliesCount++" @removed="repliesCount--"></replies>
 
                     {{--<div class="card">--}}
                         {{--<div class="card-header">Replies</div>--}}

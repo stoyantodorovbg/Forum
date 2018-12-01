@@ -7,26 +7,24 @@
                 <th scope="col">Edit</th>
                 <th scope="col">Title</th>
                 <th scope="col">Creator</th>
+                <th scope="col">Created at</th>
                 <th scope="col">Delete</th>
             </tr>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">
+                    <search-text></search-text>
+                </th>
+                <th scope="col">
+                    <search-text></search-text>
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col"></th>
+            </tr>
         </thead>
-        <tbody>
-            @foreach($threads as $thread)
-                <tr>
-                    <th scope="row">
-                        <button class="btn btn-success btn-sm">
-                            <i class="glyphicon glyphicon-pencil">&#x270f;</i>
-                        </button>
-                    </th>
-                    <td>{{ $thread->title }}</td>
-                    <td>{{ $thread->owner->name }}</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
+        <template>
+            <index></index>
+        </template>
     </table>
 @endsection

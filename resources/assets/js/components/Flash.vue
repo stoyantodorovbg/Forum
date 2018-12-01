@@ -11,7 +11,7 @@
     export default {
         props: ['message'],
 
-        data(){
+        data() {
             return {
                 body: this.message,
                 level: 'success',

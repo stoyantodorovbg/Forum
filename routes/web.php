@@ -61,3 +61,5 @@ Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 
 Route::get('/admin/threads', 'Admin\AdminThreadsController@index');
 
+// Back-office API routes
+Route::get('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');
