@@ -1,6 +1,12 @@
 <template>
     <tbody>
-        <index-model v-for="model in models" :key="model.id" :model="model" :properties="properties"></index-model>
+        <index-model
+                v-for="model in models"
+                :key="model.id"
+                :model="model"
+                :properties="properties"
+                :model_type="model_type">
+        </index-model>
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </tbody>
 </template>
@@ -11,7 +17,7 @@
     export default {
         mixins: [collection],
 
-        props: ['models', 'properties'],
+        props: ['models', 'properties', 'model_type'],
 
         data() {
             return {

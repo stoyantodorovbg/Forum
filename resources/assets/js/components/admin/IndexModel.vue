@@ -1,14 +1,16 @@
 <template>
     <tr>
         <th scope="row">
-            <button class="btn btn-success btn-sm">
-                <i class="glyphicon glyphicon-pencil">&#x270f;</i>
-            </button>
+            <a :href="this.url">
+                <button class="btn btn-success btn-sm">
+                    <i class="glyphicon glyphicon-pencil">&#x270f;</i>
+                </button>
+            </a>
         </th>
 
         <index-property v-for="property in properties" :key="property.id" :model="model" :property="property"></index-property>
         <td>
-            <button class="btn btn-danger btn-sm">
+            <button class="btn btn-danger btn-sm" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
             </button>
         </td>
@@ -20,6 +22,24 @@
 
     export default {
         components: {IndexProperty},
-        props: ['model', 'properties'],
+
+        props: ['model', 'properties', 'model_type'],
+
+        data() {
+            return {
+                url: this.getUrl(),
+            }
+        },
+
+        methods: {
+            getUrl() {
+                return '/admin/' + this.model_type + '/' + this.model.slug
+            },
+
+            deleteItem() {
+                axios.delete(this.url)
+                    .then(this.$parent.refresh);
+            },
+        }
     }
 </script>
