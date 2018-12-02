@@ -13,3 +13,8 @@
 @import 'components/generic';
 @import 'components/navbar';
 @import 'components/search-threads';
+@import 'components/admin-index';
+
+.admin-search-label {
+    margin: 10px 0 0 0 !important;
+}

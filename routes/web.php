@@ -60,7 +60,7 @@ Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middle
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 
 // Back-office API routes
-Route::get('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');
+Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');
 Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destroy');
 
 Route::get('/admin/threads', 'Admin\AdminThreadsController@index')->name('admin.threads');
