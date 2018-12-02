@@ -15,7 +15,15 @@ class AdminThreadsController extends Controller
      */
     public function index()
     {
-        return Thread::paginate(10);
+        $title = request()->title;
+        $name = request()->owner;
+
+        return Thread::with('owner')
+            ->where('title', 'LIKE', '%' . $title . '%')
+            ->whereHas('owner', function ($q) use($name) {
+                $q->where('name', 'LIKE', '%' . $name . '%');
+            })
+            ->paginate(10);
     }
 
     /**

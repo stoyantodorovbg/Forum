@@ -1,9 +1,9 @@
 <template>
-    <input class="form-control" type="text">
+    <input class="form-control" :id="name" type="text">
 </template>
 
 <script>
     export default {
-
+        props: ['name']
     }
 </script>

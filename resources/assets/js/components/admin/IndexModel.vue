@@ -16,7 +16,6 @@
         </td>
     </tr>
 </template>
-
 <script>
     import IndexProperty from "./IndexProperty";
 

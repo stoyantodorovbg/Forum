@@ -17,11 +17,12 @@
     export default {
         mixins: [collection],
 
-        props: ['models', 'properties', 'model_type'],
+        props: ['models', 'properties', 'model_type', 'search_props'],
 
         data() {
             return {
                 dataSet: false,
+                searchPropsArr: this.getSearchPropsArr(),
             }
         },
 
@@ -29,9 +30,13 @@
             this.fetch();
         },
 
+        mounted() {
+            this.attachEvents();
+        },
+
         methods: {
             fetch(page) {
-                axios.get(this.url(page))
+                axios.post(this.url(page), this.attachSearchProps())
                     .then(this.refresh);
             },
 
@@ -49,6 +54,41 @@
                 this.models = data.data;
                 window.scrollTo(0, 0);
             },
+
+            attachSearchProps() {
+                let propsObj = {};
+                for (let prop of this.searchPropsArr) {
+
+                    propsObj[prop] = this.getSearchPropValue(prop);
+                }
+
+                return propsObj;
+            },
+
+            getSearchPropValue(prop) {
+                return $('#' + this.model_type + '-' + prop).val();
+            },
+
+            getSearchPropsArr() {
+                let propsArr = [];
+                for (let prop of this.search_props) {
+                    let propArr = prop.split('-');
+                    let propStr = propArr[1];
+
+                    propsArr.push(propStr);
+                }
+
+                return propsArr;
+            },
+
+            attachEvents() {
+                let component = this;
+                for (let prop of this.searchPropsArr) {
+                    $('#' + this.model_type + '-' + prop).keyup(function () {
+                        component.fetch();
+                    });
+                }
+            }
         }
     }
 </script>

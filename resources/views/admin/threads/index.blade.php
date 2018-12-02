@@ -13,10 +13,10 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">
-                    <search-text></search-text>
+                    <search-text :name="'threads-title'"></search-text>
                 </th>
                 <th scope="col">
-                    <search-text></search-text>
+                    <search-text :name="'threads-owner'"></search-text>
                 </th>
                 <th scope="col">
                 </th>
@@ -24,7 +24,10 @@
             </tr>
         </thead>
         <template>
-            <index :properties="['title', 'owner.name', 'created_at']" :model_type="'threads'"></index>
+            <index
+                    :properties="['title', 'owner.name', 'created_at']"
+                    :model_type="'threads'"
+                    :search_props="['threads-title', 'threads-owner']"></index>
         </template>
     </table>
 @endsection
