@@ -5,9 +5,8 @@
                 <i class="glyphicon glyphicon-pencil">&#x270f;</i>
             </button>
         </th>
-        <td v-text="model.title"></td>
-        <td v-text="model.owner.name"></td>
-        <td v-text="model.created_at"></td>
+
+        <index-property v-for="property in properties" :key="property.id" :model="model" :property="property"></index-property>
         <td>
             <button class="btn btn-danger btn-sm">
                 <span aria-hidden="true">&times;</span>
@@ -17,15 +16,10 @@
 </template>
 
 <script>
+    import IndexProperty from "./IndexProperty";
+
     export default {
-        props: ['model'],
-
-
-
-        // computed: {
-        //     model() {
-        //         return this.model;
-        //     }
-        // },
+        components: {IndexProperty},
+        props: ['model', 'properties'],
     }
 </script>

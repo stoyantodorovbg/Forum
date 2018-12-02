@@ -1,13 +1,8 @@
 <template>
-
-        <tbody>
-            <index-model v-for="model in models" :key="model.id" :model="model">
-
-            </index-model>
-            <paginator :dataSet="dataSet" @changed="fetch"></paginator>
-
-        </tbody>
-
+    <tbody>
+        <index-model v-for="model in models" :key="model.id" :model="model" :properties="properties"></index-model>
+        <paginator :dataSet="dataSet" @changed="fetch"></paginator>
+    </tbody>
 </template>
 
 <script>
@@ -16,7 +11,7 @@
     export default {
         mixins: [collection],
 
-        props: ['models'],
+        props: ['models', 'properties'],
 
         data() {
             return {
@@ -47,7 +42,6 @@
                 this.dataSet = data;
                 this.models = data.data;
                 window.scrollTo(0, 0);
-                console.log(this.dataSet)
             },
         }
     }

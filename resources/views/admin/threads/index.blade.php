@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <template>
-            <index></index>
+            <index :properties="['title', 'owner.name', 'created_at']"></index>
         </template>
     </table>
 @endsection
