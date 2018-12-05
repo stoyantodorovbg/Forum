@@ -12,22 +12,24 @@
             </tr>
             <tr>
                 <th scope="col"></th>
-                <th scope="col">
-                    <search-text :name="'threads-title'"></search-text>
+                <th scope="col admin-search-container" style="vertical-align: top;">
+                    <search-text :name="'threads-title'" style="vertical-align: top;"></search-text>
                 </th>
-                <th scope="col">
+                <th scope="col" style="vertical-align: top;">
                     <search-text :name="'threads-owner'"></search-text>
                 </th>
-                <th scope="col">
+                <th scope="col" style="vertical-align: top;">
+                    <search-date :name="'threads-created_at'"></search-date>
                 </th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <template>
             <index
-                    :properties="['title', 'owner.name', 'created_at']"
-                    :model_type="'threads'"
-                    :search_props="['threads-title', 'threads-owner']"></index>
+                :properties="['title', 'owner.name', 'created_at']"
+                :model_type="'threads'"
+                :search_props="['threads-title', 'threads-owner','threads-created_at']">
+            </index>
         </template>
     </table>
 @endsection

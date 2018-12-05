@@ -13,9 +13,11 @@
 
 <script>
     import collection from '../../mixins/collection';
+    import IndexModel from "./IndexModel";
 
     export default {
         mixins: [collection],
+        components: {IndexModel},
 
         props: ['models', 'properties', 'model_type', 'search_props'],
 
@@ -58,8 +60,12 @@
             attachSearchProps() {
                 let propsObj = {};
                 for (let prop of this.searchPropsArr) {
-
-                    propsObj[prop] = this.getSearchPropValue(prop);
+                    if(prop != 'created_at' && prop != 'updated_at') {
+                        propsObj[prop] = this.getSearchPropValue(prop);
+                    } else {
+                        propsObj[prop  + '_from'] = this.getSearchPropValue(prop  + '_from');
+                        propsObj[prop  + '_to'] = this.getSearchPropValue(prop  + '_to');
+                    }
                 }
 
                 return propsObj;
@@ -84,9 +90,19 @@
             attachEvents() {
                 let component = this;
                 for (let prop of this.searchPropsArr) {
-                    $('#' + this.model_type + '-' + prop).keyup(function () {
-                        component.fetch();
-                    });
+                    if(prop != 'created_at' && prop != 'updated_at') {
+                        $('#' + this.model_type + '-' + prop).keyup(function () {
+                            component.fetch();
+                        });
+                    } else {
+                        $('#' + this.model_type + '-' + prop + '_from').change(function () {
+                            component.fetch();
+                        });
+
+                        $('#' + this.model_type + '-' + prop + '_to').change(function () {
+                            component.fetch();
+                        });
+                    }
                 }
             }
         }
@@ -96,5 +112,9 @@
 <style>
     .pagination {
         width: 130%;
+    }
+
+    .admin-search-label {
+        margin: 10px 0 0 0 !important;
     }
 </style>
