@@ -56,12 +56,18 @@ Route::get('register/confirm', 'Api\RegisterConformationController@index')->name
 Route::get('api/users', 'Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar_path');
 
-// Back-office routes
-Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
-
 // Back-office API routes
 Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');
 Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destroy');
 
+Route::post('/admin/replies/index', 'Admin\Api\AdminRepliesController@index');
+Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destroy');
+
+// Back-office routes
+Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
+
 Route::get('/admin/threads', 'Admin\AdminThreadsController@index')->name('admin.threads');
 Route::get('/admin/threads/{thread}', 'Admin\AdminThreadsController@edit');
+
+Route::get('/admin/replies', 'Admin\AdminRepliesController@index')->name('admin.replies');
+Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit');
