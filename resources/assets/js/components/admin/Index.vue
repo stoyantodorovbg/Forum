@@ -5,7 +5,8 @@
                 :key="model.id"
                 :model="model"
                 :properties="properties"
-                :model_type="model_type">
+                :model_type="model_type"
+                :id_property="id_property">
         </index-model>
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </tbody>
@@ -19,7 +20,7 @@
         mixins: [collection],
         components: {IndexModel},
 
-        props: ['models', 'properties', 'model_type', 'search_props'],
+        props: ['models', 'properties', 'model_type', 'search_props', 'id_property'],
 
         data() {
             return {

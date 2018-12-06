@@ -22,7 +22,7 @@
     export default {
         components: {IndexProperty},
 
-        props: ['model', 'properties', 'model_type'],
+        props: ['model', 'properties', 'model_type', 'id_property'],
 
         data() {
             return {
@@ -32,7 +32,7 @@
 
         methods: {
             getUrl() {
-                return '/admin/' + this.model_type + '/' + this.model.slug
+                return '/admin/' + this.model_type + '/' + this.model[this.id_property]
             },
 
             deleteItem() {

@@ -26,6 +26,7 @@
         </thead>
         <template>
             <index
+                :id_property="'slug'"
                 :properties="['title', 'owner.name', 'created_at']"
                 :model_type="'threads'"
                 :search_props="['threads-title', 'threads-owner', 'threads-created_at']">

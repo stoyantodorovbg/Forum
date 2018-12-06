@@ -1,5 +1,5 @@
 <template>
-    <td v-text="propertyValue"></td>
+    <td v-html="propertyValue"></td>
 </template>
 
 <script>

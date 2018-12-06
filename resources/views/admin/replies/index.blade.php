@@ -5,7 +5,7 @@
         <thead>
             <tr>
                 <th scope="col">Edit</th>
-                <th scope="col">Title</th>
+                <th scope="col">Content</th>
                 <th scope="col">Thread</th>
                 <th scope="col">Creator</th>
                 <th scope="col">Created at</th>
@@ -14,7 +14,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'replies-title'" style="vertical-align: top;"></search-text>
+                    <search-text :name="'replies-body'" style="vertical-align: top;"></search-text>
                 </th>
                 <th scope="col admin-search-container" style="vertical-align: top;">
                     <search-text :name="'replies-thread'" style="vertical-align: top;"></search-text>
@@ -30,9 +30,10 @@
         </thead>
         <template>
             <index
-                    :properties="['title', 'thread.title', 'owner.name', 'created_at']"
-                    :model_type="'replies'"
-                    :search_props="['replies-title', 'replies-thread', 'replies-owner', 'replies-created_at']">
+                :id_property="'id'"
+                :properties="['body', 'thread.title', 'owner.name', 'created_at']"
+                :model_type="'replies'"
+                :search_props="['replies-body', 'replies-thread', 'replies-owner', 'replies-created_at']">
             </index>
         </template>
     </table>

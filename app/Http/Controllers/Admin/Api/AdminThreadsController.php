@@ -15,12 +15,12 @@ class AdminThreadsController extends Controller
      */
     public function index()
     {
-        $title = request()->title;
+        $body = request()->body;
         $owner = request()->owner;
         $from = date( request()->created_at_from);
         $to = date( request()->created_at_to);
 
-        $query = $this->createSearchQuery($title, $owner, $from, $to);
+        $query = $this->createSearchQuery($body, $owner, $from, $to);
 
         return $query->paginate(10);
 
@@ -43,16 +43,16 @@ class AdminThreadsController extends Controller
     /**
      * Create a query according to search inputs
      *
-     * @param $title
+     * @param $body
      * @param $name
      * @param $from
      * @param $to
      * @return Thread|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($title, $owner, $from, $to)
+    protected function createSearchQuery($body, $owner, $from, $to)
     {
         $query = Thread::with('owner')
-            ->where('title', 'LIKE', '%' . $title . '%')
+            ->where('body', 'LIKE', '%' . $body . '%')
             ->whereHas('owner', function ($q) use($owner) {
                 $q->where('name', 'LIKE', '%' . $owner . '%');
             });
