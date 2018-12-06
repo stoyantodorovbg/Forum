@@ -15,13 +15,13 @@ class AdminRepliesController extends Controller
      */
     public function index()
     {
-        $title = request()->title;
+        $body = request()->body;
         $thread = request()->thread;
         $owner = request()->owner;
         $from = date( request()->created_at_from);
         $to = date( request()->created_at_to);
 
-        $query = $this->createSearchQuery($title, $thread, $owner, $from, $to);
+        $query = $this->createSearchQuery($body, $thread, $owner, $from, $to);
 
         return $query->paginate(10);
 
@@ -50,24 +50,22 @@ class AdminRepliesController extends Controller
      * @param $to
      * @return reply|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($title, $thread, $owner, $from, $to)
+    protected function createSearchQuery($body, $thread, $owner, $from, $to)
     {
         $query = Reply::with('owner')
-            ->where('title', 'LIKE', '%' . $title . '%')
+            ->where('body', 'LIKE', '%' . $body . '%')
             ->whereHas('owner', function ($q) use($owner) {
                 $q->where('name', 'LIKE', '%' . $owner . '%');
             })
             ->whereHas('thread', function ($q) use($thread) {
                 $q->where('title', 'LIKE', '%' . $thread . '%');
-            });;
-
-        if($from) {
-            $query = $query->where('created_at', '>=', $from);
-        }
-
-        if ($to) {
-            $query = $query->where('created_at', '<=', $to);
-        }
+            })
+            ->when($from, function ($q, $from) {
+                return $q->where('created_at', '>=', $from);
+            })
+            ->when($to, function ($q, $to) {
+                return $q->where('created_at', '<=', $to);
+            });
 
         return $query;
     }
