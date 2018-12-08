@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('scan', 'ScanController@index');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::post('/change-language', 'LanguageController@changeLanguage')->name('change.language');
+
 Route::get('threads/search', 'SearchController@show');
 Route::resource('threads', 'ThreadsController');
 Route::get('threads/{thread}', 'ThreadsController@show')->name('threads.show');

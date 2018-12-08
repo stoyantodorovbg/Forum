@@ -16,3 +16,10 @@ if (!function_exists('label')) {
         return $systemName;
     }
 }
+
+if (!function_exists('getLanguages')) {
+    function getLanguages()
+    {
+        return \App\Models\Language::where('status', 1)->get();
+    }
+}

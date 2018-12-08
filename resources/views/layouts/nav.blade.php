@@ -1,5 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
+        <form class="select-language" method="POST" action="{{ route('change.language') }}">
+            {{ csrf_field() }}
+            <select class="form-control" onchange="this.form.submit()" name="language_id">
+                @if(!isset($_COOKIE['language'])))
+                    <option selected value="">{{ label('select_language') }}</option>
+                @endif
+                @foreach(getLanguages() as $language)
+                    @if(isset($_COOKIE['language']) && $_COOKIE['language'] == $language->id)
+                        <option selected value="{{ $language->id }}">{{ label($language->title) }}</option>
+                    @else
+                        <option value="{{ $language->id }}">{{ label($language->title) }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </form>
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
