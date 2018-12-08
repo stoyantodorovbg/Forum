@@ -13,7 +13,7 @@
                 <a href="{{ route('admin.replies') }}">
                     <button class="btn btn-info" type="button">Exit without Saving</button>
                 </a>
-                <button class="btn btn-danger saveAndExit" value="/admin/replies/redirectIndex">
+                <button class="btn btn-danger saveAndExit" value="/admin/replies">
                     Save and Exit
                 </button>
                 <button class="btn btn-danger">Save</button>
@@ -46,7 +46,7 @@
                 <a href="{{ route('admin.replies') }}">
                     <button class="btn btn-info" type="button">Exit without Saving</button>
                 </a>
-                <button class="btn btn-danger saveAndExit" value="/admin/replies/redirectIndex">
+                <button class="btn btn-danger saveAndExit" value="/admin/replies">
                     Save and Exit
                 </button>
                 <button class="btn btn-danger">Save</button>

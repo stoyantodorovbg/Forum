@@ -62,7 +62,6 @@ Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destr
 
 Route::post('/admin/replies/index', 'Admin\Api\AdminRepliesController@index');
 Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destroy');
-Route::get('/admin/replies/redirectIndex', 'Admin\Api\AdminRepliesController@redirectIndex')->name('admin.replies.index');
 
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
