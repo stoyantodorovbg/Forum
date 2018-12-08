@@ -55,18 +55,20 @@ class AdminThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
-        return view('admin.threads.edit', compact($thread));
+        return view('admin.threads.edit', compact('thread'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Thread $thread)
     {
-        //
+        $thread->update($request->all());
+
+        return redirect()->back();
     }
 }

@@ -69,10 +69,6 @@ class AdminRepliesController extends Controller
     {
         $reply->update($request->all());
 
-        if(isset($request->exit)) {
-            return redirect('admin.replies');
-        }
-
         return redirect()->back();
     }
 }

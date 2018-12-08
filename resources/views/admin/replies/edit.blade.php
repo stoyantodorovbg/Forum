@@ -20,12 +20,12 @@
             </div>
         </div>
         <div class="info-model">
-            <span class="info-label">User: </span>
-            <span class="info-data">{{ $reply->owner->name }}</span>
-        </div>
-        <div class="info-model">
             <span class="info-label">Thread: </span>
             <span class="info-data">{{ $reply->thread->title }}</span>
+        </div>
+        <div class="info-model">
+            <span class="info-label">User: </span>
+            <span class="info-data">{{ $reply->owner->name }}</span>
         </div>
         <div class="info-model">
             <span class="info-label">Created at: </span>
