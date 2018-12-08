@@ -67,10 +67,13 @@ Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destro
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 
 Route::get('/admin/threads', 'Admin\AdminThreadsController@index')->name('admin.threads');
-Route::get('/admin/threads/{thread}', 'Admin\AdminThreadsController@edit');
+Route::get('/admin/threads/create', 'Admin\AdminThreadsController@create')->name('admin.threads.create');
+Route::get('/admin/threads/{thread}', 'Admin\AdminThreadsController@edit')->name('admin.threads.edit');
+Route::post('/admin/threads/store', 'Admin\AdminThreadsController@store')->name('admin.threads.store');
+Route::post('/admin/threads/{thread}', 'Admin\AdminThreadsController@update')->name('admin.threads.update');
 
 Route::get('/admin/replies', 'Admin\AdminRepliesController@index')->name('admin.replies');
-Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name('admin.replies.create');;
+Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name('admin.replies.create');
 Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit')->name('admin.replies.edit');
 Route::post('/admin/replies/store', 'Admin\AdminRepliesController@store')->name('admin.replies.store');
 Route::post('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');

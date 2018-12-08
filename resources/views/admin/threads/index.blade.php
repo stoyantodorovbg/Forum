@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('content')
+    <div class="m-2">
+        <a href="{{ route('admin.threads.create') }}">
+            <button class="btn btn-success small">Create a Thread</button>
+        </a>
+    </div>
     <table class="table table-sm">
         <thead>
             <tr>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Models\Thread;
+use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,7 +27,10 @@ class AdminThreadsController extends Controller
      */
     public function create()
     {
-        //
+        $channels = Channel::all();
+        $users = User::all();
+
+        return view('admin.threads.create', compact('channels', 'users'));
     }
 
     /**
@@ -36,7 +41,10 @@ class AdminThreadsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $thread = new Thread($request->all());
+        $thread->save();
+
+        return redirect()->route('admin.threads.edit', ['thread' => $thread]);
     }
 
     /**
