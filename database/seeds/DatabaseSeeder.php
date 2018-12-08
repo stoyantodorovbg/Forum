@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReplyTableSeeder::class);
         $this->call(ChannelTableSeeder::class);
         $this->call(LanguagesTableSeeder::class);
-
+        $this->call(LabelsTableSeeder::class);
     }
 }
