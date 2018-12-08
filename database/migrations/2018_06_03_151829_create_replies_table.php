@@ -18,7 +18,7 @@ class CreateRepliesTable extends Migration
             $table->unsignedInteger('thread_id');
             $table->unsignedInteger('user_id');
             $table->text('body');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->timestamps();
 
 //            $table->foreign('thread_id')

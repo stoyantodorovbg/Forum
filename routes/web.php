@@ -70,7 +70,7 @@ Route::get('/admin/threads', 'Admin\AdminThreadsController@index')->name('admin.
 Route::get('/admin/threads/{thread}', 'Admin\AdminThreadsController@edit');
 
 Route::get('/admin/replies', 'Admin\AdminRepliesController@index')->name('admin.replies');
-Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create');
-Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit');
+Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name('admin.replies.create');;
+Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit')->name('admin.replies.edit');
+Route::post('/admin/replies/store', 'Admin\AdminRepliesController@store')->name('admin.replies.store');
 Route::post('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');
-Route::post('/admin/replies/create', 'Admin\AdminRepliesController@store');

@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('content')
+    <div class="m-2">
+        <a href="{{ route('admin.replies.create') }}">
+            <button class="btn btn-success small">Create a Reply</button>
+        </a>
+    </div>
     <table class="table table-sm">
         <thead>
             <tr>
@@ -13,16 +18,16 @@
             </tr>
             <tr>
                 <th scope="col"></th>
-                <th scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'replies-body'" style="vertical-align: top;"></search-text>
+                <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
+                    <search-text :name="'replies-body'"></search-text>
                 </th>
-                <th scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'replies-thread'" style="vertical-align: top;"></search-text>
+                <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
+                    <search-text :name="'replies-thread'"></search-text>
                 </th>
-                <th scope="col" style="vertical-align: top;">
+                <th class="admin-index-search-text" scope="col admin-search-container">
                     <search-text :name="'replies-owner'"></search-text>
                 </th>
-                <th scope="col" style="vertical-align: top;">
+                <th class="admin-index-search-date" scope="col">
                     <search-date :name="'replies-created_at'"></search-date>
                 </th>
                 <th scope="col"></th>

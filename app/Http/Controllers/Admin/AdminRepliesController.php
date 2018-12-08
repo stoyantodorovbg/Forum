@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Models\Reply;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,7 +27,10 @@ class AdminRepliesController extends Controller
      */
     public function create()
     {
-        //
+        $threads = Thread::all();
+        $users = User::all();
+
+        return view('admin.replies.create', compact('threads', 'users'));
     }
 
     /**
@@ -36,18 +41,10 @@ class AdminRepliesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $reply = new Reply($request->all());
+        $reply->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.replies.edit', ['reply' => $reply]);
     }
 
     /**
@@ -77,16 +74,5 @@ class AdminRepliesController extends Controller
         }
 
         return redirect()->back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

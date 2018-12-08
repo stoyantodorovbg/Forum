@@ -1,12 +1,12 @@
 <template>
     <tr>
-        <th scope="row">
+        <td scope="row">
             <a :href="this.url">
                 <button class="btn btn-success btn-sm">
                     <i class="glyphicon glyphicon-pencil">&#x270f;</i>
                 </button>
             </a>
-        </th>
+        </td>
 
         <index-property v-for="property in properties" :key="property.id" :model="model" :property="property"></index-property>
         <td>
