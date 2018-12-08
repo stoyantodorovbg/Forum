@@ -42,6 +42,16 @@ class AdminRepliesController extends Controller
     }
 
     /**
+     * Redirect to index page after reply saving
+     *
+     * @return array
+     */
+    public function redirectIndex ()
+    {
+        return ['redirect' => '/admin/replies'];
+    }
+
+    /**
      * Create a query according to search inputs
      *
      * @param $title

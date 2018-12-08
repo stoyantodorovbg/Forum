@@ -1,0 +1,30 @@
+.container-admin-form {
+    padding: 10px;
+    height: 100%;
+    .admin-form-header {
+        margin-bottom: 50px;
+        h1 {
+            display: inline-block;
+        }
+        .admin-form-buttons {
+            margin-top: 10px;
+        }
+    }
+    .admin-form-buttons {
+        float: right;
+    }
+    .info-model {
+        .info-label {
+            color: red;
+        }
+
+        .info-data {
+            font-weight: bolder;
+            float: right;
+        }
+    }
+
+    .admin-form-footer {
+        margin-top: 50px;
+    }
+}

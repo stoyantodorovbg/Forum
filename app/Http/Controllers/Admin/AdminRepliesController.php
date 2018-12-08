@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Reply;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -52,24 +53,30 @@ class AdminRepliesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Reply $reply
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Reply $reply)
     {
-        //
+        return view('admin.replies.edit', compact('reply'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reply $reply)
     {
-        //
+        $reply->update($request->all());
+
+        if(isset($request->exit)) {
+            return redirect('admin.replies');
+        }
+
+        return redirect()->back();
     }
 
     /**
