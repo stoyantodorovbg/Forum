@@ -341,11 +341,16 @@ class LabelsTableSeeder extends Seeder
             'default_language_id' => 1,
         ]);
 
+        DB::table('labels')->insert([
+            'system_name' => 'published_on',
+            'default_content' => 'Published on',
+            'default_language_id' => 1,
+        ]);
 
-
-
-
-
-
+        DB::table('labels')->insert([
+            'system_name' => 'by',
+            'default_content' => 'by',
+            'default_language_id' => 1,
+        ]);
     }
 }

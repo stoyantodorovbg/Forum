@@ -23,7 +23,7 @@ Route::resource('threads', 'ThreadsController');
 Route::get('threads/{thread}', 'ThreadsController@show')->name('threads.show');
 Route::get('threads/create', 'ThreadsController@create')->name('threads.create');
 Route::post('threads/{thread}', 'ThreadsController@store')->name('threads.store');
-Route::delete('threads/{thread}', 'ThreadsController@delete');
+Route::delete('threads/{thread}', 'ThreadsController@destroy');
 Route::patch('threads/{thread}', 'ThreadsController@update');
 Route::get('threads/', 'ThreadsController@index')->name('threads.index');
 Route::post('threads', 'ThreadsController@store')->middleware('must-be-confirmed');

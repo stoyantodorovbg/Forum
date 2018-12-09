@@ -34,16 +34,16 @@
                     <div class="card">
                         <div class="card-body">
                             <p>
-                                Published on {{ $thread->created_at->diffForHumans() }}
+                                {{ label('published_on') }} {{ $thread->created_at }}
                             </p>
                             <p>
                                 <a href="#">
-                                    By {{ $thread->owner->name }}
+                                    {{ label('by') }} {{ $thread->owner->name }}
                                 </a>
                             </p>
                             <p>
                                 <a href="#">
-                                    {{ str_plural('Comment', $thread->replies_count) }}:  <span v-text="repliesCount"></span>
+                                    <span v-text="repliesCount"></span> {{ $thread->replies_count == 1 ? label('comment') : label('comments') }}
                                 </a>
                             </p>
                             <p>
