@@ -7,55 +7,55 @@
         <div class="container-admin-form col-sm-11">
             <div class="admin-form-header">
                 <h1>
-                    Edit {{ class_basename($thread) }}
+                    {{ label('edit_thread') }}
                 </h1>
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.threads') }}">
-                        <button class="btn btn-info" type="button">Exit without Saving</button>
+                        <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/threads">
-                        Save and Exit
+                        {{ label('save_exit') }}
                     </button>
-                    <button class="btn btn-danger">Save</button>
+                    <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
             <div class="info-model">
-                <span class="info-label">Channel: </span>
+                <span class="info-label">{{ label('channel') }}</span>
                 <span class="info-data">{{ $thread->channel->name }}</span>
             </div>
             <div class="info-model">
-                <span class="info-label">User: </span>
+                <span class="info-label">{{ label('published_from') }}</span>
                 <span class="info-data">{{ $thread->owner->name }}</span>
             </div>
             <div class="info-model">
-                <span class="info-label">Created at: </span>
+                <span class="info-label">{{ label('created_at') }}</span>
                 <span class="info-data">{{ $thread->created_at }}</span>
             </div>
             <div class="info-model">
-                <span class="info-label">Updated at: </span>
+                <span class="info-label">{{ label('updated_at') }}</span>
                 <span class="info-data">{{ $thread->updated_at }}</span>
             </div>
             <div class="form-group">
-                <label class="col-form-label">Title</label>
+                <label class="col-form-label">{{ label('title') }}</label>
                 <div>
                     <input class="form-control" name="title" value="{{ $thread->body }}">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-form-label">Body</label>
+                <label class="col-form-label">{{ label('body') }}</label>
                 <div>
                     <textarea class="form-control" rows="10" id="comment" name="body">{{ $thread->body }}</textarea>
                 </div>
             </div>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
-                    <a href="{{ route('admin.replies') }}">
-                        <button class="btn btn-info" type="button">Exit without Saving</button>
+                    <a href="{{ route('admin.threads') }}">
+                        <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/threads">
-                        Save and Exit
+                        {{ label('save_exit') }}
                     </button>
-                    <button class="btn btn-danger">Save</button>
+                    <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
         </div>

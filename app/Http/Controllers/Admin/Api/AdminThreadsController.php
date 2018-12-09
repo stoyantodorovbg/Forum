@@ -22,7 +22,7 @@ class AdminThreadsController extends Controller
 
         $query = $this->createSearchQuery($title, $owner, $from, $to);
 
-        return $query->paginate(10);
+        return $query->paginate(15);
 
     }
 

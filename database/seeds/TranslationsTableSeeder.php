@@ -352,5 +352,35 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'от',
         ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 58,
+            'language_id' => 2,
+            'content' => 'Създай етикет',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 59,
+            'language_id' => 2,
+            'content' => 'Системно име',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 60,
+            'language_id' => 2,
+            'content' => 'Редактирай етикет',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 61,
+            'language_id' => 2,
+            'content' => 'Редактирай дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 62,
+            'language_id' => 2,
+            'content' => 'Дефолтен език',
+        ]);
     }
 }

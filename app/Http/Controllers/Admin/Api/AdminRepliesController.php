@@ -23,7 +23,7 @@ class AdminRepliesController extends Controller
 
         $query = $this->createSearchQuery($body, $thread, $owner, $from, $to);
 
-        return $query->paginate(10);
+        return $query->paginate(15);
 
     }
 
