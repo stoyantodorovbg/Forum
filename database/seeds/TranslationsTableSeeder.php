@@ -382,5 +382,23 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Дефолтен език',
         ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 63,
+            'language_id' => 2,
+            'content' => 'Преводи',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 64,
+            'language_id' => 2,
+            'content' => 'Език',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 65,
+            'language_id' => 2,
+            'content' => 'Няма преводи за този етикет.',
+        ]);
     }
 }

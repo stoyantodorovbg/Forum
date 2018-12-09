@@ -40,6 +40,26 @@
                     @endforeach
                 </select>
             </div>
+            @if($translations->count() > 0)
+                <div class="font-weight-bold">{{ label('translations') }}</div>
+
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ label('language') }}</th>
+                        <th scope="col">{{ label('body') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($translations as $translation)
+                        <td>{{ ucfirst($translation->language->title) }} </td>
+                        <td>{{ $translation->content }}</td>
+                    @endforeach
+                </tbody>
+            </table>
+            @else
+                <p>{{ label('translations_empty') }}</p>
+            @endif
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.labels') }}">

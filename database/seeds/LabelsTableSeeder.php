@@ -382,5 +382,23 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Default Language',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'translations',
+            'default_content' => 'Translations',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'language',
+            'default_content' => 'Language',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'translations_empty',
+            'default_content' => 'There is no translations for this label.',
+            'default_language_id' => 1,
+        ]);
     }
 }
