@@ -5,12 +5,12 @@
              width="70" height="70"
              alt="{{ $thread->owner->name }}">
         <a href="{{ route('profile', $thread->owner->name) }}">
-            {{ $thread->owner->name }} posted:
+            {{ $thread->owner->name }} {{ label('posted') }}
         </a>
         <p v-text="form.title"></p>
 
         <p>
-            Before {{ $thread->created_at->diffForHumans() }}
+            {{ label('before') }} {{ $thread->created_at->diffForHumans() }}
         </p>
     </div>
 
@@ -24,11 +24,9 @@
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
 
-            <button class="btn btn-danger thread-delete" type="submit">
-                Delete
-            </button>
+            <button class="btn btn-danger thread-delete" type="submit">{{ label('delete') }}</button>
         </form>
-        <button class="btn btn-xs" @click="editing = true">Edit</button>
+        <button class="btn btn-xs" @click="editing = true">{{ label('edit') }}</button>
     </div>
 </div>
 
@@ -39,22 +37,20 @@
              width="70" height="70"
              alt="{{ $thread->owner->name }}">
         <a href="{{ route('profile', $thread->owner->name) }}">
-            {{ $thread->owner->name }} posted:
+            {{ $thread->owner->name }} {{ label('posted') }}
         </a>
         <p>
-            Before {{ $thread->created_at->diffForHumans() }}
+            {{ label('before') }} {{ $thread->created_at->diffForHumans() }}
         </p>
     </div>
 
     <div class="card-body">
-        <label for="channel_id">Choose a channel</label>
+        <label for="channel_id">{{ label('choose_channel') }}</label>
         <select class="form-control"
                 v-model="form.channel_id"
                 id="channel_id"
                 required>
-            <option value="">
-                Choose one
-            </option>
+            <option value="">{{ label('choose_one') }}</option>
             @foreach($channels as $channel)
                 <option value="{{ $channel->id }}" @if(isset($thread)) {{ $thread->channel_id == $channel->id ? "selected" : "" }} @else {{ old('channel_id') == $channel->id ? "selected" : "" }} @endif >
                     {{ $channel->name }}
@@ -72,8 +68,8 @@
 
     <div class="card-footer">
         <div class="form-footer">
-            <button class="btn btn-xs btn-primary" @click="update">Save</button>
-            <button class="btn btn-xs" @click="cancel">Cancel</button>
+            <button class="btn btn-xs btn-primary" @click="update">{{ label('save') }}</button>
+            <button class="btn btn-xs" @click="cancel">{{ label('cancel') }}</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 @component('profiles.activities.activity')
     @slot('heading')
-        {{ $profileUser->name }} replied to a
+        {{ $profileUser->name }} {{ label('replied_to_a') }}
         <a href="{{ $activity->subject->thread->path() }}">
             {{ $activity->subject->thread->title }}
         </a>

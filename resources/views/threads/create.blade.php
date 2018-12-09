@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create a new thread</div>
+                    <div class="card-header">{{ label('create_new_thread') }}</div>
                     <div class="card-body">
                         <form method="POST" action="/threads" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -14,7 +14,7 @@
 
                             <div class="form-group">
                                 <button class="btn btn-default" type="submit">
-                                    Publish
+                                    {{ label('publish') }}
                                 </button>
                             </div>
                         </form>

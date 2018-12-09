@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card-header m-2">
                     <h1>
-                        FORUM THREADS
+                        {{ label('forum_threads') }}
                     </h1>
                 </div>
                 @include('threads._list')
@@ -22,10 +22,10 @@
                         <div class="card-body">
                             <form method="GET" action="/threads/search">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Search for something" name="q" class="form-control">
+                                    <input type="text" placeholder="{{ label('enter_search_criterion') }}" name="q" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Search</button>
+                                    <button class="btn btn-primary" type="submit">{{ label('search') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -35,7 +35,7 @@
                     <div class="panel-heading default">
                         <div class="card">
                             <div class="card-heading p-4">
-                                <h4 class>Trending Threads</h4>
+                                <h4 class>{{ label('trending_threads') }}</h4>
                             </div>
                             <div class="card-body">
                                 <ul class="list-group">

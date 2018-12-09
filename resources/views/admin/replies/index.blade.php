@@ -3,18 +3,18 @@
 @section('content')
     <div class="m-2">
         <a href="{{ route('admin.replies.create') }}">
-            <button class="btn btn-success small">Create a Reply</button>
+            <button class="btn btn-success small">{{ label('create_a_reply') }}</button>
         </a>
     </div>
     <table class="table table-sm">
         <thead>
             <tr>
-                <th scope="col">Edit</th>
-                <th scope="col">Content</th>
-                <th scope="col">Thread</th>
-                <th scope="col">Creator</th>
-                <th scope="col">Created at</th>
-                <th scope="col">Delete</th>
+                <th scope="col">{{ label('edit') }}</th>
+                <th scope="col">{{ label('body') }}</th>
+                <th scope="col">{{ label('thread') }}</th>
+                <th scope="col">{{ label('published_from') }}</th>
+                <th scope="col">{{ label('created_at') }}</th>
+                <th scope="col">{{ label('delete') }}</th>
             </tr>
             <tr>
                 <th scope="col"></th>

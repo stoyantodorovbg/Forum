@@ -22,9 +22,7 @@
                 {{--</div>--}}
             @endforeach
         @empty
-            <p>
-                There is no activity for this user yet.
-            </p>
+            <p>{{ label('no_activities_for_this_user') }}</p>
         @endforelse
     </div>
 

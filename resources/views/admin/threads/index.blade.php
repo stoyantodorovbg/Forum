@@ -3,16 +3,16 @@
 @section('content')
     <div class="m-2">
         <a href="{{ route('admin.threads.create') }}">
-            <button class="btn btn-success small">Create a Thread</button>
+            <button class="btn btn-success small">{{ label('create_a_thread') }}</button>
         </a>
     </div>
     <table class="table table-sm">
         <thead>
             <tr>
-                <th scope="col">Edit</th>
-                <th scope="col">Title</th>
-                <th scope="col">Creator</th>
-                <th scope="col">Created at</th>
+                <th scope="col">{{ label('edit') }}</th>
+                <th scope="col">{{ label('title') }}</th>
+                <th scope="col">{{ label('published_from') }}</th>
+                <th scope="col">{{ label('created_at') }}</th>
                 <th scope="col">Delete</th>
             </tr>
             <tr>

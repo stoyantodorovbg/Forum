@@ -76,5 +76,276 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Bulgarian',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'forum',
+            'default_content' => 'Forum',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_thread',
+            'default_content' => 'Create a thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'channels',
+            'default_content' => 'Themes',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'browse_threads',
+            'default_content' => 'Browse threads',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'login',
+            'default_content' => 'Login',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'register',
+            'default_content' => 'Register',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'forum_threads',
+            'default_content' => 'FORUM THREADS',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search',
+            'default_content' => 'Search',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'enter–search_criterion',
+            'default_content' => 'Enter a search criterion',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'trending_threads',
+            'default_content' => 'Trending Threads',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'no_results',
+            'default_content' => 'There are no relevant results.',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'posted_by',
+            'default_content' => 'Posted by',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'comment',
+            'default_content' => 'comments',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'comments',
+            'default_content' => 'comments',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'visit',
+            'default_content' => 'visit',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'visits',
+            'default_content' => 'visits',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_new_thread',
+            'default_content' => 'Create a new thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'publish',
+            'default_content' => 'Publish',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'choose_channel',
+            'default_content' => 'Choose a theme',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'choose_one',
+            'default_content' => 'Choose one',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'title',
+            'default_content' => 'Title',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_photo',
+            'default_content' => 'Add a Photo',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'posted',
+            'default_content' => 'posted',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'before',
+            'default_content' => 'before',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'delete',
+            'default_content' => 'Delete',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit',
+            'default_content' => 'Edit',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'cancel',
+            'default_content' => 'Cancel',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'no_activities_for_this_user',
+            'default_content' => 'There is no activity for this user yet.',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'published_a',
+            'default_content' => 'published a',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'replied_to_a',
+            'default_content' => 'replied to a',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'favorited_a_reply_to_this',
+            'default_content' => 'favorited a reply to this thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'email_address',
+            'default_content' => 'E-Mail Address',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'password',
+            'default_content' => 'Password',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'remember_me',
+            'default_content' => 'Remember me',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'forgot_your_password',
+            'default_content' => 'Forgot Your Password?',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'name',
+            'default_content' => 'Name',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'confirm_password',
+            'default_content' => 'Confirm Password',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'published_from',
+            'default_content' => 'Published from',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_a_reply',
+            'default_content' => 'Create a Reply',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'select_a_thread',
+            'default_content' => 'Select a Thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_reply',
+            'default_content' => 'Edit Reply',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_a_thread',
+            'default_content' => 'Create a Thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'channel',
+            'default_content' => 'Theme',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'select_channel',
+            'default_content' => 'Select a Theme',
+            'default_language_id' => 1,
+        ]);
+
+
+
+
+
+
+
     }
 }

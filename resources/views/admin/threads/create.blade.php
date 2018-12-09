@@ -5,24 +5,22 @@
         {{ csrf_field() }}
         <div class="container-admin-form col-sm-11">
             <div class="admin-form-header">
-                <h1>
-                    Create a Thread
-                </h1>
+                <h1>{{ label('create_a_thread') }}</h1>
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.threads') }}">
-                        <button class="btn btn-info" type="button">Exit without Saving</button>
+                        <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/threads">
-                        Save and Exit
+                        {{ label('save_exit') }}
                     </button>
-                    <button class="btn btn-danger">Save</button>
+                    <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-form-label">Channel: </label>
+                <label class="col-form-label">{{ label('channel') }}</label>
                 <div>
                     <select class="form-control" name="channel_id">
-                        <option selected value="">Select a Channel</option>
+                        <option selected value="">{{ label('select_channel') }}</option>
                         @foreach($channels as $channel)
                             <option value="{{ $channel->id }}">{{ $channel->name }}</option>
                         @endforeach
@@ -30,24 +28,26 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-form-label">User: </label>
+                <label class="col-form-label">{{ label('published_from') }} </label>
                 <div>
                     <select class="form-control" name="user_id">
                         <option selected value="{{ auth()->id() }}">{{ auth()->user()->name }}</option>
                         @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @if($user->id != auth()->id())
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-form-label">Title</label>
+                <label class="col-form-label">{{ label('title') }}</label>
                 <div>
                     <input class="form-control" name="title">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-form-label">Body</label>
+                <label class="col-form-label">{{ label('body') }}</label>
                 <div>
                     <textarea class="form-control" rows="10" name="body"></textarea>
                 </div>
@@ -55,12 +55,12 @@
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.threads') }}">
-                        <button class="btn btn-info" type="button">Exit without Saving</button>
+                        <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/threads">
-                        Save and Exit
+                        {{ label('save_exit') }}
                     </button>
-                    <button class="btn btn-danger">Save</button>
+                    <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
         </div>

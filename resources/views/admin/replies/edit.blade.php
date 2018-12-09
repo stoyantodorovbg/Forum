@@ -7,7 +7,7 @@
     <div class="container-admin-form col-sm-11">
         <div class="admin-form-header">
             <h1>
-                Edit {{ class_basename($reply) }}
+                {{ label('edit_reply') }}
             </h1>
             <div class="admin-form-buttons">
                 <a href="{{ route('admin.replies') }}">
@@ -22,7 +22,7 @@
             <span class="info-data">{{ $reply->thread->title }}</span>
         </div>
         <div class="info-model">
-            <span class="info-label">{{ label('user') }} </span>
+            <span class="info-label">{{ label('published_from') }} </span>
             <span class="info-data">{{ $reply->owner->name }}</span>
         </div>
         <div class="info-model">

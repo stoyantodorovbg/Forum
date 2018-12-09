@@ -13,7 +13,7 @@
                 </a>
             </h4>
             <h5>
-                Posted by <a href="{{ route('profile', $thread->owner->name) }}">{{ $thread->owner->name }}</a>
+                {{ label('posted_by') }} <a href="{{ route('profile', $thread->owner->name) }}">{{ $thread->owner->name }}</a>
             </h5>
         </div>
         <div class="card-body">
@@ -22,13 +22,13 @@
                     {!! $thread->body !!}
                 </p>
                 <p>
-                    {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
+                    {{ $thread->replies_count }} {{ $thread->replies_count > 1 ? label('comment') : label('comments')}}
                 </p>
                 <br>
             </article>
         </div>
         <div class="card-footer">
-            {{ $thread->visits()->count() }} Visits
+            {{ $thread->visits()->count() }} {{ $thread->visits()->count() > 1 ? label('visit') : label('visits')}}
         </div>
     </div>
 </div>

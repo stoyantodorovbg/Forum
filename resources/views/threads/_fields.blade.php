@@ -1,14 +1,12 @@
 {{--<form class="form-horizontal" role="form">--}}
 <div class="form-group">
-    <label for="channel_id">Choose a channel</label>
+    <label for="channel_id">{{ label('choose_channel') }}</label>
     <select class="form-control"
             name="channel_id"
             id="channel_id"
             value="{{ isset($thread) ? $thread->channel_id : old('channel_id') }}"
             required>
-        <option value="">
-            Choose one
-        </option>
+        <option value="">{{ label('chose_one') }}</option>
         @foreach($channels as $channel)
             <option value="{{ $channel->id }}" @if(isset($thread)) {{ $thread->channel_id == $channel->id ? "selected" : "" }} @else {{ old('channel_id') == $channel->id ? "selected" : "" }} @endif >
                 {{ $channel->name }}
@@ -18,7 +16,7 @@
 </div>
 
 <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title">{{ label('title') }}</label>
     <input class="form-control"
            type="text"
            name="title"
@@ -28,7 +26,7 @@
 </div>
 
 <div class="form-group">
-    <label for="body">Body</label>
+    <label for="body">{{ label('body') }}</label>
     <wysiwyg name="body"></wysiwyg>
     {{--<textarea class="form-control"--}}
               {{--name="body"--}}
@@ -39,7 +37,7 @@
               {{--</textarea>--}}
 </div>
 <div class="form-group">
-    <label for="image">Select image</label>
+    <label for="image">{{ label('add_photo') }}</label>
     <input class="form-control"
            type="file"
            name="image"

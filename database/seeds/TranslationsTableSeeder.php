@@ -56,7 +56,7 @@ class TranslationsTableSeeder extends Seeder
         DB::table('translations')->insert([
             'label_id' => 8,
             'language_id' => 2,
-            'content' => 'Съдържание',
+            'content' => 'Текст',
         ]);
 
         DB::table('translations')->insert([
@@ -69,6 +69,276 @@ class TranslationsTableSeeder extends Seeder
             'label_id' => 11,
             'language_id' => 2,
             'content' => 'Български',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 12,
+            'language_id' => 2,
+            'content' => 'Форум',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 13,
+            'language_id' => 2,
+            'content' => 'Започни дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 14,
+            'language_id' => 2,
+            'content' => 'Теми',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 15,
+            'language_id' => 2,
+            'content' => 'Разгедай дискусии',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 16,
+            'language_id' => 2,
+            'content' => 'Влез',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 17,
+            'language_id' => 2,
+            'content' => 'Регистрирай се',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 18,
+            'language_id' => 2,
+            'content' => 'ДИСКУСИИ ВЪВ ФОРУМА',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 19,
+            'language_id' => 2,
+            'content' => 'Търсене',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 20,
+            'language_id' => 2,
+            'content' => 'Въведи критерий за търсене',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 21,
+            'language_id' => 2,
+            'content' => 'Най популярни дискусии',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 22,
+            'language_id' => 2,
+            'content' => 'Не са намерени релевантни резултати.',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 23,
+            'language_id' => 2,
+            'content' => 'Публикувано от',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 24,
+            'language_id' => 2,
+            'content' => 'коментар',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 25,
+            'language_id' => 2,
+            'content' => 'коментара',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 26,
+            'language_id' => 2,
+            'content' => 'разглеждане',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 27,
+            'language_id' => 2,
+            'content' => 'разглеждания',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 28,
+            'language_id' => 2,
+            'content' => 'Започни нова дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 29,
+            'language_id' => 2,
+            'content' => 'Публикувай',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 30,
+            'language_id' => 2,
+            'content' => 'Избери тема',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 31,
+            'language_id' => 2,
+            'content' => 'Избери',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 32,
+            'language_id' => 2,
+            'content' => 'Заглавие',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 32,
+            'language_id' => 2,
+            'content' => 'Текст',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 33,
+            'language_id' => 2,
+            'content' => 'Добави снимка',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 34,
+            'language_id' => 2,
+            'content' => 'публикува',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 35,
+            'language_id' => 2,
+            'content' => 'Преди',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 36,
+            'language_id' => 2,
+            'content' => 'Изтрий',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 37,
+            'language_id' => 2,
+            'content' => 'Редактирай',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 38,
+            'language_id' => 2,
+            'content' => 'Откажи промените',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 39,
+            'language_id' => 2,
+            'content' => 'Все още няма регистрирани действия за този участник.',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 40,
+            'language_id' => 2,
+            'content' => 'публикува',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 41,
+            'language_id' => 2,
+            'content' => 'отговори на',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 42,
+            'language_id' => 2,
+            'content' => 'гласува за отговор на тази дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 43,
+            'language_id' => 2,
+            'content' => 'E-Mail адрес',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 44,
+            'language_id' => 2,
+            'content' => 'Парола',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 45,
+            'language_id' => 2,
+            'content' => 'Запомни ме',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 46,
+            'language_id' => 2,
+            'content' => 'Забравили сте Вашата парола?',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 47,
+            'language_id' => 2,
+            'content' => 'Име',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 48,
+            'language_id' => 2,
+            'content' => 'Потвърди паролата',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 49,
+            'language_id' => 2,
+            'content' => 'Публикувано от',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 50,
+            'language_id' => 2,
+            'content' => 'Създай отговор',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 51,
+            'language_id' => 2,
+            'content' => 'Избери дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 52,
+            'language_id' => 2,
+            'content' => 'Редактирай отговор',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 53,
+            'language_id' => 2,
+            'content' => 'Създай дискусия',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 54,
+            'language_id' => 2,
+            'content' => 'Тема',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 55,
+            'language_id' => 2,
+            'content' => 'Избери тема',
         ]);
     }
 }

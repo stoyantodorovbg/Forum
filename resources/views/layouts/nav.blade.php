@@ -16,7 +16,7 @@
             </select>
         </form>
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ label('forum') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <a class="nav-link" href="{{ route('threads.create') }}">Create a thread</a>
+                    <a class="nav-link" href="{{ route('threads.create') }}">{{ label('create_thread') }}</a>
                 </li>
                 <li>
                     <div class="dropdown">
@@ -35,9 +35,8 @@
                                 id="dropdownMenuButton"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
-                                aria-expanded="false"
-                        >
-                            Channels
+                                aria-expanded="false">
+                            {{ label('channels') }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @foreach($channels as $channel)
@@ -53,9 +52,8 @@
                                 id="dropdownMenuButton"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
-                                aria-expanded="false"
-                        >
-                            Browse
+                                aria-expanded="false">
+                            {{ label('browse_threads') }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{ route('threads.index') }}">All Threads</a>
@@ -74,8 +72,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ label('login') }}</a></li>
+                    <li><a class="nav-link" href="{{ route('register') }}">{{ label('register') }}</a></li>
                 @else
                     <user-notifications></user-notifications>
                     <li class="nav-item dropdown">

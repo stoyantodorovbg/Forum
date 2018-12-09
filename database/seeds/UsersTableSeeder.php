@@ -24,6 +24,6 @@ class UsersTableSeeder extends Seeder
 
         factory(App\User::class)->states('administrator')->create();
 
-        factory(App\User::class, 50)->create();
+        factory(App\User::class, 10)->create();
     }
 }
