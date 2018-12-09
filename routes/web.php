@@ -65,6 +65,9 @@ Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destr
 Route::post('/admin/replies/index', 'Admin\Api\AdminRepliesController@index');
 Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destroy');
 
+Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
+Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
+
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 
@@ -79,3 +82,9 @@ Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name
 Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit')->name('admin.replies.edit');
 Route::post('/admin/replies/store', 'Admin\AdminRepliesController@store')->name('admin.replies.store');
 Route::post('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');
+
+Route::get('/admin/labels', 'Admin\AdminLabelsController@index')->name('admin.labels');
+Route::get('/admin/labels/create', 'Admin\AdminLabelsController@create')->name('admin.labels.create');
+Route::get('/admin/labels/{label}', 'Admin\AdminLabelsController@edit')->name('admin.labels.edit');
+Route::post('/admin/labels/store', 'Admin\AdminLabelsController@store')->name('admin.labels.store');
+Route::post('/admin/labels/{label}', 'Admin\AdminLabelsController@update')->name('admin.labels.update');
