@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Label;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,7 +26,9 @@ class AdminLabelsController extends Controller
      */
     public function create()
     {
-        return view('admin.labels.create');
+        $languages = Language::all();
+
+        return view('admin.labels.create', compact('languages'));
     }
 
     /**
@@ -36,7 +39,10 @@ class AdminLabelsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $label = new Label($request->all());
+        $label->save();
+
+        return redirect()->route('admin.labels.edit', ['label' => $label]);
     }
 
     /**
@@ -47,18 +53,22 @@ class AdminLabelsController extends Controller
      */
     public function edit(Label $label)
     {
-        return view('admin.labels.edit', compact('label'));
+        $languages = Language::all();
+
+        return view('admin.labels.edit', compact('label', 'languages'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Label $label
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Label $label)
     {
-        //
+        $label->update($request->all());
+
+        return redirect()->back();
     }
 }

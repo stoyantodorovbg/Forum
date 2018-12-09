@@ -352,5 +352,35 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'by',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_a_label',
+            'default_content' => 'Create a label',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'system_name',
+            'default_content' => 'System name',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_label',
+            'default_content' => 'Edit label',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_thread',
+            'default_content' => 'Edit thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'default_label_language',
+            'default_content' => 'Default Language',
+            'default_language_id' => 1,
+        ]);
     }
 }
