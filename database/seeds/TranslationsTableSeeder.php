@@ -400,5 +400,17 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Няма преводи за този етикет.',
         ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 66,
+            'language_id' => 2,
+            'content' => 'Добави превод',
+        ]);
+
+        DB::table('translations')->insert([
+            'label_id' => 67,
+            'language_id' => 2,
+            'content' => 'Запази този превод',
+        ]);
     }
 }

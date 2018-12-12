@@ -55,7 +55,7 @@ class LabelsTableSeeder extends Seeder
 
         DB::table('labels')->insert([
             'system_name' => 'body',
-            'default_content' => 'Body',
+            'default_content' => 'Content',
             'default_language_id' => 1,
         ]);
 
@@ -398,6 +398,18 @@ class LabelsTableSeeder extends Seeder
         DB::table('labels')->insert([
             'system_name' => 'translations_empty',
             'default_content' => 'There is no translations for this label.',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_a_translation',
+            'default_content' => 'Add Translation',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'save_translation',
+            'default_content' => 'Save this Translation',
             'default_language_id' => 1,
         ]);
     }

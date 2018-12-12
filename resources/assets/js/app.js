@@ -25,6 +25,7 @@ Vue.component('wysiwyg', require('./components/Wysiwyg.vue'));
 Vue.component('search-text', require('./components/admin/SearchText.vue'));
 Vue.component('search-date', require('./components/admin/SearchDate.vue'));
 Vue.component('index', require('./components/admin/Index.vue'));
+Vue.component('translation', require('./components/admin/Translation.vue'));
 
 const app = new Vue({
     el: '#app'
