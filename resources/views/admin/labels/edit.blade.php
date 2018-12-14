@@ -43,34 +43,24 @@
             @if($translations->count() > 0)
                 <div class="font-weight-bold">{{ label('translations') }}</div>
 
-                <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">{{ label('language') }}</th>
-                        <th scope="col">{{ label('body') }}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($translations as $translation)
-                        <tr>
-                            <td>{{ ucfirst($translation->language->title) }} </td>
-                            <td>{{ $translation->content }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                <translation-table
+                    :translations="{{ $translations }}"
+                    :labels="{'language': '{{ label('language') }}',
+                            'body': '{{ label('body') }}',
+                            }">
+                </translation-table>
             @else
                 <p>{{ label('translations_empty') }}</p>
             @endif
             @if($translations->count() < $languages->count())
-                <translation
+                <add-translation
                     :languages="{{ $languages }}"
                     :label="{{ $label }}"
                     :labels="{'add_a_translation': '{{ label('add_a_translation') }}',
                         'language': '{{ label('language') }}',
                         'body': '{{ label('body') }}',
                         'save_translation': '{{ label('save_translation') }}',
-                        }"></translation>
+                        }"></add-translation>
             @endif
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
