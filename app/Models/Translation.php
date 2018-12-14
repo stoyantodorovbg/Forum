@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Translation extends Model
 {
+    protected $fillable = [
+        'label_id',
+        'language_id',
+        'content',
+    ];
+
+    public $timestamps = false;
+
     /**
      * The label for the translation
      *

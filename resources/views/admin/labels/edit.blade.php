@@ -52,8 +52,10 @@
                 </thead>
                 <tbody>
                     @foreach($translations as $translation)
-                        <td>{{ ucfirst($translation->language->title) }} </td>
-                        <td>{{ $translation->content }}</td>
+                        <tr>
+                            <td>{{ ucfirst($translation->language->title) }} </td>
+                            <td>{{ $translation->content }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

@@ -6,7 +6,7 @@
         <div v-if="this.addingTranslation">
             <div class="form-group">
                 <label class="col-form-label">{{ labels['language'] }}</label>
-                <select class="form-control" name="default_language_id">
+                <select class="form-control translation-language-id">
                     <option
                         v-for="language in languages"
                         v-if="language.id !== label.default_language_id"
@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label class="col-form-label">{{ labels['body'] }}</label>
                 <div>
-                    <input class="form-control">
+                    <input class="form-control translation-content">
                 </div>
             </div>
             <button class="btn btn-success" type="button" v-on:click="addTranslation()">
@@ -54,6 +54,14 @@
             },
 
             addTranslation() {
+                axios.post('/admin/translations/store', {
+                    label_id: this.label.id,
+                    language_id: $('.translation-language-id').val(),
+                    content: $('.translation-content').val(),
+                }).catch(error => {
+                    flash(error.response.data, 'danger');
+                });
+
                 this.addingTranslation = false;
             }
         }
