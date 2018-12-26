@@ -10,7 +10,7 @@
 
         <index-property
             v-for="property in properties"
-            :key="property.id" :model="model"
+            :key="property.id"
             :property="property">
         </index-property>
         <td>

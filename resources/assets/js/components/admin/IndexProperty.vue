@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        props: ['model', 'property'],
+        props: ['property'],
 
         data() {
             return {
@@ -15,7 +15,7 @@
         methods: {
             getPropertyValue() {
                 let propertyArr = this.property.split('.');
-                let result = this.model;
+                let result = this.$parent.model;
 
                 for (let prop of propertyArr) {
                     result = result[prop];

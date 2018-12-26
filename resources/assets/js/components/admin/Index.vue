@@ -1,7 +1,7 @@
 <template>
     <tbody>
         <index-model
-                v-for="model in models"
+                v-for="model in dataModels"
                 :key="model.id"
                 :model="model"
                 :properties="properties"
@@ -26,6 +26,7 @@
             return {
                 dataSet: false,
                 searchPropsArr: this.getSearchPropsArr(),
+                dataModels: this.models,
             }
         },
 
@@ -54,7 +55,7 @@
 
             refresh({data}) {
                 this.dataSet = data;
-                this.models = data.data;
+                this.dataModels = data.data;
                 window.scrollTo(0, 0);
             },
 
