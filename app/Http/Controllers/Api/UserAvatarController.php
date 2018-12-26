@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 class UserAvatarController extends Controller
 {
     /**
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store()
     {

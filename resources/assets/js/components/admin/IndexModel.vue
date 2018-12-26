@@ -8,7 +8,11 @@
             </a>
         </td>
 
-        <index-property v-for="property in properties" :key="property.id" :model="model" :property="property"></index-property>
+        <index-property
+            v-for="property in properties"
+            :key="property.id" :model="model"
+            :property="property">
+        </index-property>
         <td>
             <button class="btn btn-danger btn-sm" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
