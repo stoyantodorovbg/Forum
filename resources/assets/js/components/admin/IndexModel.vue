@@ -41,7 +41,11 @@
 
             deleteItem() {
                 axios.delete(this.url)
-                    .then(this.$parent.refresh);
+                    .then(this.$parent.refresh)
+                    .then(flash('Deleted.'))
+                    .catch(error => {
+                        flash(error.response.data, 'danger');
+                    });
             },
         }
     }

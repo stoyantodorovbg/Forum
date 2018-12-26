@@ -1,7 +1,7 @@
 <template>
     <div>
         <add-translation
-            v-if="translations.length < languages.length - 1"
+            v-if="dataTranslations.length < languages.length - 1"
             :languages="languages"
             :label="label"
             :labels="labels"></add-translation>
@@ -15,7 +15,7 @@
             </thead>
                 <tbody>
                     <translation
-                        v-for="translation in translations"
+                        v-for="translation in dataTranslations"
                         :key="translation.id"
                         :translation="translation">
                     </translation>
@@ -32,6 +32,12 @@
         components: {Translation, AddTranslation},
 
         props: ['translations', 'labels', 'languages', 'label',],
+
+        data() {
+            return {
+                dataTranslations: this.$props.translations,
+            }
+        }
     }
 
 </script>

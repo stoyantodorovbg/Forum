@@ -71,7 +71,8 @@
                     language_id: $('.translation-language-id').val(),
                     content: $('.translation-content').val(),
                 }).then(data => {
-                    this.$parent.translations = data.data.translations;
+                    this.$parent.$data.dataTranslations = data.data.translations;
+                    flash('Added.');
                 }).catch(error => {
                     flash(error.response.data, 'danger');
                 });
@@ -80,3 +81,9 @@
         }
     }
 </script>
+
+<style>
+    .alert-flash {
+        bottom: 43px;
+    }
+</style>
