@@ -43,13 +43,18 @@
 
             <div class="font-weight-bold">{{ label('translations') }}</div>
 
-            <translation-table :translations="{{ $translations }}" :languages="{{ $languages }}" :label="{{ $label }}" :labels="{'language': '{{ label('language') }}',
-                        'body': '{{ label('body') }}',
-                        'add_a_translation': '{{ label('add_a_translation') }}',
-                        'language': '{{ label('language') }}',
-                        'body': '{{ label('body') }}',
-                        'save_translation': '{{ label('save_translation') }}',
-                        }">
+            <translation-table :translations="{{ $translations }}"
+                               :languages="{{ $languages }}"
+                               :label="{{ $label }}"
+                               :labels="{
+                                    'language': '{{ label('language') }}',
+                                    'body': '{{ label('body') }}',
+                                    'add_a_translation': '{{ label('add_a_translation') }}',
+                                    'language': '{{ label('language') }}',
+                                    'body': '{{ label('body') }}',
+                                    'save_translation': '{{ label('save_translation') }}',
+                                    'delete': '{{ label('delete') }}',
+                                    }">
             </translation-table>
 
             @if($translations->count() == 0)

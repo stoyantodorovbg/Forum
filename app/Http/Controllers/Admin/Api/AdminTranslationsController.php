@@ -26,4 +26,23 @@ class AdminTranslationsController extends Controller
                 ->get()
         ];
     }
+
+    /**
+     * Delete a translation
+     *
+     * @param Translation $translation
+     * @return array
+     * @throws \Exception
+     */
+    public function destroy(Translation $translation)
+    {
+        $labelId = $translation->label->id;
+        $translation->delete();
+
+        return [
+            'translations' => Translation::where('label_id', $labelId)
+                ->with('language')
+                ->get()
+        ];
+    }
 }

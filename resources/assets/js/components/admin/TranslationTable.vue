@@ -10,6 +10,7 @@
                 <tr>
                     <th scope="col">{{ labels['language'] }}</th>
                     <th scope="col">{{ labels['body'] }}</th>
+                    <th scope="col">{{ labels['delete'] }}</th>
                 </tr>
             </thead>
                 <tbody>
