@@ -55,7 +55,9 @@ class AdminLabelsController extends Controller
     public function edit(Label $label)
     {
         $languages = Language::all();
-        $translations = Translation::where('label_id', $label->id)->with('language')->get();
+        $translations = Translation::where('label_id', $label->id)
+            ->with('language')
+            ->get();
 
         return view('admin.labels.edit',
             compact('label', 'languages', 'translations')

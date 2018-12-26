@@ -40,28 +40,31 @@
                     @endforeach
                 </select>
             </div>
-            @if($translations->count() > 0)
-                <div class="font-weight-bold">{{ label('translations') }}</div>
 
-                <translation-table
-                    :translations="{{ $translations }}"
-                    :labels="{'language': '{{ label('language') }}',
-                            'body': '{{ label('body') }}',
-                            }">
-                </translation-table>
-            @else
-                <p>{{ label('translations_empty') }}</p>
-            @endif
-            @if($translations->count() < $languages->count())
-                <add-translation
-                    :languages="{{ $languages }}"
-                    :label="{{ $label }}"
-                    :labels="{'add_a_translation': '{{ label('add_a_translation') }}',
+            <div class="font-weight-bold">{{ label('translations') }}</div>
+
+            <translation-table :translations="{{ $translations }}" :languages="{{ $languages }}" :label="{{ $label }}" :labels="{'language': '{{ label('language') }}',
+                        'body': '{{ label('body') }}',
+                        'add_a_translation': '{{ label('add_a_translation') }}',
                         'language': '{{ label('language') }}',
                         'body': '{{ label('body') }}',
                         'save_translation': '{{ label('save_translation') }}',
-                        }"></add-translation>
+                        }">
+            </translation-table>
+
+            @if($translations->count() == 0)
+                <p>{{ label('translations_empty') }}</p>
             @endif
+            {{--@if($translations->count() < $languages->count())--}}
+                {{--<add-translation--}}
+                    {{--:languages="{{ $languages }}"--}}
+                    {{--:label="{{ $label }}"--}}
+                    {{--:labels="{'add_a_translation': '{{ label('add_a_translation') }}',--}}
+                        {{--'language': '{{ label('language') }}',--}}
+                        {{--'body': '{{ label('body') }}',--}}
+                        {{--'save_translation': '{{ label('save_translation') }}',--}}
+                        {{--}"></add-translation>--}}
+            {{--@endif--}}
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.labels') }}">

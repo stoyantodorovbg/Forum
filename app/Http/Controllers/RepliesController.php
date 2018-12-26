@@ -28,7 +28,7 @@ class RepliesController extends Controller
     }
 
     /**
-     * //* integer $channel_id
+     * integer $channel_id
      * @param Thread $thread
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Http\RedirectResponse
      */

@@ -22,7 +22,7 @@
                     <input class="form-control translation-content">
                 </div>
             </div>
-            <button class="btn btn-success" type="button" v-on:click="addTranslation()">
+            <button class="btn btn-success" id="saveTranslation" type="button" v-on:click="addTranslation()">
                 {{ labels['save_translation'] }}
             </button>
         </div>
@@ -58,12 +58,15 @@
                     label_id: this.label.id,
                     language_id: $('.translation-language-id').val(),
                     content: $('.translation-content').val(),
+                }).then(data => {
+                    this.$parent.translations = data.data.translations;
                 }).catch(error => {
                     flash(error.response.data, 'danger');
                 });
-
                 this.addingTranslation = false;
-            }
+            },
+
+
         }
     }
 </script>

@@ -39,7 +39,7 @@
                 }).then(() => {
                     this.editing = false;
                     flash('Your thread has been updated.')
-                })
+                });
             },
         }
     }
