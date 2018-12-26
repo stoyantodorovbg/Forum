@@ -1,7 +1,7 @@
 <template>
     <div>
         <add-translation
-            v-if="translations.length < languages.length"
+            v-if="translations.length < languages.length - 1"
             :languages="languages"
             :label="label"
             :labels="labels"></add-translation>
@@ -31,19 +31,6 @@
         components: {Translation, AddTranslation},
 
         props: ['translations', 'labels', 'languages', 'label',],
-
-        mounted() {
-            $('#saveTranslation').click(function () {
-
-                axios.get('/admin/translations/label-translations', {
-                    params: {
-                        label_id: this.label.id,
-                    }
-                }).then(function(response) {//console.log(response.data)
-                    this.props.translations = response.data;
-                })
-            })
-        },
     }
 
 </script>

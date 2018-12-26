@@ -9,7 +9,8 @@
                 <select class="form-control translation-language-id">
                     <option
                         v-for="language in languages"
-                        v-if="language.id !== label.default_language_id"
+                        v-if="language.id !== label.default_language_id &&
+                        !labelLanguages.includes(language.title)"
                         v-model="selected"
                         :value="language.id">
                         {{ language.title }}
@@ -40,6 +41,17 @@
             }
         },
 
+        computed: {
+            labelLanguages: function () {
+                let languages = [];
+                for (let translation of this.$parent.translations) {
+                    languages.push(translation.language.title)
+                }
+
+                return languages;
+            },
+        },
+
         methods: {
             isDefaultLanguage(language, label) {
                 if(language.id !== label.default_language_id) {
@@ -65,8 +77,6 @@
                 });
                 this.addingTranslation = false;
             },
-
-
         }
     }
 </script>
