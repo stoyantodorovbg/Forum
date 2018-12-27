@@ -16,7 +16,7 @@
 
         methods: {
             deleteItem() {
-                axios.delete('/admin/translations/' + this.translation.id)
+                axios.delete('/admin/label-translations/' + this.translation.id)
                     .then(data => {
                     this.$parent.$data.dataTranslations = data.data.translations;
                     flash('Deleted.');

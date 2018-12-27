@@ -403,13 +403,13 @@ class LabelsTableSeeder extends Seeder
 
         DB::table('labels')->insert([
             'system_name' => 'add_a_translation',
-            'default_content' => 'Add Translation',
+            'default_content' => 'Add LabelTranslation',
             'default_language_id' => 1,
         ]);
 
         DB::table('labels')->insert([
             'system_name' => 'save_translation',
-            'default_content' => 'Save this Translation',
+            'default_content' => 'Save this LabelTranslation',
             'default_language_id' => 1,
         ]);
     }

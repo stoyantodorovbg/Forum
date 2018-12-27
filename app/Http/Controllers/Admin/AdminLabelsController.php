@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Label;
 use App\Models\Language;
-use App\Models\Translation;
+use App\Models\LabelTranslation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -55,7 +55,7 @@ class AdminLabelsController extends Controller
     public function edit(Label $label)
     {
         $languages = Language::all();
-        $translations = Translation::where('label_id', $label->id)
+        $translations = LabelTranslation::where('label_id', $label->id)
             ->with('language')
             ->get();
 

@@ -66,7 +66,7 @@
             },
 
             addTranslation() {
-                axios.post('/admin/translations/store', {
+                axios.post('/admin/label-translations/store', {
                     label_id: this.label.id,
                     language_id: $('.translation-language-id').val(),
                     content: $('.translation-content').val(),

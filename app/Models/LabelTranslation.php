@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Translation extends Model
+class LabelTranslation extends Model
 {
     protected $fillable = [
         'label_id',

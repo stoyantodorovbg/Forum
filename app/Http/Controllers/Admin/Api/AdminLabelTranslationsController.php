@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Api;
 
-use App\Models\Translation;
+use App\Models\LabelTranslation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminTranslationsController extends Controller
+class AdminLabelTranslationsController extends Controller
 {
     /**
      * Store new translation
@@ -16,12 +16,12 @@ class AdminTranslationsController extends Controller
      */
     public function store(Request $request)
     {
-        $translation = new Translation($request->all());
+        $translation = new LabelTranslation($request->all());
 
         $translation->save();
 
         return [
-            'translations' => Translation::where('label_id', $request->label_id)
+            'translations' => LabelTranslation::where('label_id', $request->label_id)
                 ->with('language')
                 ->get()
         ];
@@ -30,17 +30,17 @@ class AdminTranslationsController extends Controller
     /**
      * Delete a translation
      *
-     * @param Translation $translation
+     * @param LabelTranslation $translation
      * @return array
      * @throws \Exception
      */
-    public function destroy(Translation $translation)
+    public function destroy(LabelTranslation $translation)
     {
         $labelId = $translation->label->id;
         $translation->delete();
 
         return [
-            'translations' => Translation::where('label_id', $labelId)
+            'translations' => LabelTranslation::where('label_id', $labelId)
                 ->with('language')
                 ->get()
         ];

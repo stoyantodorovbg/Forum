@@ -68,8 +68,8 @@ Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destro
 Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
-Route::post('/admin/translations/store', 'Admin\Api\AdminTranslationsController@store');
-Route::delete('/admin/translations/{translation}', 'Admin\Api\AdminTranslationsController@destroy');
+Route::post('/admin/label-translations/store', 'Admin\Api\AdminLabelTranslationsController@store');
+Route::delete('/admin/label-translations/{translation}', 'Admin\Api\AdminLabelTranslationsController@destroy');
 
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
