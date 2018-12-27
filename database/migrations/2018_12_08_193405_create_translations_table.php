@@ -13,7 +13,7 @@ class CreateTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('translations', function (Blueprint $table) {
+        Schema::create('label_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('label_id')->unsigned();
             $table->foreign('label_id')->references('id')->on('labels');
@@ -31,6 +31,6 @@ class CreateTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('translations');
+        Schema::dropIfExists('label_translations');
     }
 }
