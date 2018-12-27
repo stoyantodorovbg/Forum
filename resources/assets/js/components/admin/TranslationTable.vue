@@ -1,13 +1,14 @@
 <template>
-    <div>
+    <div class="container">
         <add-translation
             v-if="dataTranslations.length < languages.length - 1"
             :languages="languages"
             :label="label"
             :labels="labels"></add-translation>
-        <table class="table">
+        <table class="table table-sm">
             <thead>
                 <tr>
+                    <th scope="col">{{ labels['edit'] }}</th>
                     <th scope="col">{{ labels['language'] }}</th>
                     <th scope="col">{{ labels['body'] }}</th>
                     <th scope="col">{{ labels['delete'] }}</th>

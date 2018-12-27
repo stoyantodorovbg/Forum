@@ -1,5 +1,12 @@
 <template>
     <tr>
+        <td scope="row">
+            <a :href="this.url">
+                <button class="btn btn-success btn-sm">
+                    <i class="glyphicon glyphicon-pencil">&#x270f;</i>
+                </button>
+            </a>
+        </td>
         <td>{{ translation.language.title }} </td>
         <td>{{ translation.content }}</td>
         <td>
