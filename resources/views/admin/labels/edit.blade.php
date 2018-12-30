@@ -45,17 +45,24 @@
 
             <translation-table :translations="{{ $translations }}"
                                :languages="{{ $languages }}"
-                               :label="{{ $label }}"
+                               :item="{{ $label }}"
                                :labels="{
                                     'language': '{{ label('language') }}',
-                                    'body': '{{ label('body') }}',
                                     'add_a_translation': '{{ label('add_a_translation') }}',
                                     'language': '{{ label('language') }}',
                                     'body': '{{ label('body') }}',
                                     'save_translation': '{{ label('save_translation') }}',
                                     'edit': '{{ label('edit') }}',
                                     'delete': '{{ label('delete') }}',
-                                    }">
+                                    }"
+                               :text_input_labels="{
+                                    'body': '{{ label('body') }}',
+                                    }"
+                               :textarea_input_labels="{}"
+                               :item_name="'label'"
+                               :text_inputs="['content']"
+                               :textarea_inputs="[]"
+                               :url="'/admin/label-translations/store'" >
             </translation-table>
 
             @if($translations->count() == 0)

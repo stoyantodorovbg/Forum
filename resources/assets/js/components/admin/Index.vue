@@ -3,10 +3,7 @@
         <index-model
                 v-for="model in dataModels"
                 :key="model.id"
-                :model="model"
-                :properties="properties"
-                :model_type="model_type"
-                :id_property="id_property">
+                :model="model">
         </index-model>
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </tbody>
@@ -20,7 +17,13 @@
         mixins: [collection],
         components: {IndexModel},
 
-        props: ['models', 'properties', 'model_type', 'search_props', 'id_property'],
+        props: [
+            'models',
+            'properties',
+            'model_type',
+            'search_props',
+            'id_property'
+        ],
 
         data() {
             return {

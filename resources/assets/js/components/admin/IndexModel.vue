@@ -9,7 +9,7 @@
         </td>
 
         <index-property
-            v-for="property in properties"
+            v-for="property in this.$parent.properties"
             :key="property.id"
             :property="property">
         </index-property>
@@ -26,7 +26,7 @@
     export default {
         components: {IndexProperty},
 
-        props: ['model', 'properties', 'model_type', 'id_property'],
+        props: ['model'],
 
         data() {
             return {
@@ -36,7 +36,7 @@
 
         methods: {
             getUrl() {
-                return '/admin/' + this.model_type + '/' + this.model[this.id_property]
+                return '/admin/' + this.$parent.model_type + '/' + this.model[this.$parent.id_property]
             },
 
             deleteItem() {

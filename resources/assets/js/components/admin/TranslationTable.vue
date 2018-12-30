@@ -2,9 +2,7 @@
     <div class="container">
         <add-translation
             v-if="dataTranslations.length < languages.length - 1"
-            :languages="languages"
-            :label="label"
-            :labels="labels"></add-translation>
+            :item="item"></add-translation>
         <table class="table table-sm">
             <thead>
                 <tr>
@@ -32,7 +30,18 @@
     export default {
         components: {Translation, AddTranslation},
 
-        props: ['translations', 'labels', 'languages', 'label',],
+        props: [
+            'translations',
+            'labels',
+            'text_input_labels',
+            'textarea_input_labels',
+            'languages',
+            'item',
+            'item_name',
+            'text_inputs',
+            'textarea_inputs',
+            'url',
+        ],
 
         data() {
             return {

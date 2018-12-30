@@ -1,7 +1,7 @@
 <template>
     <tr>
         <td scope="row">
-            <a :href="this.url">
+            <a href="#">
                 <button class="btn btn-success btn-sm">
                     <i class="glyphicon glyphicon-pencil">&#x270f;</i>
                 </button>
