@@ -56,6 +56,7 @@
                                     'language': '{{ label('language') }}',
                                     'body': '{{ label('body') }}',
                                     'save_translation': '{{ label('save_translation') }}',
+                                    'edit_translation': '{{ label('edit_translation') }}',
                                     'edit': '{{ label('edit') }}',
                                     'delete': '{{ label('delete') }}',
                                     }"

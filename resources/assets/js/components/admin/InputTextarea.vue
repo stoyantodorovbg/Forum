@@ -2,8 +2,8 @@
     <div class="form-group">
         <label class="col-form-label">{{ label }}</label>
         <textarea
-                class="form-control"
-                :id="'translation-' + field" rows="10">{{ value}}</textarea>
+            class="form-control"
+            :id="'translation-' + field" rows="10">{{ value}}</textarea>
     </div>
 </template>
 

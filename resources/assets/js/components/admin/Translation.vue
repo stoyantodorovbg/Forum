@@ -1,13 +1,15 @@
 <template>
     <tr>
-        <td scope="row" v-if="!this.editing">
+        <td v-if="!this.editing" scope="row">
             <button class="btn btn-success btn-sm" type="button" v-on:click="this.editItem">
                 <i class="glyphicon glyphicon-pencil">&#x270f;</i>
             </button>
         </td>
-        <td>{{ translation.language.title }} </td>
-        <td v-for="property in this.$parent.text_inputs">{{ translation[property] }}"</td>
-        <td>
+        <td v-if="!this.editing">{{ translation.language.title }} </td>
+        <div v-if="!this.editing">
+            <td v-for="property in this.$parent.text_inputs">{{ translation[property] }}"</td>
+        </div>
+        <td v-if="!this.editing">
             <button class="btn btn-danger btn-sm"  type="button" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -48,7 +50,6 @@
 
             editItem() {
                 this.editing = true;
-                $('td').css('display', 'none');
             }
         },
     }

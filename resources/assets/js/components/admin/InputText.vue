@@ -3,9 +3,9 @@
         <label class="col-form-label">{{ label }}</label>
         <div>
             <input
-                    class="form-control translation"
-                    :id="'translation-' + field"
-                    :value="value"></div>
+                class="form-control translation"
+                :id="'translation-' + field"
+                :value="value"></div>
     </div>
 </template>
 

@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <button class="btn btn-success" v-on:click="displayInputs()" type="button">
-            {{ this.$parent.$parent.labels['edit_translation'] }}
-        </button>
+    <div v-if="!this.edited">
+        <h1>{{ this.$parent.$parent.labels['edit_translation'] }}</h1>
         <div>
             <div class="form-group">
                 <label class="col-form-label">{{ this.$parent.$parent.labels['language'] }}</label>
@@ -49,6 +47,7 @@
             return {
                 selected: this.isDefaultLanguage(this.$parent.$parent.languages, this.item),
                 translation: this.$parent.translation,
+                edited: false,
             }
         },
 
@@ -75,6 +74,8 @@
             editTranslation() {
                 axios.post(this.$parent.$parent.url + this.translation.id, this.getData()).then(data => {
                     this.$parent.$parent.$data.dataTranslations = data.data.translations;
+                    this.edited = true;
+                    this.$parent.editing = false;
                     flash('Edited.');
                 }).catch(error => {
                     flash(error.response.data, 'danger');
