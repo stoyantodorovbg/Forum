@@ -27,6 +27,7 @@
     import Translation from "./Translation";
     import AddTranslation from "./AddTranslation";
 
+
     export default {
         components: {Translation, AddTranslation},
 

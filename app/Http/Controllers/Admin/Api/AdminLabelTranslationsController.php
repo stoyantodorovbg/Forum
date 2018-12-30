@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class AdminLabelTranslationsController extends Controller
 {
     /**
-     * Store new translation
+     * Store new label translation
      *
      * @param Request $request
      * @return mixed
@@ -28,16 +28,35 @@ class AdminLabelTranslationsController extends Controller
     }
 
     /**
-     * Delete a translation
+     * Update a label translation
      *
-     * @param LabelTranslation $translation
+     * @param LabelTranslation $labelTranslation
+     * @return array
+     */
+    public function update(LabelTranslation $labelTranslation)
+    {
+        $labelTranslation->update(request()->all());
+
+        $labelId = $labelTranslation->label->id;
+
+        return [
+            'translations' => LabelTranslation::where('label_id', $labelId)
+                ->with('language')
+                ->get()
+        ];
+    }
+
+    /**
+     * Delete a label translation
+     *
+     * @param LabelTranslation $labelTranslation
      * @return array
      * @throws \Exception
      */
-    public function destroy(LabelTranslation $translation)
+    public function destroy(LabelTranslation $labelTranslation)
     {
-        $labelId = $translation->label->id;
-        $translation->delete();
+        $labelId = $labelTranslation->label->id;
+        $labelTranslation->delete();
 
         return [
             'translations' => LabelTranslation::where('label_id', $labelId)

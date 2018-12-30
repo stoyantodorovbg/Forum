@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class AdminThreadTranslationsController extends Controller
 {
     /**
-     * Store new translation
+     * Store new thread translation
      *
      * @param Request $request
      * @return mixed
@@ -28,16 +28,35 @@ class AdminThreadTranslationsController extends Controller
     }
 
     /**
-     * Delete a translation
+     * Update a thread translation
      *
-     * @param ThreadTranslation $translation
+     * @param ThreadTranslation $threadTranslation
+     * @return array
+     */
+    public function update(ThreadTranslation $threadTranslation)
+    {
+        $threadTranslation->update(request()->all());
+
+        $threadId = $threadTranslation->thread->id;
+
+        return [
+            'translations' => ThreadTranslation::where('thread_id', $threadId)
+                ->with('language')
+                ->get()
+        ];
+    }
+
+    /**
+     * Delete a thread translation
+     *
+     * @param ThreadTranslation $threadTranslation
      * @return array
      * @throws \Exception
      */
-    public function destroy(ThreadTranslation $translation)
+    public function destroy(ThreadTranslation $threadTranslation)
     {
-        $threadId = $translation->thread->id;
-        $translation->delete();
+        $threadId = $threadTranslation->thread->id;
+        $threadTranslation->delete();
 
         return [
             'translations' => ThreadTranslation::where('thread_id', $threadId)

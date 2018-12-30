@@ -398,7 +398,7 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 65,
             'language_id' => 2,
-            'content' => 'Няма преводи за този етикет.',
+            'content' => 'Няма преводи за този обект.',
         ]);
 
         DB::table('label_translations')->insert([
@@ -411,6 +411,12 @@ class TranslationsTableSeeder extends Seeder
             'label_id' => 67,
             'language_id' => 2,
             'content' => 'Запази този превод',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 68,
+            'language_id' => 2,
+            'content' => 'Редактиране на превод',
         ]);
     }
 }

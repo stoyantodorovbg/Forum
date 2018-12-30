@@ -1,25 +1,38 @@
 <template>
     <tr>
-        <td scope="row">
-            <a href="#">
-                <button class="btn btn-success btn-sm">
-                    <i class="glyphicon glyphicon-pencil">&#x270f;</i>
-                </button>
-            </a>
+        <td scope="row" v-if="!this.editing">
+            <button class="btn btn-success btn-sm" type="button" v-on:click="this.editItem">
+                <i class="glyphicon glyphicon-pencil">&#x270f;</i>
+            </button>
         </td>
         <td>{{ translation.language.title }} </td>
-        <td v-for="property in this.$parent.text_inputs">{{ translation[property] }}</td>
+        <td v-for="property in this.$parent.text_inputs">{{ translation[property] }}"</td>
         <td>
             <button class="btn btn-danger btn-sm"  type="button" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
             </button>
         </td>
+        <edit-translation
+                v-if="this.editing"
+                :item="this.$parent.item"
+                :translation="translation"
+        ></edit-translation>
     </tr>
 </template>
 
 <script>
+    import EditTranslation from "./EditTranslation";
+
     export default {
+        components: {EditTranslation},
+
         props: ['translation'],
+
+        data() {
+            return {
+                editing: false,
+            }
+        },
 
         methods: {
             deleteItem() {
@@ -32,6 +45,11 @@
                     flash(error.response.data, 'danger');
                 });
             },
+
+            editItem() {
+                this.editing = true;
+                $('td').css('display', 'none');
+            }
         },
     }
 </script>

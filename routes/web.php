@@ -69,10 +69,12 @@ Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
 Route::post('/admin/label-translations/store', 'Admin\Api\AdminLabelTranslationsController@store');
-Route::delete('/admin/label-translations/{translation}', 'Admin\Api\AdminLabelTranslationsController@destroy');
+Route::post('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@update');
+Route::delete('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@destroy');
 
 Route::post('/admin/thread-translations/store', 'Admin\Api\AdminThreadTranslationsController@store');
-Route::delete('/admin/thread-translations/{translation}', 'Admin\Api\AdminThreadTranslationsController@destroy');
+Route::post('/admin/thread-translations/{threadTranslation}', 'Admin\Api\AdminThreadTranslationsController@update');
+Route::delete('/admin/thread-translations/{threadTranslation}', 'Admin\Api\AdminThreadTranslationsController@destroy');
 
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
