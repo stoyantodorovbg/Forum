@@ -60,7 +60,7 @@
                                :item_name="'label'"
                                :text_inputs="['content']"
                                :textarea_inputs="[]"
-                               :url="'/admin/label-translations/store'" >
+                               :url="'/admin/label-translations/'" >
             </translation-table>
 
             @if($translations->count() == 0)

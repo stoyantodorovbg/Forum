@@ -8,7 +8,7 @@
                 <tr>
                     <th scope="col">{{ labels['edit'] }}</th>
                     <th scope="col">{{ labels['language'] }}</th>
-                    <th scope="col">{{ labels['body'] }}</th>
+                    <th scope="col" v-for="field in this.text_input_labels">{{ field[0] }}</th>
                     <th scope="col">{{ labels['delete'] }}</th>
                 </tr>
             </thead>

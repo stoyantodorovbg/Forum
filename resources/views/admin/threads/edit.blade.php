@@ -68,7 +68,7 @@
                                :item_name="'thread'"
                                :text_inputs="['title']"
                                :textarea_inputs="['body']"
-                               :url="'/admin/thread-translations/store'" >
+                               :url="'/admin/thread-translations/'" >
             </translation-table>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
