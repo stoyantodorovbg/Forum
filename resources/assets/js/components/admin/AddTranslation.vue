@@ -17,12 +17,14 @@
                     </option>
                 </select>
             </div>
-            <input-text v-for="label_name in this.$parent.text_input_labels"
-                        :label="label_name"
-                        :key="label_name.id"></input-text>
-            <input-textarea v-for="label_name in this.$parent.textarea_input_labels"
-                            :label="label_name"
-                            :key="label_name.id"></input-textarea>
+            <input-text v-for="input in this.$parent.text_input_labels"
+                        :label="input[0]"
+                        :field="input[1]"
+                        :key="input.id"></input-text>
+            <input-textarea v-for="input in this.$parent.textarea_input_labels"
+                        :label="input[0]"
+                        :field="input[1]"
+                        :key="input.id"></input-textarea>
             <button class="btn btn-success" id="saveTranslation" type="button" v-on:click="addTranslation()">
                 {{ this.$parent.labels['save_translation'] }}
             </button>
@@ -32,9 +34,10 @@
 
 <script>
     import InputText from "./InputText";
+    import InputTextarea from "./InputTextarea";
 
     export default {
-        components: {InputText},
+        components: {InputText, InputTextarea},
 
         props: [
             'item',
@@ -72,6 +75,16 @@
             },
 
             addTranslation() {
+                axios.post(this.$parent.url, this.getData()).then(data => {
+                    this.$parent.$data.dataTranslations = data.data.translations;
+                    flash('Added.');
+                }).catch(error => {
+                    flash(error.response.data, 'danger');
+                });
+                this.addingTranslation = false;
+            },
+
+            getData() {
                 let data = {
                     language_id: $('.translation-language-id').val(),
                 };
@@ -80,21 +93,15 @@
                 data[item_id] = this.item.id;
 
                 for (let input of this.$parent.text_inputs) {
-                    data[input] = $('.translation-' + input).val();
+                    data[input] = $('#translation-' + input).val();
                 }
 
                 for (let input of this.$parent.textarea_inputs) {
-                    data[input] = $('.translation-' + input).val();
+                    data[input] = $('#translation-' + input).val();
                 }
 
-                axios.post(this.$parent.url, data).then(data => {
-                    this.$parent.$data.dataTranslations = data.data.translations;
-                    flash('Added.');
-                }).catch(error => {
-                    flash(error.response.data, 'danger');
-                });
-                this.addingTranslation = false;
-            },
+                return data;
+            }
         }
     }
 </script>

@@ -40,9 +40,7 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="font-weight-bold">{{ label('translations') }}</div>
-
             <translation-table :translations="{{ $translations }}"
                                :languages="{{ $languages }}"
                                :item="{{ $label }}"
@@ -56,7 +54,7 @@
                                     'delete': '{{ label('delete') }}',
                                     }"
                                :text_input_labels="{
-                                    'body': '{{ label('body') }}',
+                                    'body': ['{{ label('body') }}', 'content'],
                                     }"
                                :textarea_input_labels="{}"
                                :item_name="'label'"
@@ -68,16 +66,6 @@
             @if($translations->count() == 0)
                 <p>{{ label('translations_empty') }}</p>
             @endif
-            {{--@if($translations->count() < $languages->count())--}}
-                {{--<add-translation--}}
-                    {{--:languages="{{ $languages }}"--}}
-                    {{--:label="{{ $label }}"--}}
-                    {{--:labels="{'add_a_translation': '{{ label('add_a_translation') }}',--}}
-                        {{--'language': '{{ label('language') }}',--}}
-                        {{--'body': '{{ label('body') }}',--}}
-                        {{--'save_translation': '{{ label('save_translation') }}',--}}
-                        {{--}"></add-translation>--}}
-            {{--@endif--}}
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.labels') }}">

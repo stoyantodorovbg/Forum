@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\User;
 use App\Models\Thread;
 use App\Models\Channel;
+use App\Models\Language;
 use Illuminate\Http\Request;
+use App\Models\ThreadTranslation;
 use App\Http\Controllers\Controller;
 
 class AdminThreadsController extends Controller
@@ -55,7 +58,12 @@ class AdminThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
-        return view('admin.threads.edit', compact('thread'));
+        $languages = Language::all();
+        $translations = ThreadTranslation::where('thread_id', $thread->id)
+            ->with('language')
+            ->get();
+
+        return view('admin.threads.edit', compact('thread', 'languages', 'translations'));
     }
 
     /**
