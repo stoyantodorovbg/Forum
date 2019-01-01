@@ -21,7 +21,7 @@
            type="text"
            name="title"
            id="title"
-           value="{{ isset($thread) ? $thread->title : old('title') }}"
+           value="{{ isset($thread) ? translateProp('Thread', $thread->id, 'title') : old('title') }}"
            required>
 </div>
 

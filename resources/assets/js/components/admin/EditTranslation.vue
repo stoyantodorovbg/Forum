@@ -9,7 +9,7 @@
                             v-for="language in this.$parent.$parent.languages"
                             v-if="language.id !== item.default_language_id &&
                         !labelLanguages.includes(language.title)"
-                            v-model="selected"
+                            v-on:option="isDefaultLanguage(language, item)"
                             :value="language.id">
                         {{ language.title }}
                     </option>
@@ -64,6 +64,12 @@
 
         methods: {
             isDefaultLanguage(language, item) {
+                if(language.id === item.language_id) {
+                    return 'selected';
+                }
+
+                return '';
+
                 if(language.id !== item.default_language_id) {
                     return '';
                 }

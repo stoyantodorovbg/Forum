@@ -5,10 +5,10 @@
                 <a href="{{ $thread->path() }}">
                     @if(auth()->check() && $thread->hasUpdatesFor())
                     <strong>
-                        {{ $thread->title }}
+                        {{ translateProp('Thread', $thread->id, 'title') }}
                     </strong>
                     @else
-                    {{ $thread->title }}
+                        {{ translateProp('Thread', $thread->id, 'title') }}
                     @endif
                 </a>
             </h4>
@@ -19,6 +19,7 @@
         <div class="card-body">
             <article>
                 <p>
+                    {!! translateProp('Thread', $thread->id, 'body') !!}
                     {!! $thread->body !!}
                 </p>
                 <p>
