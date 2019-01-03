@@ -3,7 +3,7 @@
     import SubscribeButton from '../SubscribeButton.vue';
 
     export default {
-        props: ['thread'],
+        props: ['thread', 'language_id'],
 
         components: { Replies, SubscribeButton },
 
@@ -17,7 +17,16 @@
                     body: this.thread.body,
                     channel_id: this.thread.channel_id,
                 },
+                translation: "",
             }
+        },
+
+        created() {
+            axios.get('/api/thread-translation?thread_id=' + this.thread.id + '&language_id=' + this.language_id)
+                .then((response) => {
+                    this.translation =  response.data;
+                });
+
         },
 
         methods: {
@@ -26,11 +35,13 @@
 
                 this.locked = ! this.locked;
             },
+
             cancel() {
                 this.form.title = this.thread.title;
                 this.form.body = this.thread.body;
                 this.editing = false;
             },
+
             update() {
                 axios.patch('/threads/' + this.thread.slug, {
                     title: this.form.title,

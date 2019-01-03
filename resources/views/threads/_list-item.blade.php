@@ -20,7 +20,6 @@
             <article>
                 <p>
                     {!! translateProp('Thread', $thread->id, 'body') !!}
-                    {!! $thread->body !!}
                 </p>
                 <p>
                     {{ $thread->replies_count }} {{ $thread->replies_count > 1 ? label('comment') : label('comments')}}

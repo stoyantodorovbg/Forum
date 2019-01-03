@@ -53,7 +53,7 @@
         },
 
         computed: {
-            ago(){
+            ago() {
                 return moment(this.data.created_at).fromNow();
             },
         },

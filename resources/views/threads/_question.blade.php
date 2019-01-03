@@ -15,7 +15,7 @@
     </div>
 
     <div class="card-body">
-        <img class="thread-image" src="/storage/{{ $thread->image }}" alt="{{ $thread->title }}">
+        <img class="thread-image" src="/storage/{{ $thread->image }}" alt="{{ translateProp('Thread', $thread->id, 'title') }}">
         <p v-html="form.body"></p>
     </div>
 
