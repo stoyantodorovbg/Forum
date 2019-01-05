@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Thread;
 use App\Models\Channel;
 use App\Redis\Trending;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
 use Illuminate\Support\Facades\Auth;
@@ -97,7 +98,9 @@ class ThreadsController extends Controller
 
         $trending->push($thread);
 
-        return view('threads.show', compact('thread'));
+        $languageName = Language::find($_COOKIE['language'])->title;
+
+        return view('threads.show', compact('thread', 'languageName'));
     }
 
     /**
@@ -128,7 +131,9 @@ class ThreadsController extends Controller
 
         $thread->update($threadData);
 
-        return view('threads.show', compact('thread'));
+        $languageName = Language::find($_COOKIE['language'])->title;
+
+        return view('threads.show', compact('thread', 'languageName'));
     }
 
     /**

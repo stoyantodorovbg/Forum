@@ -24,9 +24,21 @@
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
 
-            <button class="btn btn-danger thread-delete" type="submit">{{ label('delete') }}</button>
+            <button class="btn btn-danger thread-delete"
+                    type="submit">
+                {{ label('delete') }}
+            </button>
         </form>
-        <button class="btn btn-xs" @click="editing = true">{{ label('edit') }}</button>
+        <button class="btn btn-xs"
+                @click="editing = true">
+            {{ label('edit') }}
+        </button>
+        <button v-if="!translation"
+                class="btn btn-xs"
+                @click="addingTranslation = true; editing = true;"
+                >
+            {{ label('add_translation_on') . $languageName }}
+        </button>
     </div>
 </div>
 
@@ -68,7 +80,7 @@
 
     <div class="card-footer">
         <div class="form-footer">
-            <button class="btn btn-xs btn-primary" @click="update">{{ label('save') }}</button>
+            <button class="btn btn-xs btn-primary" @click="storeChanges">{{ label('save') }}</button>
             <button class="btn btn-xs" @click="cancel">{{ label('cancel') }}</button>
         </div>
     </div>

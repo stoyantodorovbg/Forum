@@ -23,11 +23,27 @@ class ThreadTranslationsController extends Controller
     }
 
     /**
+     * Create a ThreadTranslation
+     *
      * @param Request $request
-     * @param Thread $thread
+     * @return mixed
+     */
+    public function store(Request $request)
+    {
+        return ThreadTranslation::create($request->all());
+    }
+
+    /**
+     * Update the ThreadTranslation
+     *
+     * @param Request $request
+     * @param ThreadTranslation $threadTranslation
+     * @return ThreadTranslation
      */
     public function update(Request $request, ThreadTranslation $threadTranslation)
     {
         $threadTranslation->update($request->all());
+
+        return $threadTranslation;
     }
 }

@@ -59,6 +59,7 @@ Route::get('api/users', 'Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar_path');
 Route::get('api/thread-translation', 'Api\ThreadTranslationsController@getThreadTranslation');
 Route::patch('threads/api/thread-translation/{threadTranslation}', 'Api\ThreadTranslationsController@update');
+Route::post('threads/api/thread-translation', 'Api\ThreadTranslationsController@store');
 
 // Back-office API routes
 Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');

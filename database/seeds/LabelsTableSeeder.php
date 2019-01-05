@@ -418,5 +418,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Edit Translation',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_translation_on',
+            'default_content' => 'Add Translation on ',
+            'default_language_id' => 1,
+        ]);
     }
 }
