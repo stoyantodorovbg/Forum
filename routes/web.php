@@ -57,7 +57,8 @@ Route::get('register/confirm', 'Api\RegisterConformationController@index')->name
 // API routes
 Route::get('api/users', 'Api\UsersController@index');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar_path');
-Route::get('api/thread-translation', 'Api\ThreadsController@getThreadTranslation');
+Route::get('api/thread-translation', 'Api\ThreadTranslationsController@getThreadTranslation');
+Route::patch('threads/api/thread-translation/{threadTranslation}', 'Api\ThreadTranslationsController@update');
 
 // Back-office API routes
 Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');

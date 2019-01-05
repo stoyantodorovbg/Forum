@@ -118,8 +118,8 @@ class ThreadsController extends Controller
             throw new \Illuminate\Auth\Access\AuthorizationException;
 
         $this->validate($request, [
-            'title' => 'required|spamfree',
-            'body' => 'required|spamfree',
+            'title' => 'spamfree',
+            'body' => 'spamfree',
             'channel_id' => 'required|exists:channels,id',
             'image' => 'image',
         ]);
@@ -186,10 +186,20 @@ class ThreadsController extends Controller
     {
 
         $threadData = [
-            'title' => $request['title'],
-            'body' => $request['body'],
             'channel_id' => $request['channel_id']
         ];
+
+        if($request['title'] != NULL) {
+            $threadData['title'] = $request['title'];
+        }
+
+        if($request['body'] != NULL) {
+            $threadData['body'] = $request['body'];
+        }
+
+        if($userId != NULL) {
+            $threadData['user_id'] = $userId;
+        }
 
         if($userId != NULL) {
             $threadData['user_id'] = $userId;
