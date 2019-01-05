@@ -37,7 +37,12 @@
                 class="btn btn-xs"
                 @click="addingTranslation = true; editing = true;"
                 >
-            {{ label('add_translation_on') . $languageName }}
+            {{ label('add_translation_on_with_space') . $languageName }}
+        </button>
+        <button v-if="translation"
+                class="btn btn-danger btn-xs"
+                @click="deleteTranslation()">
+            {{ label('delete_with_space') . $languageName . label('space_with_translation') }}
         </button>
     </div>
 </div>
@@ -83,5 +88,12 @@
             <button class="btn btn-xs btn-primary" @click="storeChanges">{{ label('save') }}</button>
             <button class="btn btn-xs" @click="cancel">{{ label('cancel') }}</button>
         </div>
+        <div class="form-footer" v-if="translation">
+            <button class="btn btn-danger btn-xs"
+                    @click="deleteTranslation()">
+                {{ label('delete_with_space') . $languageName . label('space_with_translation') }}
+            </button>
+        </div>
+
     </div>
 </div>

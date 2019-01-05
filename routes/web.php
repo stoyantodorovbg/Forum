@@ -60,6 +60,7 @@ Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middle
 Route::get('api/thread-translation', 'Api\ThreadTranslationsController@getThreadTranslation');
 Route::patch('threads/api/thread-translation/{threadTranslation}', 'Api\ThreadTranslationsController@update');
 Route::post('threads/api/thread-translation', 'Api\ThreadTranslationsController@store');
+Route::delete('threads/api/thread-translation/{threadTranslation}', 'Api\ThreadTranslationsController@destroy');
 
 // Back-office API routes
 Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');

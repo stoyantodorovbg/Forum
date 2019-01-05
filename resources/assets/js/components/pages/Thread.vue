@@ -88,18 +88,6 @@
                 }
             },
 
-            updateRequest(url, data, flash, updateTranslation) {
-                axios.patch(url, data).then((response) => {
-                    this.editing = false;
-                    if(updateTranslation) {
-                        this.translation = response.data;
-                    }
-                    if (flash) {
-                        flash(flash);
-                    }
-                });
-            },
-
             storeTranslationRequest() {
                 axios.post('api/thread-translation', {
                     language_id: this.language_id,
@@ -111,6 +99,27 @@
                     this.addingTranslation = false;
                     this.translation = response.data;
                     flash('The translation is added.');
+                });
+            },
+
+            deleteTranslation() {
+                axios.delete('api/thread-translation/' + this.translation.id)
+                    .then(() => {
+                            this.translation = '';
+                            this.setThreadProperties();
+                            flash('The translation is deleted.');
+                    });
+            },
+
+            updateRequest(url, data, flash, updateTranslation) {
+                axios.patch(url, data).then((response) => {
+                    this.editing = false;
+                    if(updateTranslation) {
+                        this.translation = response.data;
+                    }
+                    if (flash) {
+                        flash(flash);
+                    }
                 });
             },
 

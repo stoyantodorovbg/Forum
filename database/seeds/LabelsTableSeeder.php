@@ -420,8 +420,20 @@ class LabelsTableSeeder extends Seeder
         ]);
 
         DB::table('labels')->insert([
-            'system_name' => 'add_translation_on',
+            'system_name' => 'add_translation_on_with_space',
             'default_content' => 'Add Translation on ',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'delete_with_space',
+            'default_content' => 'Delete ',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'space_with_translation',
+            'default_content' => ' translation',
             'default_language_id' => 1,
         ]);
     }

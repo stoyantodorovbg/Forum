@@ -46,4 +46,15 @@ class ThreadTranslationsController extends Controller
 
         return $threadTranslation;
     }
+
+    /**
+     * Delete the ThreadTranslation
+     *
+     * @param ThreadTranslation $threadTranslation
+     * @throws \Exception
+     */
+    public function destroy(ThreadTranslation $threadTranslation)
+    {
+        $threadTranslation->delete();
+    }
 }
