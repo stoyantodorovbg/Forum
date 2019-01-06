@@ -2,10 +2,11 @@
 
 namespace App;
 
-use App\Models\Reply;
 use Carbon\Carbon;
+use App\Models\Reply;
 use App\Models\Thread;
 use App\Models\Activity;
+use App\Models\Auth\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -78,6 +79,16 @@ class User extends Authenticatable
     public function activity()
     {
         return $this->hasMany(Activity::class);
+    }
+
+    /**
+     * The roles that belong to the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 
     /**
