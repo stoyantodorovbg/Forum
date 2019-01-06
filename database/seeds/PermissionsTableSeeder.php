@@ -261,19 +261,19 @@ class PermissionsTableSeeder extends Seeder
 
         //RepliesPublish id 10
         DB::table('permissions')->insert([
-            'title' => 'Reply_Publish',
+            'system_name' => 'Reply_Publish',
             'title' => 'RepliesPublish',
         ]);
 
         //rights
         DB::table('permissions_rights')->insert([
-            'permission_id' => 11,
+            'permission_id' => 10,
             'right_id' => 9,
         ]);
 
         DB::table('permissions_rights')->insert([
             'permission_id' => 10,
-            'right_id' => 9,
+            'right_id' => 11,
         ]);
 
         //roles

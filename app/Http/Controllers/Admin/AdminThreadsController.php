@@ -14,6 +14,14 @@ use App\Http\Controllers\Controller;
 class AdminThreadsController extends Controller
 {
     /**
+     * AdminHomeController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('user-roles:SuperAdmin,Admin,Moderator');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

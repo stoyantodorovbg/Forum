@@ -7,6 +7,7 @@ use App\Models\Reply;
 use App\Models\Thread;
 use App\Models\Activity;
 use App\Models\Auth\Role;
+use App\Models\Auth\Permission;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -82,13 +83,23 @@ class User extends Authenticatable
     }
 
     /**
-     * The roles that belong to the user.
+     * The roles that belong to the user
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'users_roles');
+    }
+
+    /**
+     * The permissions that belong to the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function permissions()
+    {
+        return$this->belongsToMany(Permission::class, 'users_permissions');
     }
 
     /**
@@ -147,5 +158,26 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return in_array($this->name, ['Admin']);
+    }
+
+    /**
+     * Check if the user has e role
+     *
+     * @param $role
+     * @return mixed
+     */
+    public function hasRole($role)
+    {
+        return $this->roles()->where('title', $role)->first();
+    }
+
+    /**
+     * Check if the user has e permission
+     * @param $permission
+     * @return mixed
+     */
+    public function hasPermission($permission)
+    {
+        return $this->permission()->where('title', $permission)->first();
     }
 }

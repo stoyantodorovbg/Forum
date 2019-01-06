@@ -31,19 +31,19 @@ class RightsTableSeeder extends Seeder
             'title' => 'Read',
         ]);
 
-        //Create id 5
+        //Store id 5
         DB::table('rights')->insert([
-            'title' => 'Create',
+            'title' => 'Store',
         ]);
 
         //Update id 6
         DB::table('rights')->insert([
-            'title' => 'Update',
+            'title' => 'update',
         ]);
 
-        //Delete id 7
+        //Destroy id 7
         DB::table('rights')->insert([
-            'title' => 'Delete',
+            'title' => 'destroy',
         ]);
 
         //Only id 8
