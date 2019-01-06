@@ -8,11 +8,14 @@ use App\Models\Thread;
 use App\Models\Channel;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Models\ThreadTranslation;
 use App\Http\Controllers\Controller;
 
 class AdminThreadsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * AdminHomeController constructor.
      */
@@ -28,6 +31,8 @@ class AdminThreadsController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Thread','index', true);
+
         return view('admin.threads.index');
     }
 
@@ -38,6 +43,8 @@ class AdminThreadsController extends Controller
      */
     public function create()
     {
+        $this->authenticate('Reply','store', true);
+
         $channels = Channel::all();
         $users = User::all();
 
@@ -52,6 +59,8 @@ class AdminThreadsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $thread = new Thread($request->all());
         $thread->save();
 
@@ -66,6 +75,8 @@ class AdminThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $languages = Language::all();
         $translations = ThreadTranslation::where('thread_id', $thread->id)
             ->with('language')
@@ -83,6 +94,8 @@ class AdminThreadsController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $thread->update($request->all());
 
         return redirect()->back();

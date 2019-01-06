@@ -6,10 +6,13 @@ use App\User;
 use App\Models\Reply;
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
 class AdminRepliesController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * AdminHomeController constructor.
      */
@@ -25,6 +28,8 @@ class AdminRepliesController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         return view('admin.replies.index');
     }
 
@@ -35,6 +40,8 @@ class AdminRepliesController extends Controller
      */
     public function create()
     {
+        $this->authenticate('Reply','store', true);
+
         $threads = Thread::all();
         $users = User::all();
 
@@ -49,6 +56,8 @@ class AdminRepliesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $reply = new Reply($request->all());
         $reply->save();
 
@@ -63,6 +72,8 @@ class AdminRepliesController extends Controller
      */
     public function edit(Reply $reply)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         return view('admin.replies.edit', compact('reply'));
     }
 
@@ -75,6 +86,8 @@ class AdminRepliesController extends Controller
      */
     public function update(Request $request, Reply $reply)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $reply->update($request->all());
 
         return redirect()->back();

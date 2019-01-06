@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
 class AdminHomeController extends Controller
 {
-
+    use CheckUserRights;
 
     /**
      * AdminHomeController constructor.
@@ -24,6 +25,8 @@ class AdminHomeController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Home',__FUNCTION__, true);
+
         return view('admin.home');
     }
 }

@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Label;
 use App\Models\Language;
-use App\Models\LabelTranslation;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
+use App\Models\LabelTranslation;
 use App\Http\Controllers\Controller;
 
 class AdminLabelsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * AdminHomeController constructor.
      */
@@ -25,6 +28,8 @@ class AdminLabelsController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         return view('admin.labels.index');
     }
 
@@ -35,6 +40,8 @@ class AdminLabelsController extends Controller
      */
     public function create()
     {
+        $this->authenticate('Label','store', true);
+
         $languages = Language::all();
 
         return view('admin.labels.create', compact('languages'));
@@ -48,6 +55,8 @@ class AdminLabelsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $label = new Label($request->all());
         $label->save();
 
@@ -62,6 +71,8 @@ class AdminLabelsController extends Controller
      */
     public function edit(Label $label)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $languages = Language::all();
         $translations = LabelTranslation::where('label_id', $label->id)
             ->with('language')
@@ -81,6 +92,8 @@ class AdminLabelsController extends Controller
      */
     public function update(Request $request, Label $label)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $label->update($request->all());
 
         return redirect()->back();

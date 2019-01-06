@@ -14,7 +14,7 @@ class Permission extends Model
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'roles_permissions');
     }
 
     /**
@@ -32,8 +32,8 @@ class Permission extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function right()
+    public function rights()
     {
-        return $this->belongsToMany(Right::class);
+        return $this->belongsToMany(Right::class, 'permissions_rights');
     }
 }

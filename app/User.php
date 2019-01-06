@@ -35,6 +35,8 @@ class User extends Authenticatable
         'confirmed' => 'boolean'
     ];
 
+    protected $permissionsWithRights = [];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -179,5 +181,28 @@ class User extends Authenticatable
     public function hasPermission($permission)
     {
         return $this->permission()->where('title', $permission)->first();
+    }
+
+    /**
+     * Fetch the rights that have all user role permissions
+     *
+     * @return mixed
+     */
+    public function getUserRolePermissions()
+    {
+        $this->roles()
+            ->with('permissions.rights')
+            ->get()
+            ->map(function ($role) {
+                return $role->permissions
+                    ->map(function ($permission) {
+                    return $permission->rights
+                        ->map(function ($right) use ($permission) {
+                            $this->permissionsWithRights[$permission->title][] = $right->title;
+                        });
+                });
+            });
+
+        return $this->permissionsWithRights;
     }
 }

@@ -11,64 +11,69 @@ class RightsTableSeeder extends Seeder
      */
     public function run()
     {
-        //CRUD id 1
+        //Full id 1
         DB::table('rights')->insert([
             'title' => 'Full',
         ]);
 
-        //CRUD id 2
+        //BackOffice id 2
         DB::table('rights')->insert([
             'title' => 'BackOffice',
         ]);
 
-        //CRUD id 3
+        //Store id 3
         DB::table('rights')->insert([
-            'title' => 'CRUD',
+            'title' => 'store',
         ]);
 
-        //Read id 4
-        DB::table('rights')->insert([
-            'title' => 'Read',
-        ]);
-
-        //Store id 5
-        DB::table('rights')->insert([
-            'title' => 'Store',
-        ]);
-
-        //Update id 6
+        //Update id 4
         DB::table('rights')->insert([
             'title' => 'update',
         ]);
 
-        //Destroy id 7
+        //Destroy id 5
         DB::table('rights')->insert([
             'title' => 'destroy',
         ]);
 
-        //Only id 8
-        DB::table('rights')->insert([
-            'title' => 'Only',
-        ]);
-
-        //Publish id 9
+        //Publish id 6
         DB::table('rights')->insert([
             'title' => 'Publish',
         ]);
 
-        //Thread id 10
+        //Thread id 7
         DB::table('rights')->insert([
             'title' => 'Thread',
         ]);
 
-        //Reply id 11
+        //Reply id 8
         DB::table('rights')->insert([
             'title' => 'Reply',
         ]);
 
-        //Label id 12
+        //Label id 9
         DB::table('rights')->insert([
             'title' => 'Label',
+        ]);
+
+        //Index id 10
+        DB::table('rights')->insert([
+            'title' => 'index',
+        ]);
+
+        //Edit id 11
+        DB::table('rights')->insert([
+            'title' => 'edit',
+        ]);
+
+        //Show id 12
+        DB::table('rights')->insert([
+            'title' => 'show',
+        ]);
+
+        //Show id 13
+        DB::table('rights')->insert([
+            'title' => 'Home',
         ]);
     }
 }
