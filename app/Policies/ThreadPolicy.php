@@ -55,9 +55,9 @@ class ThreadPolicy
     /**
      * Determine whether the user can delete the thread.
      *
-     * @param  \App\User  $user
-     * @param  \App\Thread  $thread
-     * @return mixed
+     * @param User $user
+     * @param Thread $thread
+     * @return bool
      */
     public function delete(User $user, Thread $thread)
     {
