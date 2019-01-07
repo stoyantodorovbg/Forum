@@ -11,9 +11,9 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        //FullBackOffice id 1
+        //AdminBackOffice id 1
         DB::table('permissions')->insert([
-            'system_name' => 'Full_BackOffice',
+            'system_name' => 'Admin_BackOffice',
             'title' => 'FullBackOffice',
         ]);
 
@@ -117,10 +117,10 @@ class PermissionsTableSeeder extends Seeder
             'right_id' => 4,
         ]);
 
-        //ThreadsPublish id 5
+        //ThreadsStore id 5
         DB::table('permissions')->insert([
-            'system_name' => 'Thread_Publish',
-            'title' => 'ThreadsPublish',
+            'system_name' => 'Thread_Store',
+            'title' => 'ThreadsStore',
         ]);
 
         //rights
@@ -131,7 +131,7 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions_rights')->insert([
             'permission_id' => 5,
-            'right_id' => 6,
+            'right_id' => 3,
         ]);
 
         //roles
@@ -140,10 +140,10 @@ class PermissionsTableSeeder extends Seeder
             'permission_id' => 5,
         ]);
 
-        //RepliesPublish id 6
+        //RepliesStore id 6
         DB::table('permissions')->insert([
-            'system_name' => 'Reply_Publish',
-            'title' => 'RepliesPublish',
+            'system_name' => 'Reply_Store',
+            'title' => 'RepliesStore',
         ]);
 
         //rights
@@ -154,7 +154,7 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions_rights')->insert([
             'permission_id' => 6,
-            'right_id' => 8,
+            'right_id' => 3,
         ]);
 
         //roles

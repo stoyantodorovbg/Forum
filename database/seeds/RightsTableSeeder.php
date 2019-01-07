@@ -13,7 +13,7 @@ class RightsTableSeeder extends Seeder
     {
         //Full id 1
         DB::table('rights')->insert([
-            'title' => 'Full',
+            'title' => 'Admin',
         ]);
 
         //BackOffice id 2
