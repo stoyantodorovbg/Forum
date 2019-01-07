@@ -8,10 +8,13 @@ use App\Redis\Trending;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Filters\ThreadFilters;
+use App\Traits\CheckUserRights;
 use Illuminate\Support\Facades\Auth;
 
 class ThreadsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * AdminThreadsController constructor.
      */
@@ -62,6 +65,8 @@ class ThreadsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Reply',__FUNCTION__, false);
+
         $this->validate($request, [
             'title' => 'required|spamfree',
             'body' => 'required|spamfree',

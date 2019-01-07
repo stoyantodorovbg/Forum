@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Reply;
 use App\Models\Thread;
 use App\Forms\CreatePostForm;
+use App\Traits\CheckUserRights;
 use Illuminate\Support\Facades\Gate;
 
 class RepliesController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * RepliesController constructor.
      */
@@ -18,7 +21,6 @@ class RepliesController extends Controller
     }
 
     /**
-     * @param $channelId
      * @param Thread $thread
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
@@ -34,6 +36,8 @@ class RepliesController extends Controller
      */
     public function store(Thread $thread, CreatePostForm $form)
     {
+        $this->authenticate('Reply',__FUNCTION__, false);
+
         if($thread->locked) {
             return response('This thread is locked', 422);
         }
