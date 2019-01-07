@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin\Api;
 
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
 class AdminThreadsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * Display a listing of filtered resources.
      *
@@ -15,6 +18,8 @@ class AdminThreadsController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Thread',__FUNCTION__, true);
+
         $title = request()->title;
         $owner = request()->owner;
         $from = date( request()->created_at_from);
@@ -35,6 +40,8 @@ class AdminThreadsController extends Controller
      */
     public function destroy(Thread $thread)
     {
+        $this->authenticate('Thread',__FUNCTION__, true);
+
         $thread->delete();
 
         return response([], 204);
@@ -43,11 +50,11 @@ class AdminThreadsController extends Controller
     /**
      * Create a query according to search inputs
      *
-     * @param $body
-     * @param $name
+     * @param $title
+     * @param $owner
      * @param $from
      * @param $to
-     * @return Thread|\Illuminate\Database\Eloquent\Builder
+     * @return Thread|\Illuminate\Database\Eloquent\Builder|mixed
      */
     protected function createSearchQuery($title, $owner, $from, $to)
     {

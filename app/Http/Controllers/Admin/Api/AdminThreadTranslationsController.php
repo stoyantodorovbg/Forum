@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Models\ThreadTranslation;
 use App\Http\Controllers\Controller;
 
 class AdminThreadTranslationsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * Store new thread translation
      *
@@ -16,6 +19,8 @@ class AdminThreadTranslationsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Thread',__FUNCTION__, true);
+
         $translation = new ThreadTranslation($request->all());
 
         $translation->save();
@@ -35,6 +40,8 @@ class AdminThreadTranslationsController extends Controller
      */
     public function update(ThreadTranslation $threadTranslation)
     {
+        $this->authenticate('Thread',__FUNCTION__, true);
+
         $threadTranslation->update(request()->all());
 
         $threadId = $threadTranslation->thread->id;
@@ -55,6 +62,8 @@ class AdminThreadTranslationsController extends Controller
      */
     public function destroy(ThreadTranslation $threadTranslation)
     {
+        $this->authenticate('Thread',__FUNCTION__, true);
+
         $threadId = $threadTranslation->thread->id;
         $threadTranslation->delete();
 

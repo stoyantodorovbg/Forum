@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Api;
 
-use App\Models\LabelTranslation;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
+use App\Models\LabelTranslation;
 use App\Http\Controllers\Controller;
 
 class AdminLabelTranslationsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * Store new label translation
      *
@@ -16,6 +19,8 @@ class AdminLabelTranslationsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $translation = new LabelTranslation($request->all());
 
         $translation->save();
@@ -35,6 +40,8 @@ class AdminLabelTranslationsController extends Controller
      */
     public function update(LabelTranslation $labelTranslation)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $labelTranslation->update(request()->all());
 
         $labelId = $labelTranslation->label->id;
@@ -55,6 +62,8 @@ class AdminLabelTranslationsController extends Controller
      */
     public function destroy(LabelTranslation $labelTranslation)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $labelId = $labelTranslation->label->id;
         $labelTranslation->delete();
 

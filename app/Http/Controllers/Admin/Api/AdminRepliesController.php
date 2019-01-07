@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin\Api;
 
 use App\Models\Reply;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
 class AdminRepliesController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * Display a listing of filtered resources.
      *
@@ -15,6 +18,9 @@ class AdminRepliesController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
+
         $body = request()->body;
         $thread = request()->thread;
         $owner = request()->owner;
@@ -36,6 +42,8 @@ class AdminRepliesController extends Controller
      */
     public function destroy(Reply $reply)
     {
+        $this->authenticate('Reply',__FUNCTION__, true);
+
         $reply->delete();
 
         return response([], 204);
@@ -44,11 +52,12 @@ class AdminRepliesController extends Controller
     /**
      * Create a query according to search inputs
      *
-     * @param $title
-     * @param $name
+     * @param $body
+     * @param $thread
+     * @param $owner
      * @param $from
      * @param $to
-     * @return reply|\Illuminate\Database\Eloquent\Builder
+     * @return Reply|\Illuminate\Database\Eloquent\Builder|mixed
      */
     protected function createSearchQuery($body, $thread, $owner, $from, $to)
     {

@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin\Api;
 
 use App\Models\Label;
 use Illuminate\Http\Request;
+use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
 class AdminLabelsController extends Controller
 {
+    use CheckUserRights;
+
     /**
      * Display a listing of filtered resources.
      *
@@ -15,6 +18,8 @@ class AdminLabelsController extends Controller
      */
     public function index()
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $system_name = request()->system_name;
         $default_content = request()->default_content;
 
@@ -33,6 +38,8 @@ class AdminLabelsController extends Controller
      */
     public function destroy(Label $label)
     {
+        $this->authenticate('Label',__FUNCTION__, true);
+
         $label->delete();
 
         return response([], 204);
