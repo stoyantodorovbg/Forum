@@ -24,7 +24,20 @@ trait CheckUserRights
             }
         }
 
-        return abort(403, 'You do not have permission to perform this action');
+        return abort(403, 'You do not have permission to perform this action.');
+    }
+
+    /**
+     * @param $permission
+     * @return mixed
+     */
+    public function hasPermission ($permission)
+    {
+        if (auth()->user()->hasPermission($permission)) {
+            return true;
+        }
+
+        return abort(403, 'You do not have permission to perform this action.');
     }
 
     /**
@@ -40,7 +53,7 @@ trait CheckUserRights
             }
         }
 
-        return abort(403, 'You do not have permission to perform this action');
+        return abort(403, 'You do not have permission to perform this action.');
     }
 
     /**
@@ -57,7 +70,7 @@ trait CheckUserRights
             }
         }
 
-        return abort(403, 'You do not have permission to perform this action');
+        return abort(403, 'You do not have permission to perform this action.');
     }
 
     /**

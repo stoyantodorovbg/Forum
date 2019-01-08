@@ -394,7 +394,7 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions_rights')->insert([
             'permission_id' => 14,
-            'right_id' => 14,
+            'right_id' => 10,
         ]);
 
         //roles
