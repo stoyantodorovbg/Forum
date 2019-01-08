@@ -436,5 +436,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => ' translation',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_role',
+            'default_content' => 'Create role',
+            'default_language_id' => 1,
+        ]);
     }
 }

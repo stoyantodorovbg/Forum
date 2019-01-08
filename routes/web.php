@@ -72,6 +72,9 @@ Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destro
 Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
+Route::post('/admin/roles/index', 'Admin\Api\AdminRolesController@index');
+Route::delete('/admin/roles/{role}', 'Admin\Api\AdminRolesController@destroy');
+
 Route::post('/admin/label-translations/store', 'Admin\Api\AdminLabelTranslationsController@store');
 Route::post('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@update');
 Route::delete('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@destroy');
@@ -100,3 +103,9 @@ Route::get('/admin/labels/create', 'Admin\AdminLabelsController@create')->name('
 Route::get('/admin/labels/{label}', 'Admin\AdminLabelsController@edit')->name('admin.labels.edit');
 Route::post('/admin/labels/store', 'Admin\AdminLabelsController@store')->name('admin.labels.store');
 Route::post('/admin/labels/{label}', 'Admin\AdminLabelsController@update')->name('admin.labels.update');
+
+Route::get('/admin/roles', 'Admin\AdminRolesController@index')->name('admin.roles');
+Route::get('/admin/roles/create', 'Admin\AdminRolesController@create')->name('admin.roles.create');
+Route::get('/admin/roles/{role}', 'Admin\AdminRolesController@edit')->name('admin.roles.edit');
+Route::post('/admin/roles/store', 'Admin\AdminRolesController@store')->name('admin.roles.store');
+Route::post('/admin/roles/{label}', 'Admin\AdminRolesController@update')->name('admin.roles.update');

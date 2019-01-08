@@ -436,5 +436,11 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => ' превод',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 72,
+            'language_id' => 2,
+            'content' => 'Създай роля',
+        ]);
     }
 }
