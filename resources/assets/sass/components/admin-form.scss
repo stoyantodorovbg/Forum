@@ -24,6 +24,21 @@
         }
     }
 
+    .element-row {
+
+        border-bottom: 1px solid lawngreen;
+
+        .info-edit-item {
+            color: green;
+        }
+
+        .delete-item {
+            float: right;
+            color: red;
+            font-weight: bolder;
+        }
+    }
+
     .admin-form-footer {
         margin-top: 50px;
     }

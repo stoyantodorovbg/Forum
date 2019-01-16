@@ -108,4 +108,4 @@ Route::get('/admin/roles', 'Admin\AdminRolesController@index')->name('admin.role
 Route::get('/admin/roles/create', 'Admin\AdminRolesController@create')->name('admin.roles.create');
 Route::get('/admin/roles/{role}', 'Admin\AdminRolesController@edit')->name('admin.roles.edit');
 Route::post('/admin/roles/store', 'Admin\AdminRolesController@store')->name('admin.roles.store');
-Route::post('/admin/roles/{label}', 'Admin\AdminRolesController@update')->name('admin.roles.update');
+Route::post('/admin/roles/{role}', 'Admin\AdminRolesController@update')->name('admin.roles.update');

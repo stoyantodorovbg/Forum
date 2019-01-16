@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Auth\Role;
 use Illuminate\Http\Request;
+use App\Models\Auth\Permission;
 use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;
 
@@ -69,8 +70,11 @@ class AdminRolesController extends Controller
     {
         $this->authenticate('Role',__FUNCTION__, true);
 
+        $allPermissions = Permission::all();
+        $rolePermissions = $role->permissions;
+
         return view('admin.roles.edit',
-            compact('role')
+            compact('role', 'allPermissions', 'rolePermissions')
         );
     }
 

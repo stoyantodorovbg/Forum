@@ -442,5 +442,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Create role',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'permissions',
+            'default_content' => 'Permissions',
+            'default_language_id' => 1,
+        ]);
     }
 }
