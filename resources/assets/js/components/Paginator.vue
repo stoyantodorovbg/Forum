@@ -25,7 +25,9 @@
 
 <script>
     export default {
-        props: ['dataSet'],
+        props: [
+            'dataSet'
+        ],
 
         data() {
             return {

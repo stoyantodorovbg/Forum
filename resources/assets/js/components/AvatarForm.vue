@@ -17,7 +17,9 @@
 <script>
     import ImageUpload from './ImageUpload.vue'
     export default {
-        props: ['user'],
+        props: [
+            'user'
+        ],
 
         components: { ImageUpload },
 

@@ -8,7 +8,9 @@
 
 <script>
     export default {
-        props: ['reply'],
+        props: [
+            'reply'
+        ],
 
         data() {
             return {

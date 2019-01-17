@@ -27,6 +27,7 @@ Vue.component('search-date', require('./components/admin/SearchDate.vue'));
 Vue.component('index', require('./components/admin/Index.vue'));
 Vue.component('add-translation', require('./components/admin/AddTranslation.vue'));
 Vue.component('translation-table', require('./components/admin/TranslationTable.vue'));
+Vue.component('related-items-input', require('./components/admin/RelatedItemsInput.vue'));
 
 const app = new Vue({
     el: '#app'

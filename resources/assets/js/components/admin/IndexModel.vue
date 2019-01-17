@@ -26,7 +26,9 @@
     export default {
         components: {IndexProperty},
 
-        props: ['model'],
+        props: [
+            'model'
+        ],
 
         data() {
             return {

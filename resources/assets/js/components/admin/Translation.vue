@@ -28,7 +28,9 @@
     export default {
         components: {EditTranslation},
 
-        props: ['translation'],
+        props: [
+            'translation'
+        ],
 
         data() {
             return {

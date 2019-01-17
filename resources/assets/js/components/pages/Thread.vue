@@ -3,7 +3,10 @@
     import SubscribeButton from '../SubscribeButton.vue';
 
     export default {
-        props: ['thread', 'language_id'],
+        props: [
+            'thread',
+            'language_id'
+        ],
 
         components: { Replies, SubscribeButton },
 

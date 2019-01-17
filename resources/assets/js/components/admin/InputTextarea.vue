@@ -9,6 +9,10 @@
 
 <script>
     export default {
-        props: ['label', 'field', 'value']
+        props: [
+            'label',
+            'field',
+            'value',
+        ],
     }
 </script>

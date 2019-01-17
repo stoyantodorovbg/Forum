@@ -18,7 +18,6 @@
         components: {IndexModel},
 
         props: [
-            'models',
             'properties',
             'model_type',
             'search_props',
@@ -29,7 +28,7 @@
             return {
                 dataSet: false,
                 searchPropsArr: this.getSearchPropsArr(),
-                dataModels: this.models,
+                dataModels: [],
             }
         },
 

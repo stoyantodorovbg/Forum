@@ -4,7 +4,9 @@
 
 <script>
     export default {
-        props: ['active'],
+        props: [
+            'active'
+        ],
 
         computed: {
             classes() {

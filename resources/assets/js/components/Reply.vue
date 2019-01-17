@@ -38,7 +38,10 @@
     import moment from 'moment';
 
     export default {
-        props: ['data', 'can-update'],
+        props: [
+            'data',
+            'can-update'
+        ],
 
         components: { Favorite },
 

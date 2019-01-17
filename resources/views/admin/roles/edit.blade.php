@@ -26,12 +26,23 @@
                 <span class="info-data">{{ $role->updated_at }}</span>
             </div>
             <label class="col-form-label">{{ label('permissions') }}</label>
-            @foreach($rolePermissions as $permission)
-                <div class="element-row">
-                    <span class="info-edit-item">{{ $permission->title }}</span>
-                    <span class="delete-item">&times;</span>
-                </div>
-            @endforeach
+            <related-items-input
+                    :all_items="{{ $allPermissions }}"
+                    :related_items="{{ $rolePermissions }}"
+                    :url="'/admin/roles-permissions/'"
+                    :item_id="{{ $role->id }}"
+                    :labels="{
+                        'add_item': '{{ label('add_permission') }}',
+                        'choose_one': '{{ label('choose_one') }}',
+                        'role_without_permissions': '{{ label('role_without_permissions') }}'
+                        }">
+            </related-items-input>
+            {{--@foreach($rolePermissions as $permission)--}}
+                {{--<div class="element-row">--}}
+                    {{--<span class="info-edit-item">{{ $permission->title }}</span>--}}
+                    {{--<span class="delete-item">&times;</span>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>

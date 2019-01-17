@@ -4,7 +4,9 @@
 
 <script>
     export default {
-        props: ['property'],
+        props: [
+            'property'
+        ],
 
         data() {
             return {

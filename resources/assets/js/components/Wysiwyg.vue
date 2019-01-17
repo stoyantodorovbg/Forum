@@ -10,7 +10,12 @@
     import Trix from 'trix';
 
     export default {
-        props: ['name', 'value', 'placeholder', 'shouldClear'],
+        props: [
+            'name',
+            'value',
+            'placeholder',
+            'shouldClear'
+        ],
 
         mounted() {
             this.$refs.trix.addEventListener('trix-change', e => {
