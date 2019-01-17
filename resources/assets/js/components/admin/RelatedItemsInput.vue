@@ -18,7 +18,7 @@
             </select>
         </div>
 
-        <input type="hidden" id="items" v-model="relatedItemsIds">
+        <input type="hidden" id="items" :name="this.input_name" v-model="relatedItemsIds">
     </div>
 </template>
 
@@ -29,6 +29,7 @@
             'related_items',
             'url',
             'item_id',
+            'input_name',
             'labels'
         ],
 
@@ -91,11 +92,15 @@
 
 <style>
     .delete-item {
-        padding: 0 5px 0 5px;
+        padding: 0 7px 0 7px;
     }
 
     .delete-item:hover {
         border: 2px solid red;
         cursor: pointer;
+    }
+
+    .element-row {
+        margin-bottom: 6px;
     }
 </style>

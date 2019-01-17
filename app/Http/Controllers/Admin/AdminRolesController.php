@@ -91,6 +91,12 @@ class AdminRolesController extends Controller
 
         $role->update($request->all());
 
+        if ($request->permissions) {
+            $permissionsIds = explode(',', $request->permissions);
+            array_pop($permissionsIds);
+            $role->permissions()->sync($permissionsIds);
+        }
+
         return redirect()->back();
     }
 }

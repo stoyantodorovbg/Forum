@@ -31,6 +31,7 @@
                     :related_items="{{ $rolePermissions }}"
                     :url="'/admin/roles-permissions/'"
                     :item_id="{{ $role->id }}"
+                    :input_name="'permissions'"
                     :labels="{
                         'add_item': '{{ label('add_permission') }}',
                         'choose_one': '{{ label('choose_one') }}',
