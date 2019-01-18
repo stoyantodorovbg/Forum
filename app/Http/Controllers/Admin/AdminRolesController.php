@@ -59,11 +59,9 @@ class AdminRolesController extends Controller
         $role = new Role($request->all());
         $role->save();
 
-        if ($request->permissions) {
-            $permissionsIds = explode(',', $request->permissions);
-            array_pop($permissionsIds);
-            $role->permissions()->sync($permissionsIds);
-        }
+        $permissionsIds = explode(',', $request->permissions);
+        array_pop($permissionsIds);
+        $role->permissions()->sync($permissionsIds);
 
         return redirect()->route('admin.roles.edit', ['role' => $role]);
     }

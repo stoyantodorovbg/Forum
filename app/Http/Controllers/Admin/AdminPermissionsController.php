@@ -100,11 +100,9 @@ class AdminPermissionsController extends Controller
 
         $permission->update($request->all());
 
-        if ($request->rights) {
-            $rightsIds = explode(',', $request->rights);
-            array_pop($rightsIds);
-            $permission->rights()->sync($rightsIds);
-        }
+        $rightsIds = explode(',', $request->rights);
+        array_pop($rightsIds);
+        $permission->rights()->sync($rightsIds);
 
         return redirect()->back();
     }
