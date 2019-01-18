@@ -452,13 +452,37 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 74,
             'language_id' => 2,
-            'content' => 'Избери право, което да добавиш',
+            'content' => 'Избери разрешение, което да добавиш',
         ]);
 
         DB::table('label_translations')->insert([
             'label_id' => 75,
             'language_id' => 2,
-            'content' => 'Няма права за тази роля.',
+            'content' => 'Няма разрешение за тази роля.',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 76,
+            'language_id' => 2,
+            'content' => 'Редактирай роля',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 77,
+            'language_id' => 2,
+            'content' => 'Избери право, което да добавиш',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 78,
+            'language_id' => 2,
+            'content' => 'Няма права за това разрешение.',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 79,
+            'language_id' => 2,
+            'content' => 'Редактирай разрешение',
         ]);
     }
 }

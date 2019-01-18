@@ -7,13 +7,13 @@
         <div class="container-admin-form col-sm-11">
             <div class="admin-form-header">
                 <h1>
-                    {{ label('edit_reply') }}
+                    {{ label('edit_role') }}
                 </h1>
                 <div class="admin-form-buttons">
-                    <a href="{{ route('admin.replies') }}">
+                    <a href="{{ route('admin.permissions') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
-                    <button class="btn btn-danger saveAndExit" value="/admin/replies">{{ label('save_exit') }}</button>
+                    <button class="btn btn-danger saveAndExit" value="/admin/permissions">{{ label('save_exit') }}</button>
                     <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
@@ -38,12 +38,6 @@
                         'role_without_permissions': '{{ label('role_without_permissions') }}'
                         }">
             </related-items-input>
-            {{--@foreach($rolePermissions as $permission)--}}
-                {{--<div class="element-row">--}}
-                    {{--<span class="info-edit-item">{{ $permission->title }}</span>--}}
-                    {{--<span class="delete-item">&times;</span>--}}
-                {{--</div>--}}
-            {{--@endforeach--}}
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>
@@ -52,10 +46,10 @@
             </div>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
-                    <a href="{{ route('admin.replies') }}">
+                    <a href="{{ route('admin.permissions') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
-                    <button class="btn btn-danger saveAndExit" value="/admin/replies">{{ label('save_exit') }}</button>
+                    <button class="btn btn-danger saveAndExit" value="/admin/permissions">{{ label('save_exit') }}</button>
                     <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>

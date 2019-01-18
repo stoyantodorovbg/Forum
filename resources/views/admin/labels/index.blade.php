@@ -27,10 +27,10 @@
         </thead>
         <template>
             <index
-                    :id_property="'id'"
-                    :properties="['system_name', 'default_content']"
-                    :model_type="'labels'"
-                    :search_props="['labels-system_name', 'labels-default_content']">
+                :id_property="'id'"
+                :properties="['system_name', 'default_content']"
+                :model_type="'labels'"
+                :search_props="['labels-system_name', 'labels-default_content']">
             </index>
         </template>
     </table>

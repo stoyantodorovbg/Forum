@@ -75,6 +75,9 @@ Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy'
 Route::post('/admin/roles/index', 'Admin\Api\AdminRolesController@index');
 Route::delete('/admin/roles/{role}', 'Admin\Api\AdminRolesController@destroy');
 
+Route::post('/admin/permissions/index', 'Admin\Api\AdminPermissionsController@index');
+Route::delete('/admin/permissions/{permission}', 'Admin\Api\AdminPermissionsController@destroy');
+
 Route::post('/admin/label-translations/store', 'Admin\Api\AdminLabelTranslationsController@store');
 Route::post('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@update');
 Route::delete('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@destroy');
@@ -109,3 +112,9 @@ Route::get('/admin/roles/create', 'Admin\AdminRolesController@create')->name('ad
 Route::get('/admin/roles/{role}', 'Admin\AdminRolesController@edit')->name('admin.roles.edit');
 Route::post('/admin/roles/store', 'Admin\AdminRolesController@store')->name('admin.roles.store');
 Route::post('/admin/roles/{role}', 'Admin\AdminRolesController@update')->name('admin.roles.update');
+
+Route::get('/admin/permissions', 'Admin\AdminPermissionsController@index')->name('admin.permissions');
+Route::get('/admin/permissions/create', 'Admin\AdminPermissionsController@create')->name('admin.permissions.create');
+Route::get('/admin/permissions/{permission}', 'Admin\AdminPermissionsController@edit')->name('admin.permissions.edit');
+Route::post('/admin/permissions/store', 'Admin\AdminPermissionsController@store')->name('admin.permissions.store');
+Route::post('/admin/permissions/{permission}', 'Admin\AdminPermissionsController@update')->name('admin.permissions.update');

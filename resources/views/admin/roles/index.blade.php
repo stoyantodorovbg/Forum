@@ -25,10 +25,10 @@
         </thead>
         <template>
             <index
-                    :id_property="'id'"
-                    :properties="['title']"
-                    :model_type="'roles'"
-                    :search_props="['roles-title']">
+                :id_property="'id'"
+                :properties="['title']"
+                :model_type="'roles'"
+                :search_props="['roles-title']">
             </index>
         </template>
     </table>

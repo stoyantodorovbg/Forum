@@ -460,5 +460,29 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'There is no permissions for this role.',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_role',
+            'default_content' => 'Edit role',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'permission_without_rights',
+            'default_content' => 'There is no rights for this permission.',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_right',
+            'default_content' => 'Choose a right to add',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_permission',
+            'default_content' => 'Edit permission',
+            'default_language_id' => 1,
+        ]);
     }
 }
