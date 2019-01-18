@@ -52,6 +52,9 @@
             },
 
             getUnusedRoles() {
+                if(this.item_id === -1) {
+                    return all_items;
+                }
                 let component = this;
                 return this.all_items.filter(function (item) {
                     if (item.id != component.item_id) {

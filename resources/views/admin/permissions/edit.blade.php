@@ -28,7 +28,7 @@
                 <span class="info-label">{{ label('updated_at') }} </span>
                 <span class="info-data">{{ $permission->updated_at }}</span>
             </div>
-            <label class="col-form-label">{{ label('permissions') }}</label>
+            <label class="col-form-label">{{ label('rights') }}</label>
             <related-items-input
                     :all_items="{{ $allRights }}"
                     :related_items="{{ $permissionRights }}"

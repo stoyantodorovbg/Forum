@@ -41,7 +41,10 @@ class AdminPermissionsController extends Controller
     {
         $this->authenticate('Permission','store', true);
 
-        return view('admin.permissions.create');
+        $allRights = Right::all();
+
+        return view('admin.permissions.create',
+            compact('allRights'));
     }
 
     /**
@@ -54,10 +57,16 @@ class AdminPermissionsController extends Controller
     {
         $this->authenticate('Permission',__FUNCTION__, true);
 
-        $permissionsIds = new Permission($request->all());
-        $permissionsIds->save();
+        $permission = new Permission($request->all());
+        $permission->save();
 
-        return redirect()->route('admin.permissions.edit', ['$permissionsIds' => $permissionsIds]);
+        if ($request->rights) {
+            $rightsIds = explode(',', $request->rights);
+            array_pop($rightsIds);
+            $permission->rights()->sync($rightsIds);
+        }
+
+        return redirect()->route('admin.permissions.edit', ['$permission' => $permission]);
     }
 
     /**

@@ -470,13 +470,13 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 77,
             'language_id' => 2,
-            'content' => 'Избери право, което да добавиш',
+            'content' => 'Няма права за това разрешение.',
         ]);
 
         DB::table('label_translations')->insert([
             'label_id' => 78,
             'language_id' => 2,
-            'content' => 'Няма права за това разрешение.',
+            'content' => 'Избери право, което да добавиш',
         ]);
 
         DB::table('label_translations')->insert([
@@ -495,6 +495,18 @@ class TranslationsTableSeeder extends Seeder
             'label_id' => 81,
             'language_id' => 2,
             'content' => 'Редактирай право',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 82,
+            'language_id' => 2,
+            'content' => 'Създай право',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 83,
+            'language_id' => 2,
+            'content' => 'Създай разрешение',
         ]);
     }
 }

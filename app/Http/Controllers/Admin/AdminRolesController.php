@@ -41,7 +41,9 @@ class AdminRolesController extends Controller
     {
         $this->authenticate('Role','store', true);
 
-        return view('admin.roles.create');
+        $allPermissions = Permission::all();
+
+        return view('admin.roles.create', compact('allPermissions'));
     }
 
     /**
@@ -56,6 +58,12 @@ class AdminRolesController extends Controller
 
         $role = new Role($request->all());
         $role->save();
+
+        if ($request->permissions) {
+            $permissionsIds = explode(',', $request->permissions);
+            array_pop($permissionsIds);
+            $role->permissions()->sync($permissionsIds);
+        }
 
         return redirect()->route('admin.roles.edit', ['role' => $role]);
     }

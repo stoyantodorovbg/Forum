@@ -496,5 +496,17 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Edit right',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_right',
+            'default_content' => 'Create a right',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_permission',
+            'default_content' => 'Create a permission',
+            'default_language_id' => 1,
+        ]);
     }
 }
