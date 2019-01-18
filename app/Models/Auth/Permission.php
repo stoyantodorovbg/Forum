@@ -9,6 +9,8 @@ class Permission extends Model
 {
     protected $fillable = [
         'title',
+        'description',
+        'system_name',
     ];
 
     /**

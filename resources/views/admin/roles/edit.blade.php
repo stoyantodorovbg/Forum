@@ -10,7 +10,7 @@
                     {{ label('edit_role') }}
                 </h1>
                 <div class="admin-form-buttons">
-                    <a href="{{ route('admin.permissions') }}">
+                    <a href="{{ route('admin.rights') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/permissions">{{ label('save_exit') }}</button>
@@ -46,7 +46,7 @@
             </div>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
-                    <a href="{{ route('admin.permissions') }}">
+                    <a href="{{ route('admin.rights') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
                     <button class="btn btn-danger saveAndExit" value="/admin/permissions">{{ label('save_exit') }}</button>

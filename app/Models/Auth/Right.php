@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Right extends Model
 {
+    protected $fillable = [
+        'title',
+    ];
+
     /**
      * The permissions that belong to the right.
      *

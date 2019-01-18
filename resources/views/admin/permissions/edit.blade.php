@@ -47,6 +47,18 @@
                     <input class="form-control" name="title" value="{{ $permission->title }}">
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-form-item">{{ label('description') }}</label>
+                <div>
+                    <input class="form-control" name="description" value="{{ $permission->description }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-form-item">{{ label('system_name') }}</label>
+                <div>
+                    <input class="form-control" name="system_name" value="{{ $permission->system_name }}">
+                </div>
+            </div>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
                     <a href="{{ route('admin.permissions') }}">
