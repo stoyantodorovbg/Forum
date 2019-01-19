@@ -43,11 +43,10 @@
                 axios.delete(this.$parent.url + this.translation.id)
                     .then(data => {
                     this.$parent.$data.dataTranslations = data.data.translations;
-                    flash('Deleted.');
-                    })
-            .catch(error => {
-                    flash(error.response.data, 'danger');
-                });
+                    flash('Translation deleted.');
+                    }).catch(function () {
+                        flash('Something went wrong.');
+                    });
             },
 
             editItem() {

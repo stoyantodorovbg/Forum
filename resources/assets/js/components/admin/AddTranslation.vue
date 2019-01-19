@@ -77,9 +77,9 @@
             addTranslation() {
                 axios.post(this.$parent.url + 'store', this.getData()).then(data => {
                     this.$parent.$data.dataTranslations = data.data.translations;
-                    flash('Added.');
-                }).catch(error => {
-                    flash(error.response.data, 'danger');
+                    flash('Translation added.');
+                }).catch(function () {
+                    flash('Something went wrong.');
                 });
                 this.addingTranslation = false;
             },

@@ -50,8 +50,8 @@
                 axios.delete(this.url)
                     .then(this.$parent.refresh)
                     .then(flash('Item deleted.'))
-                    .catch(error => {
-                        flash(error.response.data, 'danger');
+                    .catch(function () {
+                        flash('Something went wrong.');
                     });
             },
 
@@ -62,7 +62,9 @@
                 }).then(function (data) {
                     let status = data.data ? 'Active' : 'Inactive';
                     flash('Status changed to ' + status + '.');
-                })
+                }).catch(function () {
+                    flash('Something went wrong.');
+                });
             },
         }
     }

@@ -82,9 +82,9 @@
                     this.$parent.$parent.$data.dataTranslations = data.data.translations;
                     this.edited = true;
                     this.$parent.editing = false;
-                    flash('Edited.');
-                }).catch(error => {
-                    flash(error.response.data, 'danger');
+                    flash('Translation edited.');
+                }).catch(function () {
+                    flash('Something went wrong.');
                 });
             },
 
