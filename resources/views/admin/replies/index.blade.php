@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th scope="col">{{ label('edit') }}</th>
+                <th scope="col">{{ label('status') }}</th>
                 <th scope="col">{{ label('body') }}</th>
                 <th scope="col">{{ label('thread') }}</th>
                 <th scope="col">{{ label('published_from') }}</th>

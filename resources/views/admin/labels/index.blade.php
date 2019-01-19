@@ -10,11 +10,13 @@
         <thead>
         <tr>
             <th scope="col">{{ label('edit') }}</th>
+            <th scope="col">{{ label('status') }}</th>
             <th scope="col">{{ label('system_name') }}</th>
             <th scope="col">{{ label('body') }}</th>
             <th scope="col">{{ label('delete') }}</th>
         </tr>
         <tr>
+            <th scope="col"></th>
             <th scope="col"></th>
             <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
                 <search-text :name="'labels-system_name'"></search-text>

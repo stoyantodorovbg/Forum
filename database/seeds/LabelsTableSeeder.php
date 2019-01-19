@@ -508,5 +508,12 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Create a permission',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'status',
+            'default_content' => 'Status',
+            'default_language_id' => 1,
+        ]);
+
     }
 }
