@@ -18,6 +18,7 @@ class CreateLabelsTable extends Migration
             $table->string('system_name')->unique();
             $table->string('default_content');
             $table->integer('default_language_id')->unsigned();
+            $table->boolean('status')->default(1);
         });
     }
 

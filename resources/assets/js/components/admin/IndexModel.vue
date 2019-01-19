@@ -9,7 +9,7 @@
         </td>
         <td scope="row">
         <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" @change="toggleStatus" :checked="this.model.status">
             <span class="slider round"></span>
         </label>
         </td>
@@ -53,6 +53,13 @@
                     .catch(error => {
                         flash(error.response.data, 'danger');
                     });
+            },
+
+            toggleStatus() {
+                axios.post('/admin/model-status', {
+                    model_type: this.$parent.model_type,
+                    model_id: this.model.id,
+                }).then()
             },
         }
     }
