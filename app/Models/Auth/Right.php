@@ -8,6 +8,7 @@ class Right extends Model
 {
     protected $fillable = [
         'title',
+        'status',
     ];
 
     /**

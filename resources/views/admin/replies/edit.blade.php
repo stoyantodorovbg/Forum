@@ -34,6 +34,17 @@
             <span class="info-data">{{ $reply->updated_at }}</span>
         </div>
         <div class="form-group">
+            <label class="col-form-label">{{ label('status') }}</label>
+            <select class="form-control" name="status">
+                <option {{ $reply->status ? 'selected' : '' }} value="1">
+                    {{ label('active') }}
+                </option>
+                <option {{ !$reply->status ? 'selected' : '' }} value="0">
+                    {{ label('inactive') }}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="col-form-label">{{ label('body') }}</label>
             <div>
                 <textarea class="form-control" rows="10" id="comment" name="body">{{ $reply->body }}</textarea>

@@ -12,6 +12,7 @@ class Label extends Model
         'system_name',
         'default_content',
         'default_language_id',
+        'status',
     ];
 
     /**

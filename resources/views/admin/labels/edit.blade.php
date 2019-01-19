@@ -18,6 +18,17 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-form-label">{{ label('status') }}</label>
+                <select class="form-control" name="status">
+                    <option {{ $label->status ? 'selected' : '' }} value="1">
+                        {{ label('active') }}
+                    </option>
+                    <option {{ !$label->status ? 'selected' : '' }} value="0">
+                        {{ label('inactive') }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label class="col-form-label">{{ label('system_name') }}</label>
                 <div>
                     <input class="form-control" name="system_name" value="{{ $label->system_name }}">

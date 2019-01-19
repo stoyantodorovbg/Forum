@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="form-group">
+        <label class="col-form-label">{{ labels['related_models'] }}</label>
         <div v-if="!relatedItems.length">{{ labels['role_without_permissions'] }}</div>
         <div class="element-row" v-for="item in relatedItems">
             <span class="info-edit-item">{{ item.title }}</span>
@@ -7,17 +8,13 @@
                   @click="removeItem"
                   :data-id="item.id">&times;</span>
         </div>
-
-        <div class="form-group">
-            <label>{{ labels['add_item'] }}</label>
-            <select class="form-control"
-                    id="addRelatedItem"
-                    @change="addItem">
-                <option value="-1">{{ labels['choose_one'] }}</option>
-                <option v-for="item in unusedRoles" :value="item.id">{{ item.title}}</option>
-            </select>
-        </div>
-
+         <label>{{ labels['add_item'] }}</label>
+         <select class="form-control"
+                 id="addRelatedItem"
+                 @change="addItem">
+             <option value="-1">{{ labels['choose_one'] }}</option>
+             <option v-for="item in unusedRoles" :value="item.id">{{ item.title}}</option>
+         </select>
         <input type="hidden" id="items" :name="this.input_name" v-model="relatedItemsIds">
     </div>
 </template>

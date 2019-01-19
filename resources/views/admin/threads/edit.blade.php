@@ -36,6 +36,17 @@
                 <span class="info-data">{{ $thread->updated_at }}</span>
             </div>
             <div class="form-group">
+                <label class="col-form-label">{{ label('status') }}</label>
+                <select class="form-control" name="status">
+                    <option {{ $thread->status ? 'selected' : '' }} value="1">
+                        {{ label('active') }}
+                    </option>
+                    <option {{ !$thread->status ? 'selected' : '' }} value="0">
+                        {{ label('inactive') }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
                     <input class="form-control" name="title" value="{{ $thread->body }}">

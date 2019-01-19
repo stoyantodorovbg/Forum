@@ -27,7 +27,17 @@
                 <span class="info-label">{{ label('updated_at') }} </span>
                 <span class="info-data">{{ $right->updated_at }}</span>
             </div>
-            <label class="col-form-label">{{ label('permissions') }}</label>
+            <div class="form-group">
+                <label class="col-form-label">{{ label('status') }}</label>
+                <select class="form-control" name="status">
+                    <option {{ $right->status ? 'selected' : '' }} value="1">
+                        {{ label('active') }}
+                    </option>
+                    <option {{ !$right->status ? 'selected' : '' }} value="0">
+                        {{ label('inactive') }}
+                    </option>
+                </select>
+            </div>
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>

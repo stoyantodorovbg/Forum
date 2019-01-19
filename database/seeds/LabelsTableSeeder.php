@@ -515,5 +515,16 @@ class LabelsTableSeeder extends Seeder
             'default_language_id' => 1,
         ]);
 
+        DB::table('labels')->insert([
+            'system_name' => 'active',
+            'default_content' => 'Active',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'inactive',
+            'default_content' => 'Inactive',
+            'default_language_id' => 1,
+        ]);
     }
 }

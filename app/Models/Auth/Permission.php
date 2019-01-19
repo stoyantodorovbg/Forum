@@ -11,6 +11,7 @@ class Permission extends Model
         'title',
         'description',
         'system_name',
+        'status',
     ];
 
     /**

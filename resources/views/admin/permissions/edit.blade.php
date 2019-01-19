@@ -28,6 +28,17 @@
                 <span class="info-label">{{ label('updated_at') }} </span>
                 <span class="info-data">{{ $permission->updated_at }}</span>
             </div>
+            <div class="form-group">
+                <label class="col-form-label">{{ label('status') }}</label>
+                <select class="form-control" name="status">
+                    <option {{ $permission->status ? 'selected' : '' }} value="1">
+                        {{ label('active') }}
+                    </option>
+                    <option {{ !$permission->status ? 'selected' : '' }} value="0">
+                        {{ label('inactive') }}
+                    </option>
+                </select>
+            </div>
             <label class="col-form-label">{{ label('rights') }}</label>
             <related-items-input
                     :all_items="{{ $allRights }}"
@@ -38,7 +49,8 @@
                     :labels="{
                         'add_item': '{{ label('add_permission') }}',
                         'choose_one': '{{ label('choose_one') }}',
-                        'role_without_permissions': '{{ label('permission_without_rights') }}'
+                        'role_without_permissions': '{{ label('permission_without_rights') }}',
+                        'related_models': '{{ label('rights') }}',
                         }">
             </related-items-input>
             <div class="form-group">
