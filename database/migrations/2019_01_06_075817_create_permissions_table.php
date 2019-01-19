@@ -18,6 +18,7 @@ class CreatePermissionsTable extends Migration
             $table->string('system_name')->unique();
             $table->string('title')->unique();
             $table->string('description')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
