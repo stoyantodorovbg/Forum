@@ -1,9 +1,9 @@
 <template>
     <tbody>
         <index-model
-                v-for="model in dataModels"
-                :key="model.id"
-                :model="model">
+            v-for="model in dataModels"
+            :key="model.id"
+            :model="model">
         </index-model>
         <paginator :dataSet="dataSet" @changed="fetch"></paginator>
     </tbody>
@@ -21,7 +21,8 @@
             'properties',
             'model_type',
             'search_props',
-            'id_property'
+            'id_property',
+            'delitable',
         ],
 
         data() {

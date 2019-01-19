@@ -29,22 +29,6 @@ class AdminPermissionsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param Permission $permission
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     * @throws \Exception
-     */
-    public function destroy(Permission $permission)
-    {
-        $this->authenticate('Permission',__FUNCTION__, true);
-
-        $permission->delete();
-
-        return response([], 204);
-    }
-
-    /**
      * Create a query according to search inputs
      *
      * @param $title

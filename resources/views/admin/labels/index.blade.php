@@ -30,7 +30,8 @@
                 :id_property="'id'"
                 :properties="['system_name', 'default_content']"
                 :model_type="'labels'"
-                :search_props="['labels-system_name', 'labels-default_content']">
+                :search_props="['labels-system_name', 'labels-default_content']"
+                :delitable="1">
             </index>
         </template>
     </table>

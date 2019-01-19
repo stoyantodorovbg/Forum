@@ -13,7 +13,7 @@
             :key="property.id"
             :property="property">
         </index-property>
-        <td>
+        <td v-if="$parent.delitable">
             <button class="btn btn-danger btn-sm" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -27,7 +27,7 @@
         components: {IndexProperty},
 
         props: [
-            'model'
+            'model',
         ],
 
         data() {

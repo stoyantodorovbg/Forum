@@ -34,7 +34,8 @@
                 :id_property="'slug'"
                 :properties="['title', 'owner.name', 'created_at']"
                 :model_type="'threads'"
-                :search_props="['threads-title', 'threads-owner', 'threads-created_at']">
+                :search_props="['threads-title', 'threads-owner', 'threads-created_at']"
+                :delitable="1">
             </index>
         </template>
     </table>

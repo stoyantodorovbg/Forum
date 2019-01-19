@@ -73,13 +73,10 @@ Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
 Route::post('/admin/roles/index', 'Admin\Api\AdminRolesController@index');
-Route::delete('/admin/roles/{role}', 'Admin\Api\AdminRolesController@destroy');
 
 Route::post('/admin/permissions/index', 'Admin\Api\AdminPermissionsController@index');
-Route::delete('/admin/permissions/{permission}', 'Admin\Api\AdminPermissionsController@destroy');
 
 Route::post('/admin/rights/index', 'Admin\Api\AdminRightsController@index');
-Route::delete('/admin/rights/{right}', 'Admin\Api\AdminRightsController@destroy');
 
 Route::post('/admin/label-translations/store', 'Admin\Api\AdminLabelTranslationsController@store');
 Route::post('/admin/label-translations/{labelTranslation}', 'Admin\Api\AdminLabelTranslationsController@update');

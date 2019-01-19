@@ -29,22 +29,6 @@ class AdminRolesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param Role $role
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     * @throws \Exception
-     */
-    public function destroy(Role $role)
-    {
-        $this->authenticate('Role',__FUNCTION__, true);
-
-        $role->delete();
-
-        return response([], 204);
-    }
-
-    /**
      * Create a query according to search inputs
      *
      * @param $title

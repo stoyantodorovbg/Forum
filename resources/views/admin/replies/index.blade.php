@@ -38,7 +38,8 @@
                 :id_property="'id'"
                 :properties="['body', 'thread.title', 'owner.name', 'created_at']"
                 :model_type="'replies'"
-                :search_props="['replies-body', 'replies-thread', 'replies-owner', 'replies-created_at']">
+                :search_props="['replies-body', 'replies-thread', 'replies-owner', 'replies-created_at']"
+                :delitable="1">
             </index>
         </template>
     </table>

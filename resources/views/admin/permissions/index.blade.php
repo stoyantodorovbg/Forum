@@ -11,7 +11,6 @@
         <tr>
             <th scope="col">{{ label('edit') }}</th>
             <th scope="col">{{ label('title') }}</th>
-            <th scope="col">Delete</th>
         </tr>
         <tr>
             <th scope="col"></th>
@@ -28,7 +27,8 @@
                 :id_property="'id'"
                 :properties="['title']"
                 :model_type="'permissions'"
-                :search_props="['permissions-title']">
+                :search_props="['permissions-title']"
+                :delitable="0">
             </index>
         </template>
     </table>

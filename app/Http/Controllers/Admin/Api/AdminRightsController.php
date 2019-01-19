@@ -29,22 +29,6 @@ class AdminRightsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param Right $right
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     * @throws \Exception
-     */
-    public function destroy(Right $right)
-    {
-        $this->authenticate('Right',__FUNCTION__, true);
-
-        $right->delete();
-
-        return response([], 204);
-    }
-
-    /**
      * Create a query according to search inputs
      *
      * @param $title

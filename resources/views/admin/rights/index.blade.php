@@ -11,7 +11,6 @@
         <tr>
             <th scope="col">{{ label('edit') }}</th>
             <th scope="col">{{ label('title') }}</th>
-            <th scope="col">Delete</th>
         </tr>
         <tr>
             <th scope="col"></th>
@@ -25,10 +24,11 @@
         </thead>
         <template>
             <index
-                    :id_property="'id'"
-                    :properties="['title']"
-                    :model_type="'rights'"
-                    :search_props="['rights-title']">
+                :id_property="'id'"
+                :properties="['title']"
+                :model_type="'rights'"
+                :search_props="['rights-title']"
+                :delitable="0">
             </index>
         </template>
     </table>
