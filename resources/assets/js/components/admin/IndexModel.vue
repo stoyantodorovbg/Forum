@@ -8,7 +8,7 @@
             </a>
         </td>
         <td scope="row">
-        <label class="switch">
+        <label class="switch" v-if="hasStatusInput">
             <input type="checkbox" @change="toggleStatus" :checked="this.model.status">
             <span class="slider round"></span>
         </label>
@@ -38,6 +38,7 @@
         data() {
             return {
                 url: this.getUrl(),
+                hasStatusInput: this.hasStatusProperty(),
             }
         },
 
@@ -65,6 +66,14 @@
                 }).catch(function () {
                     flash('Something went wrong.');
                 });
+            },
+
+            hasStatusProperty() {
+                if(this.model.hasOwnProperty('status')) {
+                    return true;
+                }
+
+                return false;
             },
         }
     }
