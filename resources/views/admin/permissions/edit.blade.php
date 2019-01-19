@@ -39,7 +39,6 @@
                     </option>
                 </select>
             </div>
-            <label class="col-form-label">{{ label('rights') }}</label>
             <related-items-input
                     :all_items="{{ $allRights }}"
                     :related_items="{{ $permissionRights }}"

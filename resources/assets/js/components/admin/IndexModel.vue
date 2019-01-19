@@ -49,7 +49,7 @@
             deleteItem() {
                 axios.delete(this.url)
                     .then(this.$parent.refresh)
-                    .then(flash('Deleted.'))
+                    .then(flash('Item deleted.'))
                     .catch(error => {
                         flash(error.response.data, 'danger');
                     });
@@ -59,7 +59,10 @@
                 axios.post('/admin/model-status', {
                     model_type: this.$parent.model_type,
                     model_id: this.model.id,
-                }).then()
+                }).then(function (data) {
+                    let status = data.data ? 'Active' : 'Inactive';
+                    flash('Status changed to ' + status + '.');
+                })
             },
         }
     }
