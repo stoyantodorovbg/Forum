@@ -598,5 +598,23 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Slug',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_language',
+            'default_content' => 'Create a language',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_language',
+            'default_content' => 'Edit a language',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'short_title',
+            'default_content' => 'Short title',
+            'default_language_id' => 1,
+        ]);
     }
 }

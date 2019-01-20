@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="m-2">
-        <a href="{{ route('admin.channels.create') }}">
-            <button class="btn btn-success small">{{ label('create_channel') }}</button>
+        <a href="{{ route('admin.languages.create') }}">
+            <button class="btn btn-success small">{{ label('create_language') }}</button>
         </a>
     </div>
     <table class="table table-sm">
@@ -12,13 +12,12 @@
             <th scope="col">{{ label('edit') }}</th>
             <th scope="col">{{ label('status') }}</th>
             <th scope="col">{{ label('title') }}</th>
-            <th scope="col">Delete</th>
         </tr>
         <tr>
             <th scope="col"></th>
             <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
                 <search-bool
-                        :name="'channels-status'"
+                        :name="'languages-status'"
                         :labels="{
                         'search_label': '{{ label('search_status') }}',
                         'first_option': '{{ label('active') }}',
@@ -28,7 +27,7 @@
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
                 <search-text
-                        :name="'channels-name'"
+                        :name="'languages-title'"
                         :labels="{
                             'search_label': '{{ label('search_by_title') }}',
                         }">
@@ -39,14 +38,15 @@
         </thead>
         <template>
             <index
-                :id_property="'slug'"
-                :properties="['name']"
-                :model_type="'channels'"
+                :id_property="'id'"
+                :properties="['title']"
+                :model_type="'languages'"
                 :search_props="[
-                    'channels-status',
-                    'channels-name',
+                    'languages-status',
+                    'languages-title',
+                    'languages-short_title',
                 ]"
-                :delitable="1">
+                :delitable="0">
             </index>
         </template>
     </table>

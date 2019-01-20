@@ -194,7 +194,7 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 32,
             'language_id' => 2,
-            'content' => 'Заглавие',
+            'content' => 'Име',
         ]);
 
         DB::table('label_translations')->insert([
@@ -548,7 +548,7 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 90,
             'language_id' => 2,
-            'content' => 'Търси по заглавие',
+            'content' => 'Търси по име',
         ]);
 
         DB::table('label_translations')->insert([
@@ -594,9 +594,27 @@ class TranslationsTableSeeder extends Seeder
         ]);
 
         DB::table('label_translations')->insert([
-            'label_id' => 97,
+            'label_id' => 98,
             'language_id' => 2,
             'content' => 'Слъг',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 99,
+            'language_id' => 2,
+            'content' => 'Създай език',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 100,
+            'language_id' => 2,
+            'content' => 'Редактирай език',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 101,
+            'language_id' => 2,
+            'content' => 'Кратко име',
         ]);
     }
 }
