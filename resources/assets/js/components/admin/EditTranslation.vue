@@ -96,12 +96,16 @@
                 let item_id = this.$parent.$parent.item_name + '_id';
                 data[item_id] = this.item.id;
 
-                for (let input of this.$parent.$parent.text_inputs) {
-                    data[input] = $('#translation-' + input).val();
+                if (typeof this.$parent.$parent.text_inputs !== 'undefined') {
+                    for (let input of this.$parent.$parent.text_inputs) {
+                        data[input] = $('#translation-' + input).val();
+                    }
                 }
 
-                for (let input of this.$parent.$parent.textarea_inputs) {
-                    data[input] = $('#translation-' + input).val();
+                if (typeof this.$parent.$parent.textarea_inputs !== 'undefined') {
+                    for (let input of this.$parent.$parent.textarea_inputs) {
+                        data[input] = $('#translation-' + input).val();
+                    }
                 }
 
                 return data;

@@ -580,5 +580,11 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Търси по дефолтно съдържание',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 96,
+            'language_id' => 2,
+            'content' => 'Редактирай канал',
+        ]);
     }
 }

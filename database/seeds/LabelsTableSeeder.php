@@ -580,5 +580,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by default content',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_channel',
+            'default_content' => 'Edit a channel',
+            'default_language_id' => 1,
+        ]);
     }
 }

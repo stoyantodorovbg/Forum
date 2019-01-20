@@ -71,6 +71,9 @@ Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destr
 Route::post('/admin/replies/index', 'Admin\Api\AdminRepliesController@index');
 Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destroy');
 
+Route::post('/admin/channels/index', 'Admin\Api\AdminChannelsController@index');
+Route::delete('/admin/channels/{channel}', 'Admin\Api\AdminChannelsController@destroy');
+
 Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
@@ -88,6 +91,10 @@ Route::post('/admin/thread-translations/store', 'Admin\Api\AdminThreadTranslatio
 Route::post('/admin/thread-translations/{threadTranslation}', 'Admin\Api\AdminThreadTranslationsController@update');
 Route::delete('/admin/thread-translations/{threadTranslation}', 'Admin\Api\AdminThreadTranslationsController@destroy');
 
+Route::post('/admin/channel-translations/store', 'Admin\Api\AdminChannelTranslationsController@store');
+Route::post('/admin/channel-translations/{channelTranslation}', 'Admin\Api\AdminChannelTranslationsController@update');
+Route::delete('/admin/channel-translations/{channelTranslation}', 'Admin\Api\AdminChannelTranslationsController@destroy');
+
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 
@@ -102,6 +109,12 @@ Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name
 Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit')->name('admin.replies.edit');
 Route::post('/admin/replies/store', 'Admin\AdminRepliesController@store')->name('admin.replies.store');
 Route::post('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');
+
+Route::get('/admin/channels', 'Admin\AdminChannelsController@index')->name('admin.channels');
+Route::get('/admin/channels/create', 'Admin\AdminChannelsController@create')->name('admin.channels.create');
+Route::get('/admin/channels/{channel}', 'Admin\AdminChannelsController@edit')->name('admin.channels.edit');
+Route::post('/admin/channels/store', 'Admin\AdminChannelsController@store')->name('admin.channels.store');
+Route::post('/admin/channels/{channel}', 'Admin\AdminChannelsController@update')->name('admin.channels.update');
 
 Route::get('/admin/labels', 'Admin\AdminLabelsController@index')->name('admin.labels');
 Route::get('/admin/labels/create', 'Admin\AdminLabelsController@create')->name('admin.labels.create');
