@@ -112,6 +112,7 @@
 
             cancel() {
                 this.addingTranslation = false;
+                flash('Adding translation canceled.');
             }
         }
     }

@@ -117,6 +117,7 @@
             cancel() {
                 this.edited = true;
                 this.$parent.editing = false;
+                flash('Editing translation canceled.');
             }
         }
     }
