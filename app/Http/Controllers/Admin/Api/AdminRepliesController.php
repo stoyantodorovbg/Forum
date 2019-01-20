@@ -26,8 +26,9 @@ class AdminRepliesController extends Controller
         $owner = request()->owner;
         $from = date( request()->created_at_from);
         $to = date( request()->created_at_to);
+        $status = isset(request()->status) ? request()->status : 1;
 
-        $query = $this->createSearchQuery($body, $thread, $owner, $from, $to);
+        $query = $this->createSearchQuery($body, $thread, $owner, $from, $to, $status);
 
         return $query->paginate(15);
 
@@ -57,11 +58,13 @@ class AdminRepliesController extends Controller
      * @param $owner
      * @param $from
      * @param $to
+     * @param $status
      * @return Reply|\Illuminate\Database\Eloquent\Builder|mixed
      */
-    protected function createSearchQuery($body, $thread, $owner, $from, $to)
+    protected function createSearchQuery($body, $thread, $owner, $from, $to, $status)
     {
         $query = Reply::with('owner')
+            ->where('status', $status)
             ->where('body', 'LIKE', '%' . $body . '%')
             ->whereHas('owner', function ($q) use($owner) {
                 $q->where('name', 'LIKE', '%' . $owner . '%');

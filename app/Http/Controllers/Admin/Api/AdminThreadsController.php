@@ -24,8 +24,9 @@ class AdminThreadsController extends Controller
         $owner = request()->owner;
         $from = date( request()->created_at_from);
         $to = date( request()->created_at_to);
+        $status = isset(request()->status) ? request()->status : 1;
 
-        $query = $this->createSearchQuery($title, $owner, $from, $to);
+        $query = $this->createSearchQuery($title, $owner, $from, $to, $status);
 
         return $query->paginate(15);
 
@@ -54,11 +55,13 @@ class AdminThreadsController extends Controller
      * @param $owner
      * @param $from
      * @param $to
+     * @param $status
      * @return Thread|\Illuminate\Database\Eloquent\Builder|mixed
      */
-    protected function createSearchQuery($title, $owner, $from, $to)
+    protected function createSearchQuery($title, $owner, $from, $to, $status)
     {
         $query = Thread::with('owner')
+            ->where('status', $status)
             ->where('title', 'LIKE', '%' . $title . '%')
             ->whereHas('owner', function ($q) use($owner) {
                 $q->where('name', 'LIKE', '%' . $owner . '%');
