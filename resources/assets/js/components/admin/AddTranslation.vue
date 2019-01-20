@@ -28,6 +28,9 @@
             <button class="btn btn-success" id="saveTranslation" type="button" v-on:click="addTranslation()">
                 {{ this.$parent.labels['save_translation'] }}
             </button>
+            <button class="btn btn-info" type="button" @click="cancel">
+                {{ this.$parent.labels['cancel'] }}
+            </button>
         </div>
     </div>
 </template>
@@ -105,6 +108,10 @@
                 }
 
                 return data;
+            },
+
+            cancel() {
+                this.addingTranslation = false;
             }
         }
     }

@@ -59,28 +59,29 @@
                 </div>
             </div>
             <translation-table :translations="{{ $translations }}"
-                               :languages="{{ $languages }}"
-                               :item="{{ $thread }}"
-                               :labels="{
-                                    'language': '{{ label('language') }}',
-                                    'add_a_translation': '{{ label('add_a_translation') }}',
-                                    'language': '{{ label('language') }}',
-                                    'body': '{{ label('body') }}',
-                                    'save_translation': '{{ label('save_translation') }}',
-                                    'edit_translation': '{{ label('edit_translation') }}',
-                                    'edit': '{{ label('edit') }}',
-                                    'delete': '{{ label('delete') }}',
-                                    }"
-                               :text_input_labels="{
-                                    'title': ['{{ label('title') }}', 'title'],
-                                    }"
-                               :textarea_input_labels="{
-                                    'body': ['{{ label('body') }}', 'body'],
-                                    }"
-                               :item_name="'thread'"
-                               :text_inputs="['title']"
-                               :textarea_inputs="['body']"
-                               :url="'/admin/thread-translations/'" >
+                :languages="{{ $languages }}"
+                :item="{{ $thread }}"
+                :labels="{
+                     'language': '{{ label('language') }}',
+                     'add_a_translation': '{{ label('add_a_translation') }}',
+                     'language': '{{ label('language') }}',
+                     'body': '{{ label('body') }}',
+                     'save_translation': '{{ label('save_translation') }}',
+                     'edit_translation': '{{ label('edit_translation') }}',
+                     'edit': '{{ label('edit') }}',
+                     'cancel': '{{ label('cancel') }}',
+                     'delete': '{{ label('delete') }}',
+                }"
+                :text_input_labels="{
+                     'title': ['{{ label('title') }}', 'title'],
+                }"
+                :textarea_input_labels="{
+                     'body': ['{{ label('body') }}', 'body'],
+                }"
+                :item_name="'thread'"
+                :text_inputs="['title']"
+                :textarea_inputs="['body']"
+                :url="'/admin/thread-translations/'" >
             </translation-table>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">

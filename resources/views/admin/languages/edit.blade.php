@@ -55,24 +55,25 @@
                 </div>
             </div>
             <translation-table
-                    :translations="{{ $translations }}"
-                    :languages="{{ $languages }}"
-                    :item="{{ $language }}"
-                    :labels="{
+                :translations="{{ $translations }}"
+                :languages="{{ $languages }}"
+                :item="{{ $language }}"
+                :labels="{
                      'language': '{{ label('language') }}',
                      'add_a_translation': '{{ label('add_a_translation') }}',
                      'language': '{{ label('language') }}',
                      'save_translation': '{{ label('save_translation') }}',
                      'edit_translation': '{{ label('edit_translation') }}',
                      'edit': '{{ label('edit') }}',
+                     'cancel': '{{ label('cancel') }}',
                      'delete': '{{ label('delete') }}',
-                     }"
-                    :text_input_labels="{
+                }"
+                :text_input_labels="{
                      'title': ['{{ label('title') }}', 'title'],
                      'short_title': ['{{ label('short_title') }}', 'short_title'],
-                     }"
-                    :item_name="'language'"
-                    :text_inputs="[
+                }"
+                :item_name="'language'"
+                :text_inputs="[
                     'title',
                     'short_title'
                 ]"

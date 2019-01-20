@@ -6,27 +6,30 @@
                 <label class="col-form-label">{{ this.$parent.$parent.labels['language'] }}</label>
                 <select class="form-control translation-language-id">
                     <option
-                            v-for="language in this.$parent.$parent.languages"
-                            v-if="language.id !== item.default_language_id &&
+                        v-for="language in this.$parent.$parent.languages"
+                        v-if="language.id !== item.default_language_id &&
                         !labelLanguages.includes(language.title)"
-                            v-on:option="isDefaultLanguage(language, item)"
-                            :value="language.id">
-                        {{ language.title }}
+                        v-on:option="isDefaultLanguage(language, item)"
+                        :value="language.id">
+                            {{ language.title }}
                     </option>
                 </select>
             </div>
             <input-text v-for="input in this.$parent.$parent.text_input_labels"
-                        :label="input[0]"
-                        :field="input[1]"
-                        :value="translation[input[1]]"
-                        :key="input.id"></input-text>
+                :label="input[0]"
+                :field="input[1]"
+                :value="translation[input[1]]"
+                :key="input.id"></input-text>
             <input-textarea v-for="input in this.$parent.$parent.textarea_input_labels"
-                            :label="input[0]"
-                            :field="input[1]"
-                            :value="translation[input[1]]"
-                            :key="input.id"></input-textarea>
+                :label="input[0]"
+                :field="input[1]"
+                :value="translation[input[1]]"
+                :key="input.id"></input-textarea>
             <button class="btn btn-success" id="editTranslation" type="button" v-on:click="editTranslation()">
                 {{ this.$parent.$parent.labels['edit'] }}
+            </button>
+            <button class="btn btn-info" type="button" @click="cancel">
+                {{ this.$parent.$parent.labels['cancel'] }}
             </button>
         </div>
     </div>
@@ -110,6 +113,11 @@
 
                 return data;
             },
+
+            cancel() {
+                this.edited = true;
+                this.$parent.editing = false;
+            }
         }
     }
 </script>

@@ -53,26 +53,27 @@
             </div>
             <div class="font-weight-bold">{{ label('translations') }}</div>
             <translation-table :translations="{{ $translations }}"
-                               :languages="{{ $languages }}"
-                               :item="{{ $label }}"
-                               :labels="{
-                                    'language': '{{ label('language') }}',
-                                    'add_a_translation': '{{ label('add_a_translation') }}',
-                                    'language': '{{ label('language') }}',
-                                    'body': '{{ label('body') }}',
-                                    'save_translation': '{{ label('save_translation') }}',
-                                    'edit_translation': '{{ label('edit_translation') }}',
-                                    'edit': '{{ label('edit') }}',
-                                    'delete': '{{ label('delete') }}',
-                                    }"
-                               :text_input_labels="{
-                                    'body': ['{{ label('body') }}', 'content'],
-                                    }"
-                               :textarea_input_labels="{}"
-                               :item_name="'label'"
-                               :text_inputs="['content']"
-                               :textarea_inputs="[]"
-                               :url="'/admin/label-translations/'" >
+                :languages="{{ $languages }}"
+                :item="{{ $label }}"
+                :labels="{
+                     'language': '{{ label('language') }}',
+                     'add_a_translation': '{{ label('add_a_translation') }}',
+                     'language': '{{ label('language') }}',
+                     'body': '{{ label('body') }}',
+                     'save_translation': '{{ label('save_translation') }}',
+                     'edit_translation': '{{ label('edit_translation') }}',
+                     'edit': '{{ label('edit') }}',
+                     'cancel': '{{ label('cancel') }}',
+                     'delete': '{{ label('delete') }}',
+                }"
+                :text_input_labels="{
+                     'body': ['{{ label('body') }}', 'content'],
+                }"
+                :textarea_input_labels="{}"
+                :item_name="'label'"
+                :text_inputs="['content']"
+                :textarea_inputs="[]"
+                :url="'/admin/label-translations/'" >
             </translation-table>
 
             @if($translations->count() == 0)

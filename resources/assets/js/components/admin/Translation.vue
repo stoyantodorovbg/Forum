@@ -6,9 +6,9 @@
             </button>
         </td>
         <td v-if="!this.editing">{{ translation.language.title }} </td>
-        <!--<div >-->
-            <td  v-if="!this.editing" v-for="property in this.$parent.text_inputs">{{ translation[property] }}"</td>
-        <!--</div>-->
+        <div v-if="!this.editing">
+            <td v-for="property in this.$parent.text_inputs">{{ translation[property] }}"</td>
+        </div>
         <td v-if="!this.editing">
             <button class="btn btn-danger btn-sm"  type="button" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
