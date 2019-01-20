@@ -15,6 +15,16 @@
         </tr>
         <tr>
             <th scope="col"></th>
+            <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
+                <search-bool
+                        :name="'rights-status'"
+                        :labels="{
+                        'search_label': '{{ label('search_status') }}',
+                        'first_option': '{{ label('active') }}',
+                        'second_option': '{{ label('inactive') }}',
+                    }">
+                </search-bool>
+            </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
                 <search-text :name="'rights-title'" style="vertical-align: top;"></search-text>
             </th>
@@ -28,7 +38,10 @@
                 :id_property="'id'"
                 :properties="['title']"
                 :model_type="'rights'"
-                :search_props="['rights-title']"
+                :search_props="[
+                    'rights-status',
+                    'rights-title',
+                ]"
                 :delitable="0">
             </index>
         </template>

@@ -17,7 +17,16 @@
         </tr>
         <tr>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
+                <search-bool
+                    :name="'labels-status'"
+                    :labels="{
+                        'search_label': '{{ label('search_status') }}',
+                        'first_option': '{{ label('active') }}',
+                        'second_option': '{{ label('inactive') }}',
+                    }">
+                </search-bool>
+            </th>
             <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
                 <search-text :name="'labels-system_name'"></search-text>
             </th>
@@ -30,9 +39,16 @@
         <template>
             <index
                 :id_property="'id'"
-                :properties="['system_name', 'default_content']"
+                :properties="[
+                    'system_name',
+                    'default_content'
+                ]"
                 :model_type="'labels'"
-                :search_props="['labels-system_name', 'labels-default_content']"
+                :search_props="[
+                    'labels-status',
+                    'labels-system_name',
+                    'labels-default_content'
+                ]"
                 :delitable="1">
             </index>
         </template>

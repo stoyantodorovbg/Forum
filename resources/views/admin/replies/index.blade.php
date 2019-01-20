@@ -19,6 +19,16 @@
             </tr>
             <tr>
                 <th scope="col"></th>
+                <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
+                    <search-bool
+                            :name="'replies-status'"
+                            :labels="{
+                        'search_label': '{{ label('search_status') }}',
+                        'first_option': '{{ label('active') }}',
+                        'second_option': '{{ label('inactive') }}',
+                    }">
+                    </search-bool>
+                </th>
                 <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
                     <search-text :name="'replies-body'"></search-text>
                 </th>
@@ -37,9 +47,20 @@
         <template>
             <index
                 :id_property="'id'"
-                :properties="['body', 'thread.title', 'owner.name', 'created_at']"
+                :properties="[
+                    'body',
+                    'thread.title',
+                    'owner.name',
+                    'created_at'
+                ]"
                 :model_type="'replies'"
-                :search_props="['replies-body', 'replies-thread', 'replies-owner', 'replies-created_at']"
+                :search_props="[
+                    'replies-status',
+                    'replies-body',
+                    'replies-thread',
+                    'replies-owner',
+                    'replies-created_at'
+                ]"
                 :delitable="1">
             </index>
         </template>

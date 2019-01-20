@@ -526,5 +526,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Inactive',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_status',
+            'default_content' => 'Search by status',
+            'default_language_id' => 1,
+        ]);
     }
 }

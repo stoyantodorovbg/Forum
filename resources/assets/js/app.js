@@ -24,6 +24,7 @@ Vue.component('avatar-form', require('./components/AvatarForm.vue'));
 Vue.component('wysiwyg', require('./components/Wysiwyg.vue'));
 Vue.component('search-text', require('./components/admin/SearchText.vue'));
 Vue.component('search-date', require('./components/admin/SearchDate.vue'));
+Vue.component('search-bool', require('./components/admin/SearchBool.vue'));
 Vue.component('index', require('./components/admin/Index.vue'));
 Vue.component('add-translation', require('./components/admin/AddTranslation.vue'));
 Vue.component('translation-table', require('./components/admin/TranslationTable.vue'));

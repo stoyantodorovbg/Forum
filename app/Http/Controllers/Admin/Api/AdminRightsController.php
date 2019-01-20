@@ -21,8 +21,9 @@ class AdminRightsController extends Controller
         $this->authenticate('Right',__FUNCTION__, true);
 
         $title = request()->title;
+        $status = isset(request()->status) ? request()->status : 1;
 
-        $query = $this->createSearchQuery($title);
+        $query = $this->createSearchQuery($title, $status);
 
         return $query->paginate(15);
 
@@ -32,11 +33,13 @@ class AdminRightsController extends Controller
      * Create a query according to search inputs
      *
      * @param $title
+     * @param $status
      * @return Right|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($title)
+    protected function createSearchQuery($title, $status)
     {
-        $query = Right::where('title', 'LIKE', '%' . $title . '%');
+        $query = Right::where('title', 'LIKE', '%' . $title . '%')
+            ->where('status', $status);
 
         return $query;
     }

@@ -526,5 +526,11 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Неактивен',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 87,
+            'language_id' => 2,
+            'content' => 'Търсене по статус',
+        ]);
     }
 }

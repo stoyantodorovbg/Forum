@@ -20,13 +20,13 @@ class AdminLabelsController extends Controller
     {
         $this->authenticate('Label',__FUNCTION__, true);
 
-        $system_name = request()->system_name;
-        $default_content = request()->default_content;
+        $systemName = request()->system_name;
+        $defaultContent = request()->default_content;
+        $status = isset(request()->status) ? request()->status : 1;
 
-        $query = $this->createSearchQuery($system_name, $default_content);
+        $query = $this->createSearchQuery($systemName, $defaultContent, $status);
 
         return $query->paginate(15);
-
     }
 
     /**
@@ -48,14 +48,16 @@ class AdminLabelsController extends Controller
     /**
      * Create a query according to search inputs
      *
-     * @param $system_name
-     * @param $default_content
+     * @param $systemName
+     * @param $defaultContent
+     * @param $status
      * @return Label|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($system_name, $default_content)
+    protected function createSearchQuery($systemName, $defaultContent, $status)
     {
-        $query = Label::where('system_name', 'LIKE', '%' . $system_name . '%')
-            ->where('default_content', 'LIKE', '%' . $default_content . '%');
+        $query = Label::where('system_name', 'LIKE', '%' . $systemName . '%')
+            ->where('default_content', 'LIKE', '%' . $defaultContent . '%')
+            ->where('status', $status);
 
         return $query;
     }
