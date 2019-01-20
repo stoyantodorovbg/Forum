@@ -17,6 +17,17 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-form-label">{{ label('status') }}</label>
+                <select class="form-control" name="status">
+                    <option value="0">
+                        {{ label('inactive') }}
+                    </option>
+                    <option value="1">
+                        {{ label('active') }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label class="col-form-label">{{ label('thread') }}</label>
                 <div>
                     <select class="form-control" name="thread_id">
