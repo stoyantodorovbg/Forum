@@ -30,16 +30,37 @@
                     </search-bool>
                 </th>
                 <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'replies-body'"></search-text>
+                    <search-text
+                        :name="'replies-body'"
+                        :labels="{
+                            'search_label': '{{ label('search_by_body') }}',
+                        }">
+                    </search-text>
                 </th>
                 <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'replies-thread'"></search-text>
+                    <search-text
+                        :name="'replies-thread'"
+                        :labels="{
+                            'search_label': '{{ label('search_by_thread') }}',
+                        }">
+                    </search-text>
                 </th>
                 <th class="admin-index-search-text" scope="col admin-search-container">
-                    <search-text :name="'replies-owner'"></search-text>
+                    <search-text
+                        :name="'replies-owner'"
+                        :labels="{
+                            'search_label': '{{ label('search_by_published') }}',
+                        }">
+                    </search-text>
                 </th>
                 <th class="admin-index-search-date" scope="col">
-                    <search-date :name="'replies-created_at'"></search-date>
+                    <search-date
+                        :name="'replies-created_at'"
+                        :labels="{
+                            'search_label-from': '{{ label('from') }}',
+                            'search_label-to': '{{ label('to') }}',
+                        }">
+                    </search-date>
                 </th>
                 <th scope="col"></th>
             </tr>

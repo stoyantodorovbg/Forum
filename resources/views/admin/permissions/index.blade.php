@@ -26,7 +26,12 @@
                 </search-bool>
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
-                <search-text :name="'permissions-title'" style="vertical-align: top;"></search-text>
+                <search-text
+                    :name="'permissions-title'"
+                    :labels="{
+                            'search_label': '{{ label('search_by_title') }}',
+                        }">
+                </search-text>
             </th>
             </th>
 

@@ -532,5 +532,53 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by status',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'from',
+            'default_content' => 'From',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'to',
+            'default_content' => 'To',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_title',
+            'default_content' => 'Search by title',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_published',
+            'default_content' => 'Search by author',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_body',
+            'default_content' => 'Search by content',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_thread',
+            'default_content' => 'Search by thread',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_system_name',
+            'default_content' => 'Search by system name',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_default_content',
+            'default_content' => 'Search by default content',
+            'default_language_id' => 1,
+        ]);
     }
 }

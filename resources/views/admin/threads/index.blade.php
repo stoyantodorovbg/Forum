@@ -29,13 +29,29 @@
                     </search-bool>
                 </th>
                 <th scope="col admin-search-container" style="vertical-align: top;">
-                    <search-text :name="'threads-title'" style="vertical-align: top;"></search-text>
+                    <search-text
+                        :name="'threads-title'"
+                        :labels="{
+                            'search_label': '{{ label('search_by_title') }}',
+                        }">
+                    </search-text>
                 </th>
                 <th scope="col" style="vertical-align: top;">
-                    <search-text :name="'threads-owner'"></search-text>
+                    <search-text
+                        :name="'threads-owner'"
+                        :labels="{
+                            'search_label': '{{ label('search_by_published') }}',
+                        }">
+                    </search-text>
                 </th>
                 <th scope="col" style="vertical-align: top;">
-                    <search-date :name="'threads-created_at'"></search-date>
+                    <search-date
+                        :name="'threads-created_at'"
+                        :labels="{
+                            'search_label-from': '{{ label('from') }}',
+                            'search_label-to': '{{ label('to') }}',
+                        }">
+                    </search-date>
                 </th>
                 <th scope="col"></th>
             </tr>

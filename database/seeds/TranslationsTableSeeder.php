@@ -532,5 +532,53 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Търсене по статус',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 88,
+            'language_id' => 2,
+            'content' => 'От',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 89,
+            'language_id' => 2,
+            'content' => 'До',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 90,
+            'language_id' => 2,
+            'content' => 'Търси по заглавие',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 91,
+            'language_id' => 2,
+            'content' => 'Търси по автор',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 92,
+            'language_id' => 2,
+            'content' => 'Търси по съдържание',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 93,
+            'language_id' => 2,
+            'content' => 'Търси по публикация',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 94,
+            'language_id' => 2,
+            'content' => 'Търси по системно име',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 95,
+            'language_id' => 2,
+            'content' => 'Търси по дефолтно съдържание',
+        ]);
     }
 }

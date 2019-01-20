@@ -28,10 +28,20 @@
                 </search-bool>
             </th>
             <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
-                <search-text :name="'labels-system_name'"></search-text>
+                <search-text
+                    :name="'labels-system_name'"
+                    :labels="{
+                        'search_label': '{{ label('search_by_system_name') }}',
+                    }">
+                </search-text>
             </th>
             <th class="admin-index-search-text" scope="col admin-search-container" style="vertical-align: top;">
-                <search-text :name="'labels-default_content'"></search-text>
+                <search-text
+                    :name="'labels-default_content'"
+                    :labels="{
+                            'search_label': '{{ label('search_by_default_content') }}',
+                        }">
+                </search-text>
             </th>
             <th scope="col"></th>
         </tr>

@@ -26,7 +26,11 @@
                 </search-bool>
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
-                <search-text :name="'rights-title'" style="vertical-align: top;"></search-text>
+                <search-text
+                    :name="'rights-title'"
+                    :labels="{
+                        'search_label': '{{ label('search_by_title') }}',
+                    }"></search-text>
             </th>
             </th>
 
