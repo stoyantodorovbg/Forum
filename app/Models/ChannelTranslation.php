@@ -10,6 +10,7 @@ class ChannelTranslation extends Model
         'channel_id',
         'language_id',
         'name',
+        'slug'
     ];
 
     public $timestamps = false;

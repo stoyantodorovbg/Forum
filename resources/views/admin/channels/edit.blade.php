@@ -48,24 +48,35 @@
                     <input class="form-control" name="name" value="{{ $channel->name }}">
                 </div>
             </div>
-            <translation-table :translations="{{ $translations }}"
-                               :languages="{{ $languages }}"
-                               :item="{{ $channel }}"
-                               :labels="{
-                                    'language': '{{ label('language') }}',
-                                    'add_a_translation': '{{ label('add_a_translation') }}',
-                                    'language': '{{ label('language') }}',
-                                    'save_translation': '{{ label('save_translation') }}',
-                                    'edit_translation': '{{ label('edit_translation') }}',
-                                    'edit': '{{ label('edit') }}',
-                                    'delete': '{{ label('delete') }}',
-                                    }"
-                               :text_input_labels="{
-                                    'name': ['{{ label('name') }}', 'name'],
-                                    }"
-                               :item_name="'channel'"
-                               :text_inputs="['name']"
-                               :url="'/admin/channel-translations/'" >
+            <div class="form-group">
+                <label class="col-form-label">{{ label('slug') }}</label>
+                <div>
+                    <input class="form-control" name="slug" value="{{ $channel->slug }}">
+                </div>
+            </div>
+            <translation-table
+                :translations="{{ $translations }}"
+                :languages="{{ $languages }}"
+                :item="{{ $channel }}"
+                :labels="{
+                     'language': '{{ label('language') }}',
+                     'add_a_translation': '{{ label('add_a_translation') }}',
+                     'language': '{{ label('language') }}',
+                     'save_translation': '{{ label('save_translation') }}',
+                     'edit_translation': '{{ label('edit_translation') }}',
+                     'edit': '{{ label('edit') }}',
+                     'delete': '{{ label('delete') }}',
+                     }"
+                :text_input_labels="{
+                     'name': ['{{ label('name') }}', 'name'],
+                     'slug': ['{{ label('slug') }}', 'slug'],
+                     }"
+                :item_name="'channel'"
+                :text_inputs="[
+                    'name',
+                    'slug'
+                ]"
+                :url="'/admin/channel-translations/'" >
             </translation-table>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">

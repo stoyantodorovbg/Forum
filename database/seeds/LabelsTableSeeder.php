@@ -586,5 +586,17 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Edit a channel',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_channel',
+            'default_content' => 'Create a channel',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'slug',
+            'default_content' => 'Slug',
+            'default_language_id' => 1,
+        ]);
     }
 }

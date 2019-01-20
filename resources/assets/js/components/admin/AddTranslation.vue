@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="btn btn-success" v-on:click="displayInputs()" type="button">
+        <button v-if="!addingTranslation" class="btn btn-success" v-on:click="displayInputs()" type="button">
             {{ this.$parent.labels['add_a_translation'] }}
         </button>
         <div v-if="this.addingTranslation">

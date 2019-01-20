@@ -18,6 +18,7 @@ class CreateChannelTranslationsTable extends Migration
             $table->integer('channel_id')->unsigned();
             $table->integer('language_id')->unsigned();
             $table->string('name');
+            $table->string('slug');
             $table->timestamps();
         });
     }
