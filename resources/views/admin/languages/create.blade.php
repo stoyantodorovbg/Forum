@@ -30,13 +30,13 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title">
+                    <input class="form-control" name="title" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('short_title') }}</label>
                 <div>
-                    <input class="form-control" name="short_title">
+                    <input class="form-control" name="short_title" type="text">
                 </div>
             </div>
             <div class="admin-form-footer">

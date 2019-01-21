@@ -74,6 +74,9 @@ Route::delete('/admin/replies/{reply}', 'Admin\Api\AdminRepliesController@destro
 Route::post('/admin/channels/index', 'Admin\Api\AdminChannelsController@index');
 Route::delete('/admin/channels/{channel}', 'Admin\Api\AdminChannelsController@destroy');
 
+Route::post('/admin/users/index', 'Admin\Api\AdminUsersController@index');
+Route::delete('/admin/users/{user}', 'Admin\Api\AdminUsersController@destroy');
+
 Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
@@ -151,3 +154,9 @@ Route::get('/admin/languages/create', 'Admin\AdminLanguagesController@create')->
 Route::get('/admin/languages/{language}', 'Admin\AdminLanguagesController@edit')->name('admin.languages.edit');
 Route::post('/admin/languages/store', 'Admin\AdminLanguagesController@store')->name('admin.languages.store');
 Route::post('/admin/languages/{language}', 'Admin\AdminLanguagesController@update')->name('admin.languages.update');
+
+Route::get('/admin/users', 'Admin\AdminUsersController@index')->name('admin.users');
+Route::get('/admin/users/create', 'Admin\AdminUsersController@create')->name('admin.users.create');
+Route::get('/admin/users/{user}', 'Admin\AdminUsersController@edit')->name('admin.users.edit');
+Route::post('/admin/users/store', 'Admin\AdminUsersController@store')->name('admin.users.store');
+Route::post('/admin/users/{user}', 'Admin\AdminUsersController@update')->name('admin.users.update');

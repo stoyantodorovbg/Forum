@@ -616,5 +616,77 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Кратко име',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 102,
+            'language_id' => 2,
+            'content' => 'Роли',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 103,
+            'language_id' => 2,
+            'content' => 'Редактиране на потребител',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 104,
+            'language_id' => 2,
+            'content' => 'Създай нов потребител',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 105,
+            'language_id' => 2,
+            'content' => 'Добави роля',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 106,
+            'language_id' => 2,
+            'content' => 'Потребителят няма роли',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 107,
+            'language_id' => 2,
+            'content' => 'Потребителят няма разрешения',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 108,
+            'language_id' => 2,
+            'content' => 'Търси по име',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 109,
+            'language_id' => 2,
+            'content' => 'Имейл потвърждение',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 110,
+            'language_id' => 2,
+            'content' => 'Потвърден',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 111,
+            'language_id' => 2,
+            'content' => 'Не потвърден',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 112,
+            'language_id' => 2,
+            'content' => 'Имейл',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 113,
+            'language_id' => 2,
+            'content' => 'Търсене по имейл',
+        ]);
     }
 }

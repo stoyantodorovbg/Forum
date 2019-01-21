@@ -41,13 +41,13 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="name">
+                    <input class="form-control" name="name" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('slug') }}</label>
                 <div>
-                    <input class="form-control" name="slug">
+                    <input class="form-control" name="slug" type="text">
                 </div>
             </div>
             <div class="admin-form-footer">

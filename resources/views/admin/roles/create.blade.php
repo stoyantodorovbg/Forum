@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title">
+                    <input class="form-control" name="title" type="text">
                 </div>
             </div>
             <label class="col-form-label">{{ label('permissions') }}</label>

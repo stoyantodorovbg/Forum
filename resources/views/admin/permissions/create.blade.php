@@ -35,19 +35,19 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title">
+                    <input class="form-control" name="title" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('description') }}</label>
                 <div>
-                    <input class="form-control" name="description">
+                    <input class="form-control" name="description" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('system_name') }}</label>
                 <div>
-                    <input class="form-control" name="system_name">
+                    <input class="form-control" name="system_name" type="text">
                 </div>
             </div>
             <label class="col-form-label">{{ label('rights') }}</label>

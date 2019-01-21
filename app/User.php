@@ -26,6 +26,8 @@ class User extends Authenticatable
         'password',
         'avatar_path',
         'confirmation_token',
+        'status',
+        'confirmed',
     ];
 
     /**
@@ -43,7 +45,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'email'
+        'password',
+        'remember_token',
+        'confirmation_token',
     ];
 
     /**

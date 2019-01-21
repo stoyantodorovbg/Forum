@@ -31,13 +31,13 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('system_name') }}</label>
                 <div>
-                    <input class="form-control" name="system_name" value="{{ $label->system_name }}">
+                    <input class="form-control" name="system_name" value="{{ $label->system_name }}" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('body') }}</label>
                 <div>
-                    <input class="form-control" name="default_content" value="{{ $label->default_content }}">
+                    <input class="form-control" name="default_content" value="{{ $label->default_content }}" type="text">
                 </div>
             </div>
             <div class="form-group">

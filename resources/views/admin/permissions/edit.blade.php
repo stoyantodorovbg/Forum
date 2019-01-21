@@ -40,34 +40,34 @@
                 </select>
             </div>
             <related-items-input
-                    :all_items="{{ $allRights }}"
-                    :related_items="{{ $permissionRights }}"
-                    :url="'/admin/permissions-rights/'"
-                    :item_id="{{ $permission->id }}"
-                    :input_name="'rights'"
-                    :labels="{
-                        'add_item': '{{ label('add_permission') }}',
-                        'choose_one': '{{ label('choose_one') }}',
-                        'role_without_permissions': '{{ label('permission_without_rights') }}',
-                        'related_models': '{{ label('rights') }}',
-                        }">
+                :all_items="{{ $allRights }}"
+                :related_items="{{ $permissionRights }}"
+                :url="'/admin/permissions-rights/'"
+                :item_id="{{ $permission->id }}"
+                :input_name="'rights'"
+                :labels="{
+                    'add_item': '{{ label('add_permission') }}',
+                    'choose_one': '{{ label('choose_one') }}',
+                    'role_without_permissions': '{{ label('permission_without_rights') }}',
+                    'related_models': '{{ label('rights') }}',
+                }">
             </related-items-input>
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title" value="{{ $permission->title }}">
+                    <input class="form-control" name="title" value="{{ $permission->title }}" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-item">{{ label('description') }}</label>
                 <div>
-                    <input class="form-control" name="description" value="{{ $permission->description }}">
+                    <input class="form-control" name="description" value="{{ $permission->description }}" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-item">{{ label('system_name') }}</label>
                 <div>
-                    <input class="form-control" name="system_name" value="{{ $permission->system_name }}">
+                    <input class="form-control" name="system_name" value="{{ $permission->system_name }}" type="text">
                 </div>
             </div>
             <div class="admin-form-footer">

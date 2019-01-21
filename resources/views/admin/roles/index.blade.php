@@ -3,7 +3,7 @@
 @section('content')
     <div class="m-2">
         <a href="{{ route('admin.roles.create') }}">
-            <button class="btn btn-success small">{{ label('create_role') }}</button>
+            <button class="btn btn-success small">{{ label('create_user') }}</button>
         </a>
     </div>
     <table class="table table-sm">

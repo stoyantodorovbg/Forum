@@ -45,13 +45,13 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="name" value="{{ $channel->name }}">
+                    <input class="form-control" name="name" value="{{ $channel->name }}" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('slug') }}</label>
                 <div>
-                    <input class="form-control" name="slug" value="{{ $channel->slug }}">
+                    <input class="form-control" name="slug" value="{{ $channel->slug }}" type="text">
                 </div>
             </div>
             <translation-table

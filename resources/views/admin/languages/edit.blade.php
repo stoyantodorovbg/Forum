@@ -45,13 +45,13 @@
             <div class="form-group">
                 <label class="col-form-label">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title" value="{{ $language->title }}">
+                    <input class="form-control" name="title" value="{{ $language->title }}" type="text">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-form-label">{{ label('short_title') }}</label>
                 <div>
-                    <input class="form-control" name="short_title" value="{{ $language->short_title }}">
+                    <input class="form-control" name="short_title" value="{{ $language->short_title }}" type="text">
                 </div>
             </div>
             <translation-table
@@ -77,7 +77,7 @@
                     'title',
                     'short_title'
                 ]"
-                    :url="'/admin/language-translations/'" >
+                :url="'/admin/language-translations/'" >
             </translation-table>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">

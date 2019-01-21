@@ -589,7 +589,7 @@ class LabelsTableSeeder extends Seeder
 
         DB::table('labels')->insert([
             'system_name' => 'create_channel',
-            'default_content' => 'Create a channel',
+            'default_content' => 'Create new channel',
             'default_language_id' => 1,
         ]);
 
@@ -601,19 +601,91 @@ class LabelsTableSeeder extends Seeder
 
         DB::table('labels')->insert([
             'system_name' => 'create_language',
-            'default_content' => 'Create a language',
+            'default_content' => 'Create new language',
             'default_language_id' => 1,
         ]);
 
         DB::table('labels')->insert([
             'system_name' => 'edit_language',
-            'default_content' => 'Edit a language',
+            'default_content' => 'Edit language',
             'default_language_id' => 1,
         ]);
 
         DB::table('labels')->insert([
             'system_name' => 'short_title',
             'default_content' => 'Short title',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'roles',
+            'default_content' => 'Roles',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_user',
+            'default_content' => 'Edit user',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_user',
+            'default_content' => 'Create new user',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_role',
+            'default_content' => 'Add a role',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'user_without_roles',
+            'default_content' => 'The user have no roles',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'user_without_permissions',
+            'default_content' => 'The user have no permissions',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_name',
+            'default_content' => 'Search by name',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'mail_confirmation',
+            'default_content' => 'Mail confirmation',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'confirmed',
+            'default_content' => 'Confirmed',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'not_confirmed',
+            'default_content' => 'Not confirmed',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'email',
+            'default_content' => 'Email',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_email',
+            'default_content' => 'Search by email',
             'default_language_id' => 1,
         ]);
     }

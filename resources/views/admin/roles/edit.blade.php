@@ -36,23 +36,23 @@
                     </option>
                 </select>
             </div>
-                <related-items-input
-                        :all_items="{{ $allPermissions }}"
-                        :related_items="{{ $rolePermissions }}"
-                        :url="'/admin/roles-permissions/'"
-                        :item_id="{{ $role->id }}"
-                        :input_name="'permissions'"
-                        :labels="{
-                            'add_item': '{{ label('add_permission') }}',
-                            'choose_one': '{{ label('choose_one') }}',
-                            'role_without_permissions': '{{ label('role_without_permissions') }}',
-                            'related_models': '{{ label('permissions') }}',
-                            }">
-                </related-items-input>
+            <related-items-input
+                :all_items="{{ $allPermissions }}"
+                :related_items="{{ $rolePermissions }}"
+                :url="'/admin/roles-permissions/'"
+                :item_id="{{ $role->id }}"
+                :input_name="'permissions'"
+                :labels="{
+                    'add_item': '{{ label('add_permission') }}',
+                    'choose_one': '{{ label('choose_one') }}',
+                    'role_without_permissions': '{{ label('role_without_permissions') }}',
+                    'related_models': '{{ label('permissions') }}',
+                }">
+            </related-items-input>
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title" value="{{ $role->title }}">
+                    <input class="form-control" name="title" value="{{ $role->title }}" type="text">
                 </div>
             </div>
             <div class="admin-form-footer">

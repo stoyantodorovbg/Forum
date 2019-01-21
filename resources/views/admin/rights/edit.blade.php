@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label class="col-form-item">{{ label('title') }}</label>
                 <div>
-                    <input class="form-control" name="title" value="{{ $right->title }}">
+                    <input class="form-control" name="title" value="{{ $right->title }}" type="text">
                 </div>
             </div>
             <div class="admin-form-footer">
