@@ -688,5 +688,17 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by email',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'all',
+            'default_content' => 'All',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_role',
+            'default_content' => 'Search by Role',
+            'default_language_id' => 1,
+        ]);
     }
 }

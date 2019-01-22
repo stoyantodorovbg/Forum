@@ -95,11 +95,11 @@
             attachEvents() {
                 let component = this;
                 for (let prop of this.searchPropsArr) {
-                    if(prop == 'status') {
+                    if(prop == 'status' || prop == 'role') {
                         $('#' + this.model_type + '-' + prop).change(function () {
                             component.fetch();
                         });
-                    } else if(prop != 'created_at' && prop != 'updated_at') {
+                    }  else if(prop != 'created_at' && prop != 'updated_at') {
                         $('#' + this.model_type + '-' + prop).keyup(function () {
                             component.fetch();
                         });

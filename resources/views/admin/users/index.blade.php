@@ -9,38 +9,54 @@
     <table class="table table-sm">
         <thead>
         <tr>
-            <th scope="col">{{ label('edit') }}</th>
-            <th scope="col">{{ label('status') }}</th>
-            <th scope="col">{{ label('name') }}</th>
-            <th scope="col">{{ label('email') }}</th>
-        </tr>
-        <tr>
             <th scope="col"></th>
             <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
                 <search-bool
                     :name="'users-status'"
                     :labels="{
-                    'search_label': '{{ label('search_status') }}',
-                    'first_option': '{{ label('active') }}',
-                    'second_option': '{{ label('inactive') }}',
-                }">
+                        'search_label': '{{ label('search_status') }}',
+                        'first_option': '{{ label('active') }}',
+                        'second_option': '{{ label('inactive') }}',
+                    }">
                 </search-bool>
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
                 <search-text
                     :name="'users-name'"
                     :labels="{
-                    'search_label': '{{ label('search_by_name') }}',
-                }"></search-text>
+                        'search_label': '{{ label('search_by_name') }}',
+                    }">
+
+                </search-text>
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
                 <search-text
-                        :name="'users-email'"
-                        :labels="{
-                    'search_label': '{{ label('search_by_email') }}',
-                }"></search-text>
+                    :name="'users-email'"
+                    :labels="{
+                        'search_label': '{{ label('search_by_email') }}',
+                    }">
+                </search-text>
             </th>
             <th scope="col"></th>
+        </tr>
+        <tr>
+            <th scope="col admin-search-container" style="vertical-align: top;">
+                <search-option
+                    :name="'users-role'"
+                    :labels="{
+                        'search_label': '{{ label('search_by_role') }}',
+                        'all': '{{ label('all') }}',
+                    }"
+                    :prop_name="'title'"
+                    :items="{{ $roles }}">
+                </search-option>
+            </th>
+        </tr>
+        <tr>
+            <th scope="col">{{ label('edit') }}</th>
+            <th scope="col">{{ label('status') }}</th>
+            <th scope="col">{{ label('name') }}</th>
+            <th scope="col">{{ label('email') }}</th>
         </tr>
         </thead>
         <template>
@@ -55,6 +71,7 @@
                     'users-status',
                     'users-name',
                     'users-email',
+                    'users-role',
                 ]"
                 :delitable="0">
             </index>

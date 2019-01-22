@@ -18,8 +18,8 @@
             <th scope="col"></th>
             <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
                 <search-bool
-                        :name="'channels-status'"
-                        :labels="{
+                    :name="'channels-status'"
+                    :labels="{
                         'search_label': '{{ label('search_status') }}',
                         'first_option': '{{ label('active') }}',
                         'second_option': '{{ label('inactive') }}',
@@ -28,8 +28,8 @@
             </th>
             <th scope="col admin-search-container" style="vertical-align: top;">
                 <search-text
-                        :name="'channels-name'"
-                        :labels="{
+                    :name="'channels-name'"
+                    :labels="{
                             'search_label': '{{ label('search_by_title') }}',
                         }">
                 </search-text>

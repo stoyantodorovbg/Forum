@@ -31,8 +31,9 @@ class AdminUsersController extends Controller
     public function index()
     {
         $this->authenticate('User',__FUNCTION__, true);
+        $roles = Role::where('status', 1)->get();
 
-        return view('admin.users.index');
+        return view('admin.users.index', compact('roles'));
     }
 
     /**
