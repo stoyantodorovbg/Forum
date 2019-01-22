@@ -32,8 +32,11 @@ class AdminUsersController extends Controller
     {
         $this->authenticate('User',__FUNCTION__, true);
         $roles = Role::where('status', 1)->get();
+        $permissions = Permission::where('status', 1)->get();
 
-        return view('admin.users.index', compact('roles'));
+        return view('admin.users.index',
+            compact('roles', 'permissions')
+        );
     }
 
     /**
@@ -47,7 +50,9 @@ class AdminUsersController extends Controller
 
         $languages = Language::all();
 
-        return view('admin.users.create', compact('languages'));
+        return view('admin.users.create',
+            compact('languages')
+        );
     }
 
     /**

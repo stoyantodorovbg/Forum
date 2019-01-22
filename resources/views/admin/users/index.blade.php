@@ -51,6 +51,17 @@
                     :items="{{ $roles }}">
                 </search-option>
             </th>
+            <th scope="col admin-search-container" style="vertical-align: top;">
+                <search-option
+                    :name="'users-permission'"
+                    :labels="{
+                    'search_label': '{{ label('search_by_permission') }}',
+                        'all': '{{ label('all') }}',
+                    }"
+                    :prop_name="'title'"
+                    :items="{{ $permissions }}">
+                </search-option>
+            </th>
         </tr>
         <tr>
             <th scope="col">{{ label('edit') }}</th>
@@ -72,6 +83,7 @@
                     'users-name',
                     'users-email',
                     'users-role',
+                    'users-permission'
                 ]"
                 :delitable="0">
             </index>

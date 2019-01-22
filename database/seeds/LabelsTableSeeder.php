@@ -700,5 +700,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by Role',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_permission',
+            'default_content' => 'Search by permission',
+            'default_language_id' => 1,
+        ]);
     }
 }

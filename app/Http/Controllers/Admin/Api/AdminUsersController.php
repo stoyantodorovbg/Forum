@@ -24,8 +24,9 @@ class AdminUsersController extends Controller
         $status = isset(request()->status) ? request()->status : 1;
         $email = request()->email;
         $role = request()->role;
+        $permission = request()->permission;
 
-        $query = $this->createSearchQuery($name, $status, $email, $role);
+        $query = $this->createSearchQuery($name, $status, $email, $role, $permission);
 
         return $query->paginate(15);
     }
@@ -37,9 +38,10 @@ class AdminUsersController extends Controller
      * @param $status
      * @param $email
      * @param $role
+     * @param $permission
      * @return User|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($name, $status, $email, $role)
+    protected function createSearchQuery($name, $status, $email, $role, $permission)
     {
         $query = User::where('name', 'LIKE', '%' . $name . '%')
             ->where('email', 'LIKE', '%' . $email . '%')
@@ -48,8 +50,14 @@ class AdminUsersController extends Controller
                 $query1->whereHas('roles', function ($query2) use ($role) {
                     $query2->where('title', $role);
                 });
+            })
+            ->when($permission, function ($query3) use($permission) {
+                $query3->whereHas('roles', function ($query4) use ($permission) {
+                    $query4->whereHas('permissions', function ($query5) use($permission) {
+                        $query5->where('title', $permission);
+                    });
+                });
             });
-
 
         return $query;
     }
