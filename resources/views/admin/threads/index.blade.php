@@ -9,14 +9,6 @@
     <table class="table table-sm">
         <thead>
             <tr>
-                <th scope="col">{{ label('edit') }}</th>
-                <th scope="col">{{ label('status') }}</th>
-                <th scope="col">{{ label('title') }}</th>
-                <th scope="col">{{ label('published_from') }}</th>
-                <th scope="col">{{ label('created_at') }}</th>
-                <th scope="col">Delete</th>
-            </tr>
-            <tr>
                 <th scope="col"></th>
                 <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
                     <search-bool
@@ -54,6 +46,14 @@
                     </search-date>
                 </th>
                 <th scope="col"></th>
+            </tr>
+            <tr>
+                <th scope="col">{{ label('edit') }}</th>
+                <th scope="col">{{ label('status') }}</th>
+                <th scope="col">{{ label('title') }}</th>
+                <th scope="col">{{ label('published_from') }}</th>
+                <th scope="col">{{ label('created_at') }}</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <template>

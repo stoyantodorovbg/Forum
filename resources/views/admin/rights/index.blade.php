@@ -8,34 +8,34 @@
     </div>
     <table class="table table-sm">
         <thead>
-        <tr>
-            <th scope="col">{{ label('edit') }}</th>
-            <th scope="col">{{ label('status') }}</th>
-            <th scope="col">{{ label('title') }}</th>
-        </tr>
-        <tr>
-            <th scope="col"></th>
-            <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
-                <search-bool
-                        :name="'rights-status'"
+            <tr>
+                <th scope="col"></th>
+                <th class="admin-index-search-bool" scope="col admin-search-container" style="vertical-align: top;">
+                    <search-bool
+                            :name="'rights-status'"
+                            :labels="{
+                            'search_label': '{{ label('search_status') }}',
+                            'first_option': '{{ label('active') }}',
+                            'second_option': '{{ label('inactive') }}',
+                        }">
+                    </search-bool>
+                </th>
+                <th scope="col admin-search-container" style="vertical-align: top;">
+                    <search-text
+                        :name="'rights-title'"
                         :labels="{
-                        'search_label': '{{ label('search_status') }}',
-                        'first_option': '{{ label('active') }}',
-                        'second_option': '{{ label('inactive') }}',
-                    }">
-                </search-bool>
-            </th>
-            <th scope="col admin-search-container" style="vertical-align: top;">
-                <search-text
-                    :name="'rights-title'"
-                    :labels="{
-                        'search_label': '{{ label('search_by_title') }}',
-                    }"></search-text>
-            </th>
-            </th>
+                            'search_label': '{{ label('search_by_title') }}',
+                        }"></search-text>
+                </th>
+                </th>
 
-            <th scope="col"></th>
-        </tr>
+                <th scope="col"></th>
+            </tr>
+            <tr>
+                <th scope="col">{{ label('edit') }}</th>
+                <th scope="col">{{ label('status') }}</th>
+                <th scope="col">{{ label('title') }}</th>
+            </tr>
         </thead>
         <template>
             <index
