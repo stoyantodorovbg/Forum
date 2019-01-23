@@ -80,6 +80,9 @@ Route::delete('/admin/users/{user}', 'Admin\Api\AdminUsersController@destroy');
 Route::post('/admin/labels/index', 'Admin\Api\AdminLabelsController@index');
 Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy');
 
+Route::post('/admin/menus/index', 'Admin\Api\AdminMenusController@index');
+Route::delete('/admin/menus/{menu}', 'Admin\Api\AdminMenusController@destroy');
+
 Route::post('/admin/roles/index', 'Admin\Api\AdminRolesController@index');
 
 Route::post('/admin/permissions/index', 'Admin\Api\AdminPermissionsController@index');
@@ -160,3 +163,9 @@ Route::get('/admin/users/create', 'Admin\AdminUsersController@create')->name('ad
 Route::get('/admin/users/{user}', 'Admin\AdminUsersController@edit')->name('admin.users.edit');
 Route::post('/admin/users/store', 'Admin\AdminUsersController@store')->name('admin.users.store');
 Route::post('/admin/users/{user}', 'Admin\AdminUsersController@update')->name('admin.users.update');
+
+Route::get('/admin/menus', 'Admin\AdminMenusController@index')->name('admin.menus');
+Route::get('/admin/menus/create', 'Admin\AdminMenusController@create')->name('admin.menus.create');
+Route::get('/admin/menus/{menu}', 'Admin\AdminMenusController@edit')->name('admin.menus.edit');
+Route::post('/admin/menus/store', 'Admin\AdminMenusController@store')->name('admin.menus.store');
+Route::post('/admin/menus/{menu}', 'Admin\AdminMenusController@update')->name('admin.menus.update');
