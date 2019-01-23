@@ -1,7 +1,7 @@
 <template>
     <div class="form-group">
         <label class="admin-search-label">{{ labels['search_label'] }}</label>
-        <input class="form-control" :id="name" type="text">
+        <input class="form-control admin-search-text" :id="name" type="text">
     </div>
 </template>
 

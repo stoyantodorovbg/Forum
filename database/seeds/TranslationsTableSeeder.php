@@ -702,13 +702,13 @@ class TranslationsTableSeeder extends Seeder
         ]);
 
         DB::table('label_translations')->insert([
-            'label_id' => 115,
+            'label_id' => 116,
             'language_id' => 2,
             'content' => 'Търси по разрешение',
         ]);
 
         DB::table('label_translations')->insert([
-            'label_id' => 116,
+            'label_id' => 117,
             'language_id' => 2,
             'content' => 'Търси по право',
         ]);

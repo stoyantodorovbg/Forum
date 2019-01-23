@@ -94,25 +94,14 @@
 
             attachEvents() {
                 let component = this;
-                for (let prop of this.searchPropsArr) {
-                    if(prop == 'status' || prop == 'role' || prop == 'permission' || prop == 'right') {
-                        $('#' + this.model_type + '-' + prop).change(function () {
-                            component.fetch();
-                        });
-                    }  else if(prop != 'created_at' && prop != 'updated_at') {
-                        $('#' + this.model_type + '-' + prop).keyup(function () {
-                            component.fetch();
-                        });
-                    } else {
-                        $('#' + this.model_type + '-' + prop + '_from').change(function () {
-                            component.fetch();
-                        });
 
-                        $('#' + this.model_type + '-' + prop + '_to').change(function () {
-                            component.fetch();
-                        });
-                    }
-                }
+                $('.admin-search-text').keyup(function () {
+                    component.fetch();
+                });
+
+                $('.admin-search-bool, .admin-search-option, .admin-search-date').change(function () {
+                    component.fetch();
+                });
             }
         }
     }

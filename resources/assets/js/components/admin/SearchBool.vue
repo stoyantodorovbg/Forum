@@ -1,7 +1,7 @@
 <template>
     <div class="form-group">
         <label class="admin-search-label">{{ labels['search_label'] }}</label>
-        <select class="form-control" :id="name">
+        <select class="form-control admin-search-bool" :id="name">
             <option value="1">{{ labels['first_option'] }}</option>
             <option value="0">{{ labels['second_option'] }}</option>
         </select>
