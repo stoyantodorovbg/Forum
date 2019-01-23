@@ -95,7 +95,7 @@
             attachEvents() {
                 let component = this;
                 for (let prop of this.searchPropsArr) {
-                    if(prop == 'status' || prop == 'role' || prop == 'permission') {console.log(1111111111)
+                    if(prop == 'status' || prop == 'role' || prop == 'permission' || prop == 'right') {
                         $('#' + this.model_type + '-' + prop).change(function () {
                             component.fetch();
                         });

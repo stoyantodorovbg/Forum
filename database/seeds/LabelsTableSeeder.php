@@ -706,5 +706,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by permission',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'search_by_right',
+            'default_content' => 'Search by right',
+            'default_language_id' => 1,
+        ]);
     }
 }

@@ -28,8 +28,10 @@ class AdminPermissionsController extends Controller
     public function index()
     {
         $this->authenticate('Permission',__FUNCTION__, true);
+        $rights = Right::where('status', 1)->get();
 
-        return view('admin.permissions.index');
+        return view('admin.permissions.index',
+            compact('rights'));
     }
 
     /**

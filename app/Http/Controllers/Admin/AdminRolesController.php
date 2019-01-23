@@ -28,8 +28,11 @@ class AdminRolesController extends Controller
     public function index()
     {
         $this->authenticate('Role',__FUNCTION__, true);
+        $permissions = Permission::where('status', 1)->get();
 
-        return view('admin.roles.index');
+        return view('admin.roles.index',
+            compact('permissions')
+        );
     }
 
     /**

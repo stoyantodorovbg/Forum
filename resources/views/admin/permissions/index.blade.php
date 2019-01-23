@@ -29,8 +29,20 @@
                     </search-text>
                 </th>
                 </th>
-
                 <th scope="col"></th>
+            </tr>
+            <tr>
+                <th scope="col admin-search-container" style="vertical-align: top;">
+                    <search-option
+                        :name="'permissions-right'"
+                        :labels="{
+                        'search_label': '{{ label('search_by_right') }}',
+                        'all': '{{ label('all') }}',
+                        }"
+                        :prop_name="'title'"
+                        :items="{{ $rights }}">
+                    </search-option>
+                </th>
             </tr>
             <tr>
                 <th scope="col">{{ label('edit') }}</th>
@@ -45,7 +57,8 @@
                 :model_type="'permissions'"
                 :search_props="[
                     'permissions-title',
-                    'permissions-status'
+                    'permissions-status',
+                    'permissions-right',
                 ]"
                 :delitable="0">
             </index>

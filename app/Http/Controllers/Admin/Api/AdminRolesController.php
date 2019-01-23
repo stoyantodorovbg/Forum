@@ -22,8 +22,9 @@ class AdminRolesController extends Controller
 
         $title = request()->title;
         $status = isset(request()->status) ? request()->status : 1;
+        $permission = request()->permission;
 
-        $query = $this->createSearchQuery($title, $status);
+        $query = $this->createSearchQuery($title, $status, $permission);
 
         return $query->paginate(15);
 
@@ -34,12 +35,18 @@ class AdminRolesController extends Controller
      *
      * @param $title
      * @param $status
+     * @param $permission
      * @return Role|\Illuminate\Database\Eloquent\Builder
      */
-    protected function createSearchQuery($title, $status)
+    protected function createSearchQuery($title, $status, $permission)
     {
         $query = Role::where('title', 'LIKE', '%' . $title . '%')
-            ->where('status', $status);
+            ->where('status', $status)
+            ->when($permission, function ($query1) use($permission) {
+                $query1->whereHas('permissions', function ($query2) use ($permission) {
+                    $query2->where('title', $permission);
+                });
+            });
 
         return $query;
     }
