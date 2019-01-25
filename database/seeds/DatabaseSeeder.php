@@ -21,6 +21,5 @@ class DatabaseSeeder extends Seeder
         $this->call(RightsTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
         $this->call(MenusTableSeeder::class);
-        $this->call(MenuItemsTableSeeder::class);
     }
 }
