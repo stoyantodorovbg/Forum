@@ -107,6 +107,10 @@ Route::post('/admin/language-translations/store', 'Admin\Api\AdminLanguageTransl
 Route::post('/admin/language-translations/{languageTranslation}', 'Admin\Api\AdminLanguageTranslationsController@update');
 Route::delete('/admin/language-translations/{languageTranslation}', 'Admin\Api\AdminLanguageTranslationsController@destroy');
 
+Route::post('/admin/menu-translations/store', 'Admin\Api\AdminMenuTranslationsController@store');
+Route::post('/admin/menu-translations/{menuTranslation}', 'Admin\Api\AdminMenuTranslationsController@update');
+Route::delete('/admin/menu-translations/{menuTranslation}', 'Admin\Api\AdminMenuTranslationsController@destroy');
+
 // Back-office routes
 Route::get('/admin', 'Admin\AdminHomeController@index')->name('admin.home');
 

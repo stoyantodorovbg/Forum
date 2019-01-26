@@ -54,7 +54,8 @@ class AdminMenusController extends Controller
     protected function createSearchQuery($title, $status)
     {
         $query = Menu::where('title', 'LIKE', '%' . $title . '%')
-            ->where('status', $status);
+            ->where('status', $status)
+            ->where('menu_item_id', NULL);
 
         return $query;
     }

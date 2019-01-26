@@ -78,6 +78,10 @@ class AdminMenusController extends Controller
             ->with('language')
             ->get();
 
+        $menu->load(['menuItems' => function ($query) {
+            $query->with('menu');
+        }]);
+
         return view('admin.menus.edit',
             compact('menu', 'languages', 'translations')
         );

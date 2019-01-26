@@ -712,5 +712,17 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Търси по право',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 118,
+            'language_id' => 2,
+            'content' => 'Редактиране на мену',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 119,
+            'language_id' => 2,
+            'content' => 'Създаване меню',
+        ]);
     }
 }

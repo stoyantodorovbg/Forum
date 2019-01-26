@@ -712,5 +712,17 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Search by right',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_menu',
+            'default_content' => 'Search by right',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'create_menu',
+            'default_content' => 'Search by right',
+            'default_language_id' => 1,
+        ]);
     }
 }
