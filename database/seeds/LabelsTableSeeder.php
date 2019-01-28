@@ -720,9 +720,48 @@ class LabelsTableSeeder extends Seeder
         ]);
 
         DB::table('labels')->insert([
-            'system_name' => 'create_menu',
+            'system_name' => 'create_a_menu',
             'default_content' => 'Search by right',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'menu',
+            'default_content' => 'menu',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'menu_item_from',
+            'default_content' => 'menu item form',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'assigned_to',
+            'default_content' => 'Assigned to',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'assign_to',
+            'default_content' => 'Assign to',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'it_is_main_menu',
+            'default_content' => 'It is a main menu',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'from_menu',
+            'default_content' => 'from menu',
+            'default_language_id' => 1,
+        ]);
+
+
+
     }
 }

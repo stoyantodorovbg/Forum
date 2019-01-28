@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Menu;
 use App\Models\Language;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 use App\Traits\CheckUserRights;
 use App\Models\MenuTranslation;
@@ -44,7 +45,18 @@ class AdminMenusController extends Controller
 
         $languages = Language::all();
 
-        return view('admin.menus.create', compact('languages'));
+        if(!request()->from_menu_item) {
+            $menuItems = MenuItem::where('status', 1)
+                ->whereDoesntHave('childMenu')
+                ->with('menu')
+                ->get();
+
+            return view('admin.menus.create',
+                compact('languages', 'menuItems'));
+        }
+
+        return view('admin.menus.create',
+            compact('languages'));
     }
 
     /**
@@ -78,12 +90,17 @@ class AdminMenusController extends Controller
             ->with('language')
             ->get();
 
+        $menuItems = MenuItem::where('status', 1)
+            ->whereDoesntHave('childMenu')
+            ->with('menu')
+            ->get();
+
         $menu->load(['menuItems' => function ($query) {
             $query->with('menu');
         }]);
 
         return view('admin.menus.edit',
-            compact('menu', 'languages', 'translations')
+            compact('menu', 'languages', 'translations', 'menuItems')
         );
     }
 

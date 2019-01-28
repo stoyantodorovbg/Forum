@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\User;
+use App\Models\Menu;
 use App\Models\Reply;
 use App\Models\Label;
 use App\Models\Thread;
 use App\Models\Channel;
 use App\Models\Language;
+use App\Models\MenuItem;
 use App\Models\Auth\Role;
 use App\Models\Auth\Right;
 use Illuminate\Http\Request;
@@ -67,6 +69,8 @@ class AdminBaseController extends Controller
             case 'roles': return Role::class;
             case 'rights': return Right::class;
             case 'permissions': return Permission::class;
+            case 'menus': return Menu::class;
+            case 'menuItems': return MenuItem::class;
         }
 
         return false;

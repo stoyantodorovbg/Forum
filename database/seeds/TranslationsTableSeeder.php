@@ -716,13 +716,49 @@ class TranslationsTableSeeder extends Seeder
         DB::table('label_translations')->insert([
             'label_id' => 118,
             'language_id' => 2,
-            'content' => 'Редактиране на мену',
+            'content' => 'Редактиране на меню',
         ]);
 
         DB::table('label_translations')->insert([
             'label_id' => 119,
             'language_id' => 2,
             'content' => 'Създаване меню',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 120,
+            'language_id' => 2,
+            'content' => 'меню',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 121,
+            'language_id' => 2,
+            'content' => 'меню обект от',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 122,
+            'language_id' => 2,
+            'content' => 'Добавено към',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 123,
+            'language_id' => 2,
+            'content' => 'Добави към',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 124,
+            'language_id' => 2,
+            'content' => 'Това е главно меню',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 125,
+            'language_id' => 2,
+            'content' => 'от меню',
         ]);
     }
 }

@@ -10,6 +10,7 @@ class Menu extends Model
         'title',
         'description',
         'status',
+        'menu_item_id',
     ];
 
     /**
@@ -23,12 +24,12 @@ class Menu extends Model
     }
 
     /**
-     * The menu may be assigned to one menu item
+     * The menu can be assigned to menu item
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parentMenuItem()
     {
-        return $this->hasOne(MenuItem::class);
+        return $this->belongsTo(MenuItem::class, 'menu_item_id');
     }
 }

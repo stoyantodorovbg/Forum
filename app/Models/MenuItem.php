@@ -23,4 +23,14 @@ class MenuItem extends Model
     {
         return $this->belongsTo(Menu::class);
     }
+
+    /**
+     * The menu that is assigned to t the menu item
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function childMenu()
+    {
+        return $this->hasOne(Menu::class);
+    }
 }

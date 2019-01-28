@@ -19,6 +19,42 @@
                     <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
+            @if(isset($menu->parentMenuItem))
+                <div class="info-model">
+                    <span class="info-label">{{ label('assigned_to') }}</span>
+                    <span class="info-data">
+                        {{ $menu->parentMenuItem->title }} {{ label('menu_item_from') }} {{ $menu->parentMenuItem->menu->title }} {{ label('menu') }}
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">{{ label('assign_to') }}</label>
+                    <select class="form-control" name="menu_item_id">
+                        @foreach($menuItems as $menuItem)
+                            <option value="{{ $menuItem->id }}"
+                                {{ $menuItem->id == $menu->parentMenuItem->id ? 'selected' : ''  }}>
+                                {{ $menuItem->title }} {{ label('from_menu') }} {{ $menuItem->menu->title }}
+                            </option>
+                        @endforeach
+                        <option value="">
+                            {{ label('it_is_main_menu') }}
+                        </option>
+                    </select>
+                </div>
+            @else
+                <div class="form-group">
+                    <label class="col-form-label">{{ label('assign_to') }}</label>
+                    <select class="form-control" name="menu_item_id">
+                        <option value="">
+                            {{ label('it_is_main_menu') }}
+                        </option>
+                        @foreach($menuItems as $menuItem)
+                            <option value="{{ $menuItem->id }}">
+                                {{ $menuItem->title }} {{ label('from_menu') }} {{ $menuItem->menu->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
             <div class="form-group">
                 <label class="col-form-label">{{ label('status') }}</label>
                 <select class="form-control" name="status">

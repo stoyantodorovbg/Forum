@@ -47,7 +47,7 @@ class AdminMenusController extends Controller
     /**
      * Create a query according to search inputs
      *
-     * @param $menu
+     * @param $title
      * @param $status
      * @return Menu|\Illuminate\Database\Eloquent\Builder
      */
