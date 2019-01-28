@@ -1,12 +1,12 @@
 <template>
     <div>
-        <button v-if="!addingTranslation" class="btn btn-success" v-on:click="displayInputs()" type="button">
-            {{ this.$parent.labels['add_a_translation'] }}
+        <button v-if="!addingMenuItem" class="btn btn-success" v-on:click="displayInputs()" type="button">
+            {{ this.$parent.labels['add_a_menuItem'] }}
         </button>
-        <div v-if="this.addingTranslation">
+        <div v-if="this.addingMenuItem">
             <div class="form-group">
                 <label class="col-form-label">{{ this.$parent.labels['language'] }}</label>
-                <select class="form-control translation-language-id">
+                <select class="form-control menuItem-language-id">
                     <option
                         v-for="language in this.$parent.languages"
                         v-if="language.id !== item.default_language_id &&
@@ -19,14 +19,14 @@
             </div>
             <input-text v-for="input in this.$parent.text_input_labels"
                 :label="input[0]"
-                :field="'translation-' + input[1]"
+                :field="input[1]"
                 :key="input.id"></input-text>
             <input-textarea v-for="input in this.$parent.textarea_input_labels"
                 :label="input[0]"
-                :field="'translation-' + input[1]"
+                :field="input[1]"
                 :key="input.id"></input-textarea>
-            <button class="btn btn-success" id="saveTranslation" type="button" v-on:click="addTranslation()">
-                {{ this.$parent.labels['save_translation'] }}
+            <button class="btn btn-success" id="saveMenuItem" type="button" v-on:click="addMenuItem()">
+                {{ this.$parent.labels['save_menuItem'] }}
             </button>
             <button class="btn btn-info" type="button" @click="cancel">
                 {{ this.$parent.labels['cancel'] }}
@@ -49,15 +49,15 @@
         data() {
             return {
                 selected: this.isDefaultLanguage(this.$parent.languages, this.item),
-                addingTranslation: false,
+                addingMenuItem: false,
             }
         },
 
         computed: {
             labelLanguages: function () {
                 let languages = [];
-                for (let translation of this.$parent.translations) {
-                    languages.push(translation.language.title)
+                for (let menuItem of this.$parent.menuItems) {
+                    languages.push(menuItem.language.title)
                 }
 
                 return languages;
@@ -74,22 +74,22 @@
             },
 
             displayInputs() {
-                this.addingTranslation = true;
+                this.addingMenuItem = true;
             },
 
-            addTranslation() {
+            addMenuItem() {
                 axios.post(this.$parent.url + 'store', this.getData()).then(data => {
-                    this.$parent.$data.dataTranslations = data.data.translations;
-                    flash('Translation added.');
+                    this.$parent.$data.dataMenuItems = data.data.menuItems;
+                    flash('Menu item added.');
                 }).catch(function () {
                     flash('Something went wrong.');
                 });
-                this.addingTranslation = false;
+                this.addingMenuItem = false;
             },
 
             getData() {
                 let data = {
-                    language_id: $('.translation-language-id').val(),
+                    language_id: $('.menuItem-language-id').val(),
                 };
 
                 let item_id = this.$parent.item_name + '_id';
@@ -97,13 +97,13 @@
 
                 if (typeof this.$parent.text_inputs !== 'undefined') {
                     for (let input of this.$parent.text_inputs) {
-                        data[input] = $('#translation-' + input).val();
+                        data[input] = $('#menuItem-' + input).val();
                     }
                 }
 
                 if(typeof this.$parent.textarea_inputs !== 'undefined') {
                     for (let input of this.$parent.textarea_inputs) {
-                        data[input] = $('#translation-' + input).val();
+                        data[input] = $('#menuItem-' + input).val();
                     }
                 }
 
@@ -111,8 +111,8 @@
             },
 
             cancel() {
-                this.addingTranslation = false;
-                flash('Adding translation canceled.');
+                this.addingMenuItem = false;
+                flash('Adding menuItem canceled.');
             }
         }
     }

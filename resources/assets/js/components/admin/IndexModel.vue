@@ -7,12 +7,11 @@
                 </button>
             </a>
         </td>
-        <td scope="row">
-        <label class="switch" v-if="hasStatusInput">
-            <input type="checkbox" @change="toggleStatus" :checked="this.model.status">
-            <span class="slider round"></span>
-        </label>
-        </td>
+        <toggle-status
+            v-if="hasStatusInput"
+            :model="model"
+            :model_type="this.$parent.model_type">
+        </toggle-status>
         <index-property
             v-for="property in this.$parent.properties"
             :key="property.id"
@@ -27,9 +26,10 @@
 </template>
 <script>
     import IndexProperty from "./IndexProperty";
+    import ToggleStatus from "./ToggleStatus";
 
     export default {
-        components: {IndexProperty},
+        components: {IndexProperty, ToggleStatus},
 
         props: [
             'model',
@@ -56,18 +56,6 @@
                     });
             },
 
-            toggleStatus() {
-                axios.post('/admin/model-status', {
-                    model_type: this.$parent.model_type,
-                    model_id: this.model.id,
-                }).then(function (data) {
-                    let status = data.data ? 'Active' : 'Inactive';
-                    flash('Status changed to ' + status + '.');
-                }).catch(function () {
-                    flash('Something went wrong.');
-                });
-            },
-
             hasStatusProperty() {
                 if(this.model.hasOwnProperty('status')) {
                     return true;
@@ -80,66 +68,6 @@
 </script>
 
 <style>
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 30px;
-        height: 17px;
-        margin-top: 4px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 11px;
-        width: 11px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    input:checked + .slider {
-        background-color: #28a745;
-    }
-
-    input:focus + .slider {
-        box-shadow: 0 0 1px #28a745;
-    }
-
-    input:checked + .slider:before {
-        -webkit-transform: translateX(13px);
-        -ms-transform: translateX(13px);
-        transform: translateX(13px);
-    }
-
-    .slider.round {
-        border-radius: 17px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
-    }
-
     .table-sm td {
         padding-bottom: 0;
     }

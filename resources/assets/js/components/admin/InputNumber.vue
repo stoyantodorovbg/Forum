@@ -1,10 +1,10 @@
 <template>
-    <div class="form-group">
-        <label class="col-form-label">{{ label }}</label>
+    <div :class="'form-group ' + forIndex">
+        <label v-if="forIndex" class="col-form-label">{{ label }}</label>
         <div>
             <input
                 class="form-control translation"
-                type="text"
+                type="number"
                 :id="field"
                 :value="value">
         </div>
@@ -17,6 +17,13 @@
             'label',
             'field',
             'value',
+            'forIndex'
         ],
     }
 </script>
+
+<style>
+    .for-index {
+        width: 80px;
+    }
+</style>

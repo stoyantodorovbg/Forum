@@ -3,7 +3,7 @@
         <label class="col-form-label">{{ label }}</label>
         <textarea
             class="form-control"
-            :id="'translation-' + field" rows="10">{{ value}}</textarea>
+            :id="field" rows="10">{{ value}}</textarea>
     </div>
 </template>
 

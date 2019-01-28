@@ -30,6 +30,7 @@ Vue.component('index', require('./components/admin/Index.vue'));
 Vue.component('add-translation', require('./components/admin/AddTranslation.vue'));
 Vue.component('translation-table', require('./components/admin/TranslationTable.vue'));
 Vue.component('related-items-input', require('./components/admin/RelatedItemsInput.vue'));
+Vue.component('menu-item-table', require('./components/admin/MenuItemTable.vue'));
 
 const app = new Vue({
     el: '#app'

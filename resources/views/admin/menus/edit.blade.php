@@ -78,11 +78,23 @@
                     <textarea class="form-control" rows="10" id="comment" name="description">{{ $menu->description }}</textarea>
                 </div>
             </div>
-            <translation-table :translations="{{ $translations }}"
+            <menu-item-table
+                :items="{{ $menu->menuItems }}"
+                :menu="{{ $menu }}"
+                :labels="{
+                    'add_a_menu_item': '{{ label('add_a_menu_item') }}',
+                    'save_the_menu_item': '{{ label('save_the_menu_item') }}',
+                    'edit_menu_item': '{{ label('edit_menu_item') }}',
+                    'edit': '{{ label('edit') }}',
+                    'cancel': '{{ label('cancel') }}',
+                    'delete': '{{ label('delete') }}',
+                }">
+            </menu-item-table>
+            <translation-table
+                :translations="{{ $translations }}"
                 :languages="{{ $languages }}"
                 :item="{{ $menu }}"
                 :labels="{
-                    'language': '{{ label('language') }}',
                     'add_a_translation': '{{ label('add_a_translation') }}',
                     'language': '{{ label('language') }}',
                     'description': '{{ label('description') }}',
@@ -101,7 +113,7 @@
                 :item_name="'menu'"
                 :text_inputs="['title']"
                 :textarea_inputs="['description']"
-                :url="'/admin/menu-translations/'" >
+                :url="'/admin/menu-translations/'">
             </translation-table>
             <div class="admin-form-footer">
                 <div class="admin-form-buttons">
