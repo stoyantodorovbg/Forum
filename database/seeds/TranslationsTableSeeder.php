@@ -760,5 +760,11 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'от меню',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 126,
+            'language_id' => 2,
+            'content' => 'Позиция',
+        ]);
     }
 }

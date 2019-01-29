@@ -64,6 +64,7 @@ Route::delete('threads/api/thread-translation/{threadTranslation}', 'Api\ThreadT
 
 // Back-office API routes
 Route::post('admin/model-status', 'Admin\Api\AdminBaseController@toggleStatus');
+Route::post('admin/model-position', 'Admin\Api\AdminBaseController@changePosition');
 
 Route::post('/admin/threads/index', 'Admin\Api\AdminThreadsController@index');
 Route::delete('/admin/threads/{thread}', 'Admin\Api\AdminThreadsController@destroy');

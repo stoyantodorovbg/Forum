@@ -30,7 +30,7 @@ class AdminBaseController extends Controller
     /**
      * Change model status
      *
-     * @return int
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response|int
      */
     public function toggleStatus()
     {
@@ -49,6 +49,32 @@ class AdminBaseController extends Controller
 
             return $model->status;
         }
+
+        return response(202);
+    }
+
+    /**
+     * Change the position property for an item
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response|int
+     */
+    public function changePosition()
+    {
+        $modelType = request()->model_type;
+        $modelId = request()->model_id;
+        $modelProperty = request()->model_property;
+        $value = request()->$modelProperty;
+
+        if ($class = $this->getClass($modelType)) {
+            $model = $class::find($modelId);
+            $model->$modelProperty = $value;
+
+            $model->save();
+
+            return $model->$modelProperty;
+        }
+
+        return response(202);
     }
 
     /**

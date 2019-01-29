@@ -1,23 +1,26 @@
 <template>
     <tr>
-        <td :class="'menuItem-prop-' + menuItem.id" scope="row">
+        <td :class="'model-prop-' + model.id" scope="row">
             <button class="btn btn-success btn-sm" type="button" v-on:click="this.editItem">
                 <i class="glyphicon glyphicon-pencil">&#x270f;</i>
             </button>
         </td>
         <toggle-status
-            :model="menuItem"
-            :model_type="'menuItems'">
+            :model="model"
+            :model_type="'models'">
         </toggle-status>
         <td scope="row">
             <input-number
-                :field="'menuItem-' + menuItem.id"
-                :value="menuItem.value"
-                :forIndex="'for-index'">
+                :field="'menuItem-' + model.id"
+                :value="model.position"
+                :forIndex="'for-index'"
+                :model_type="'menuItems'"
+                :model="this.model"
+                :model_property="'position'">
             </input-number>
         </td>
-        <td :class="'menuItem-prop-' + menuItem.id">{{ menuItem.title }} </td>
-        <td :class="'menuItem-prop-' + menuItem.id">
+        <td :class="'model-prop-' + model.id">{{ model.title }} </td>
+        <td :class="'model-prop-' + model.id">
             <button class="btn btn-danger btn-sm"  type="button" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -25,7 +28,7 @@
         <!--<edit-menu-item-->
             <!--v-if="this.editing"-->
             <!--:item="this.$parent.item"-->
-            <!--:menuItem="menuItem">-->
+            <!--:model="model">-->
         <!--</edit-menu-item>-->
     </tr>
 </template>
@@ -39,30 +42,37 @@
         components: {EditMenuItem, ToggleStatus, InputNumber},
 
         props: [
-            'menuItem'
+            'model'
         ],
 
         data() {
             return {
                 editing: false,
+                position: this.model.position,
             }
         },
 
         watch: {
             editing: function () {
                 if (this.editing) {
-                    $('.menuItem-prop-' + this.menuItem.id).hide();
+                    $('.model-prop-' + this.model.id).hide();
                 } else {
-                    $('.menuItem-prop-' + this.menuItem.id).show();
+                    $('.model-prop-' + this.model.id).show();
                 }
+            },
+
+            position: function (position) {
+                let index = this.$parent.items.map(e => e.id).indexOf(this.model.id);
+                this.$parent.items[index].position = position;
+                this.$parent.orderByPosition();
             }
         },
 
         methods: {
             deleteItem() {
-                axios.delete(this.$parent.url + this.menuItem.id)
+                axios.delete(this.$parent.url + this.model.id)
                     .then(data => {
-                        this.$parent.$data.dataMenuItems = data.data.menuItems;
+                        this.$parent.$data.dataMenuItems = data.data.models;
                         flash('Menu item deleted.');
                     }).catch(function () {
                     flash('Something went wrong.');

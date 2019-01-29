@@ -13,9 +13,10 @@
             </thead>
             <tbody>
             <menu-item
-                v-for="menuItem in items"
-                :key="menuItem.id"
-                :menuItem="menuItem">
+                v-for="model in this.orderedItems"
+                :position="position"
+                :key="model.id"
+                :model="model">
             </menu-item>
             </tbody>
         </table>
@@ -35,9 +36,25 @@
             'labels',
         ],
 
+        data() {
+            return {
+                orderedItems: this.orderItems(),
+            }
+        },
+
+        methods: {
+            orderByPosition() {
+                this.orderedItems = this.orderItems();
+            },
+
+            orderItems() {
+                return _.orderBy(this.items, 'position')
+            }
+        }
+
         // data() {
         //     return {
-        //         dataMenuItems: this.menuItems,
+        //         dataMenuItems: this.models,
         //     }
         // }
     }
