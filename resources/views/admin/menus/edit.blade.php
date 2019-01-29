@@ -82,6 +82,9 @@
                 :items="{{ $menu->menuItems }}"
                 :menu="{{ $menu }}"
                 :labels="{
+                    'position': '{{ 'position' }}',
+                    'status': '{{ label('status') }}',
+                    'title': '{{ label('title') }}',
                     'add_a_menu_item': '{{ label('add_a_menu_item') }}',
                     'save_the_menu_item': '{{ label('save_the_menu_item') }}',
                     'edit_menu_item': '{{ label('edit_menu_item') }}',
