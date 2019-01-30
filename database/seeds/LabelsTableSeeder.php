@@ -762,7 +762,26 @@ class LabelsTableSeeder extends Seeder
         ]);
 
         DB::table('labels')->insert([
-            'system_name' => 'Position',
+            'system_name' => 'position',
+            'default_content' => 'Position',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'nested_menu',
+            'default_content' => 'Nested menu',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_nested_menu',
+            'default_content' => 'Edit nested menu',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_nested_menu',
+            'default_content' => 'Add nested menu',
             'default_language_id' => 1,
         ]);
     }

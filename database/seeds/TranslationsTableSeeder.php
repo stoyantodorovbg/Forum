@@ -766,5 +766,23 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Позиция',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 127,
+            'language_id' => 2,
+            'content' => 'Подменю',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 128,
+            'language_id' => 2,
+            'content' => 'Редактирай подменю',
+        ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 129,
+            'language_id' => 2,
+            'content' => 'Добави подменю',
+        ]);
     }
 }

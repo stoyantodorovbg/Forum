@@ -8,6 +8,7 @@
                 <th scope="col">{{ labels['status'] }}</th>
                 <th scope="col">{{ labels['position'] }}</th>
                 <th scope="col">{{ labels['title'] }}</th>
+                <th scope="col">{{ labels['nested_menu'] }}</th>
                 <th scope="col">{{ labels['delete'] }}</th>
             </tr>
             </thead>
@@ -39,6 +40,7 @@
         data() {
             return {
                 orderedItems: this.orderItems(),
+                position: '',
             }
         },
 

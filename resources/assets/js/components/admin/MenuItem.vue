@@ -20,6 +20,20 @@
             </input-number>
         </td>
         <td :class="'model-prop-' + model.id">{{ model.title }} </td>
+        <td v-if="model.child_menu != null">
+            <button class="btn btn-success btn-sm"  type="button">
+                <a class="edit-nested-menu" :href="'/admin/menus/' + model.child_menu.id">
+                    {{ this.$parent.labels['edit_nested_menu'] }}
+                </a>
+            </button>
+        </td>
+        <td v-else="model.child_menu != null">
+            <button class="btn btn-success btn-sm"  type="button">
+                <a class="edit-nested-menu" :href="'/admin/menus/create'">
+                    {{ this.$parent.labels['add_nested_menu'] }}
+                </a>
+            </button>
+        </td>
         <td :class="'model-prop-' + model.id">
             <button class="btn btn-danger btn-sm"  type="button" v-on:click="this.deleteItem">
                 <span aria-hidden="true">&times;</span>
@@ -89,5 +103,10 @@
 <style>
     .alert-flash {
         bottom: 43px;
+    }
+
+    .edit-nested-menu, .edit-nested-menu:hover {
+        text-decoration: none;
+        color: white;
     }
 </style>

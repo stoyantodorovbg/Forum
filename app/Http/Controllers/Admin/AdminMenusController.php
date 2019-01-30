@@ -96,7 +96,7 @@ class AdminMenusController extends Controller
             ->get();
 
         $menu->load(['menuItems' => function ($query) {
-            $query->with('menu');
+            $query->with('childMenu')->with('menu');
         }]);
 
         return view('admin.menus.edit',
