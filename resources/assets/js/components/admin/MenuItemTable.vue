@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <!--<add-menu-item></add-menu-item>-->
+        <add-menu-item></add-menu-item>
         <table class="table table-sm">
             <thead>
             <tr>

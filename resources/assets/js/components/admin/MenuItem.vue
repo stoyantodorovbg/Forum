@@ -10,14 +10,14 @@
             :model_type="'models'">
         </toggle-status>
         <td scope="row">
-            <input-number
+            <change-number
                 :field="'menuItem-' + model.id"
                 :value="model.position"
                 :forIndex="'for-index'"
                 :model_type="'menuItems'"
                 :model="this.model"
                 :model_property="'position'">
-            </input-number>
+            </change-number>
         </td>
         <td :class="'model-prop-' + model.id">{{ model.title }} </td>
         <td v-if="model.child_menu != null">
@@ -50,10 +50,10 @@
 <script>
     import EditMenuItem from "./EditMenuItem";
     import ToggleStatus from "./ToggleStatus";
-    import InputNumber from "./InputNumber";
+    import ChangeNumber from "./ChangeNumber";
 
     export default {
-        components: {EditMenuItem, ToggleStatus, InputNumber},
+        components: {EditMenuItem, ToggleStatus, ChangeNumber},
 
         props: [
             'model'

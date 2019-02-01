@@ -84,6 +84,10 @@ Route::delete('/admin/labels/{label}', 'Admin\Api\AdminLabelsController@destroy'
 Route::post('/admin/menus/index', 'Admin\Api\AdminMenusController@index');
 Route::delete('/admin/menus/{menu}', 'Admin\Api\AdminMenusController@destroy');
 
+Route::post('/admin/menu-items/store', 'Admin\Api\AdminMenuItemsController@store');
+Route::post('/admin/menu-items/{menu}', 'Admin\Api\AdminMenuItemsController@update');
+Route::delete('/admin/menu-items/{menu}', 'Admin\Api\AdminMenuItemsController@destroy');
+
 Route::post('/admin/roles/index', 'Admin\Api\AdminRolesController@index');
 
 Route::post('/admin/permissions/index', 'Admin\Api\AdminPermissionsController@index');

@@ -84,6 +84,9 @@
                 :labels="{
                     'position': '{{ 'position' }}',
                     'status': '{{ label('status') }}',
+                    'active': '{{ label('active') }}',
+                    'inactive': '{{ label('inactive') }}',
+                    'choose_one': '{{ label('choose_one') }}',
                     'title': '{{ label('title') }}',
                     'add_a_menu_item': '{{ label('add_a_menu_item') }}',
                     'save_the_menu_item': '{{ label('save_the_menu_item') }}',
@@ -91,9 +94,14 @@
                     'nested_menu': '{{ label('nested_menu') }}',
                     'edit_nested_menu': '{{ label('edit_nested_menu') }}',
                     'add_nested_menu': '{{ label('add_nested_menu') }}',
+                    'save_menu_item': '{{ label('save_menu_item') }}',
                     'edit': '{{ label('edit') }}',
                     'cancel': '{{ label('cancel') }}',
                     'delete': '{{ label('delete') }}',
+                    'title': '{{ label('title') }}',
+                    'link': '{{ label('link') }}',
+                    'description': '{{ label('description') }}',
+                    'position': '{{ label('position') }}',
                 }">
             </menu-item-table>
             <translation-table
