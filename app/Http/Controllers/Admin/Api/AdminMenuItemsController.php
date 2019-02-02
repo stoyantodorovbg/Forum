@@ -15,7 +15,7 @@ class AdminMenuItemsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return MenuItem
+     * @return array
      */
     public function store(Request $request)
     {
@@ -24,7 +24,12 @@ class AdminMenuItemsController extends Controller
         $menuItem = new MenuItem($request->all());
         $menuItem->save();
 
-        return $menuItem;
+        return [
+            'menuItems' => MenuItem::where('menu_id', $menuItem->menu_id)
+                ->orderBy('position')
+                ->get(),
+            'menuItem' => $menuItem,
+        ];
     }
 
     /**
@@ -47,15 +52,20 @@ class AdminMenuItemsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param MenuItem $menuItem
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return array
      * @throws \Exception
      */
     public function destroy(MenuItem $menuItem)
     {
         $this->authenticate('MenuItem',__FUNCTION__, true);
+        $menuItemId = $menuItem->menu_id;
 
         $menuItem->delete();
 
-        return response([], 204);
+        return [
+            'menuItems' => MenuItem::where('menu_id', $menuItemId)
+                ->orderBy('position')
+                ->get(),
+        ];
     }
 }

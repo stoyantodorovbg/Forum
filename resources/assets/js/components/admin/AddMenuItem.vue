@@ -90,9 +90,9 @@
             addMenuItem(id) {
                 let data = this.getData();
                 data['menu_id'] = id;
-                console.log(data);
                 axios.post('/admin/menu-items/store', data).then(data => {
                     this.$parent.$data.dataMenuItems = data.data.menuItems;
+                    this.$parent.$data.orderedItems = data.data.menuItems;
                     flash('Menu item added.');
                 }).catch(function () {
                     flash('Something went wrong.');
@@ -112,7 +112,7 @@
 
             cancel() {
                 this.addingMenuItem = false;
-                flash('Adding menuItem canceled.');
+                flash('Adding menu item canceled.');
             },
         }
     }

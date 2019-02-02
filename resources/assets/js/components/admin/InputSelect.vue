@@ -5,9 +5,15 @@
             <select
                 class="form-control"
                 :id="field"
-                :value="value"
-                v-model="selected">
-                <option disabled value="">{{ default_value }}</option>
+                :value="value">
+                <option v-if="selected_option == null"
+                        selected
+                        value="">{{ default_value }}
+                </option>
+                <option v-else
+                    :value="selected_option.value">
+                    {{ selected_option.name }}
+                </option>
                 <!--<option v-if="default_value != null" :selectded value="">{{ default_value }}</option>-->
                 <option v-for="option in options"
                     :key="option.key"
@@ -27,6 +33,7 @@
             'value',
             'default_value',
             'options',
+            'selected_option'
         ],
     }
 </script>

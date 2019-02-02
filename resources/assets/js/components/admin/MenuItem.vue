@@ -86,7 +86,7 @@
             deleteItem() {
                 axios.delete('/admin/menu-items/' + this.model.id)
                     .then(data => {
-                        this.$parent.$data.dataMenuItems = data.data.models;
+                        this.$parent.$data.orderedItems = data.data.menuItems;
                         flash('Menu item deleted.');
                     }).catch(function () {
                     flash('Something went wrong.');
