@@ -796,5 +796,17 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Link',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'add_a_menu_item',
+            'default_content' => 'Add a menu item',
+            'default_language_id' => 1,
+        ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'edit_menu_item',
+            'default_content' => 'Edit menu item',
+            'default_language_id' => 1,
+        ]);
     }
 }

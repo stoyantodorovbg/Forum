@@ -7,7 +7,7 @@
         </td>
         <toggle-status
             :model="model"
-            :model_type="'models'">
+            :model_type="'menuItems'">
         </toggle-status>
         <td scope="row">
             <change-number
@@ -84,7 +84,7 @@
 
         methods: {
             deleteItem() {
-                axios.delete(this.$parent.url + this.model.id)
+                axios.delete('/admin/menu-items/' + this.model.id)
                     .then(data => {
                         this.$parent.$data.dataMenuItems = data.data.models;
                         flash('Menu item deleted.');

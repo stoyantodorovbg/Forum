@@ -52,7 +52,7 @@ class AdminMenuItemsController extends Controller
      */
     public function destroy(MenuItem $menuItem)
     {
-        $this->authenticate('Menu',__FUNCTION__, true);
+        $this->authenticate('MenuItem',__FUNCTION__, true);
 
         $menuItem->delete();
 
