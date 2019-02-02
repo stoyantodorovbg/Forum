@@ -808,5 +808,11 @@ class TranslationsTableSeeder extends Seeder
             'language_id' => 2,
             'content' => 'Редактирай меню обект',
         ]);
+
+        DB::table('label_translations')->insert([
+            'label_id' => 134,
+            'language_id' => 2,
+            'content' => 'Редактиране на меню обект',
+        ]);
     }
 }

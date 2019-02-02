@@ -91,6 +91,7 @@
                     'add_a_menu_item': '{{ label('add_a_menu_item') }}',
                     'save_the_menu_item': '{{ label('save_the_menu_item') }}',
                     'edit_menu_item': '{{ label('edit_menu_item') }}',
+                    'editing_menu_item': '{{ label('editing_menu_item') }}',
                     'nested_menu': '{{ label('nested_menu') }}',
                     'edit_nested_menu': '{{ label('edit_nested_menu') }}',
                     'add_nested_menu': '{{ label('add_nested_menu') }}',

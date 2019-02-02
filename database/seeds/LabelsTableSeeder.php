@@ -808,5 +808,11 @@ class LabelsTableSeeder extends Seeder
             'default_content' => 'Edit menu item',
             'default_language_id' => 1,
         ]);
+
+        DB::table('labels')->insert([
+            'system_name' => 'editing_menu_item',
+            'default_content' => 'Edit menu item',
+            'default_language_id' => 1,
+        ]);
     }
 }

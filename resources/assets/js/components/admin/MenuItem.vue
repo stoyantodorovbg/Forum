@@ -6,10 +6,11 @@
             </button>
         </td>
         <toggle-status
+            :class="'model-prop-' + model.id"
             :model="model"
             :model_type="'menuItems'">
         </toggle-status>
-        <td scope="row">
+        <td scope="row" :class="'model-prop-' + model.id">
             <change-number
                 :field="'menuItem-' + model.id"
                 :value="model.position"
@@ -20,14 +21,14 @@
             </change-number>
         </td>
         <td :class="'model-prop-' + model.id">{{ model.title }} </td>
-        <td v-if="model.child_menu != null">
+        <td v-if="model.child_menu != null" :class="'model-prop-' + model.id">
             <button class="btn btn-success btn-sm"  type="button">
                 <a class="edit-nested-menu" :href="'/admin/menus/' + model.child_menu.id">
                     {{ this.$parent.labels['edit_nested_menu'] }}
                 </a>
             </button>
         </td>
-        <td v-else="model.child_menu != null">
+        <td v-else="model.child_menu != null" :class="'model-prop-' + model.id">
             <button class="btn btn-success btn-sm"  type="button">
                 <a class="edit-nested-menu" :href="'/admin/menus/create'">
                     {{ this.$parent.labels['add_nested_menu'] }}
@@ -39,11 +40,10 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </td>
-        <!--<edit-menu-item-->
-            <!--v-if="this.editing"-->
-            <!--:item="this.$parent.item"-->
-            <!--:model="model">-->
-        <!--</edit-menu-item>-->
+        <edit-menu-item
+            v-if="this.editing"
+            :model="model">
+        </edit-menu-item>
     </tr>
 </template>
 

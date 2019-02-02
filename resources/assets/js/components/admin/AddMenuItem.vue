@@ -4,19 +4,6 @@
             {{ this.$parent.labels['add_a_menu_item'] }}
         </button>
         <div v-if="this.addingMenuItem">
-            <!--<div class="form-group">-->
-                <!--<label class="col-form-label">{{ this.$parent.labels['language'] }}</label>-->
-                <!--<select class="form-control menuItem-language-id">-->
-                    <!--<option-->
-                        <!--v-for="language in this.$parent.languages"-->
-                        <!--v-if="language.id !== item.default_language_id &&-->
-                        <!--!labelLanguages.includes(language.title)"-->
-                        <!--v-model="selected"-->
-                        <!--:value="language.id">-->
-                        <!--{{ language.title }}-->
-                    <!--</option>-->
-                <!--</select>-->
-            <!--</div>-->
             <input-text
                 :label="this.$parent.labels.title"
                 :field="'menu-item-title'">
@@ -34,7 +21,6 @@
                 :field="'menu-item-status'"
                 :options="this.statusOptions"
                 :default_value="this.$parent.labels.choose_one">
-                <!--:selected_value="this.selectedValue">-->
             </input-select>
             <input-textarea
                 :label="this.$parent.labels.description"
@@ -74,10 +60,6 @@
                         value: 1,
                     },
                 ],
-                // selectedValue: {
-                //     name: this.$parent.labels['inactive'],
-                //     value: 0,
-                // },
                 menuId: this.$parent.menu.id,
             }
         },

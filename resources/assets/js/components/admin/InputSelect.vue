@@ -11,10 +11,10 @@
                         value="">{{ default_value }}
                 </option>
                 <option v-else
-                    :value="selected_option.value">
+                    :value="selected_option.value"
+                    selected>
                     {{ selected_option.name }}
                 </option>
-                <!--<option v-if="default_value != null" :selectded value="">{{ default_value }}</option>-->
                 <option v-for="option in options"
                     :key="option.key"
                     :value="option.value">

@@ -53,11 +53,5 @@
                 return _.orderBy(this.items, 'position')
             }
         }
-
-        // data() {
-        //     return {
-        //         dataMenuItems: this.models,
-        //     }
-        // }
     }
 </script>

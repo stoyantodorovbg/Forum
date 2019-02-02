@@ -37,7 +37,7 @@ class AdminMenuItemsController extends Controller
      *
      * @param Request $request
      * @param MenuItem $menuItem
-     * @return MenuItem
+     * @return array
      */
     public function update(Request $request, MenuItem $menuItem)
     {
@@ -45,7 +45,11 @@ class AdminMenuItemsController extends Controller
 
         $menuItem->update($request->all());
 
-        return $menuItem;
+        return [
+            'menuItems' => MenuItem::where('menu_id', $menuItem->menu_id)
+                ->orderBy('position')
+                ->get(),
+        ];
     }
 
     /**
