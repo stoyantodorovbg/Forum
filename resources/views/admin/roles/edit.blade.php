@@ -4,6 +4,7 @@
 
     <form method="POST" action="{{ route('admin.roles.update', ['id' => $role->id]) }}">
         {{ csrf_field() }}
+        {{ method_field('PATCH') }}
         < class="container-admin-form col-sm-11">
             <div class="admin-form-header">
                 <h1>

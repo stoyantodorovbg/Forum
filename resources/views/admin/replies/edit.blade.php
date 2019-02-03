@@ -4,6 +4,7 @@
 
 <form method="POST" action="{{ route('admin.replies.update', ['id' => $reply->id]) }}">
     {{ csrf_field() }}
+    {{ method_field('PATCH') }}
     <div class="container-admin-form col-sm-11">
         <div class="admin-form-header">
             <h1>

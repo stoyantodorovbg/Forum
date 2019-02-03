@@ -123,58 +123,58 @@ Route::get('/admin/threads', 'Admin\AdminThreadsController@index')->name('admin.
 Route::get('/admin/threads/create', 'Admin\AdminThreadsController@create')->name('admin.threads.create');
 Route::get('/admin/threads/{thread}', 'Admin\AdminThreadsController@edit')->name('admin.threads.edit');
 Route::post('/admin/threads/store', 'Admin\AdminThreadsController@store')->name('admin.threads.store');
-Route::post('/admin/threads/{thread}', 'Admin\AdminThreadsController@update')->name('admin.threads.update');
+Route::patch('/admin/threads/{thread}', 'Admin\AdminThreadsController@update')->name('admin.threads.update');
 
 Route::get('/admin/replies', 'Admin\AdminRepliesController@index')->name('admin.replies');
 Route::get('/admin/replies/create', 'Admin\AdminRepliesController@create')->name('admin.replies.create');
 Route::get('/admin/replies/{reply}', 'Admin\AdminRepliesController@edit')->name('admin.replies.edit');
 Route::post('/admin/replies/store', 'Admin\AdminRepliesController@store')->name('admin.replies.store');
-Route::post('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');
+Route::patch('/admin/replies/{reply}', 'Admin\AdminRepliesController@update')->name('admin.replies.update');
 
 Route::get('/admin/channels', 'Admin\AdminChannelsController@index')->name('admin.channels');
 Route::get('/admin/channels/create', 'Admin\AdminChannelsController@create')->name('admin.channels.create');
 Route::get('/admin/channels/{channel}', 'Admin\AdminChannelsController@edit')->name('admin.channels.edit');
 Route::post('/admin/channels/store', 'Admin\AdminChannelsController@store')->name('admin.channels.store');
-Route::post('/admin/channels/{channel}', 'Admin\AdminChannelsController@update')->name('admin.channels.update');
+Route::patch('/admin/channels/{channel}', 'Admin\AdminChannelsController@update')->name('admin.channels.update');
 
 Route::get('/admin/labels', 'Admin\AdminLabelsController@index')->name('admin.labels');
 Route::get('/admin/labels/create', 'Admin\AdminLabelsController@create')->name('admin.labels.create');
 Route::get('/admin/labels/{label}', 'Admin\AdminLabelsController@edit')->name('admin.labels.edit');
 Route::post('/admin/labels/store', 'Admin\AdminLabelsController@store')->name('admin.labels.store');
-Route::post('/admin/labels/{label}', 'Admin\AdminLabelsController@update')->name('admin.labels.update');
+Route::patch('/admin/labels/{label}', 'Admin\AdminLabelsController@update')->name('admin.labels.update');
 
 Route::get('/admin/roles', 'Admin\AdminRolesController@index')->name('admin.roles');
 Route::get('/admin/roles/create', 'Admin\AdminRolesController@create')->name('admin.roles.create');
 Route::get('/admin/roles/{role}', 'Admin\AdminRolesController@edit')->name('admin.roles.edit');
 Route::post('/admin/roles/store', 'Admin\AdminRolesController@store')->name('admin.roles.store');
-Route::post('/admin/roles/{role}', 'Admin\AdminRolesController@update')->name('admin.roles.update');
+Route::patch('/admin/roles/{role}', 'Admin\AdminRolesController@update')->name('admin.roles.update');
 
 Route::get('/admin/permissions', 'Admin\AdminPermissionsController@index')->name('admin.permissions');
 Route::get('/admin/permissions/create', 'Admin\AdminPermissionsController@create')->name('admin.permissions.create');
 Route::get('/admin/permissions/{permission}', 'Admin\AdminPermissionsController@edit')->name('admin.permissions.edit');
 Route::post('/admin/permissions/store', 'Admin\AdminPermissionsController@store')->name('admin.permissions.store');
-Route::post('/admin/permissions/{permission}', 'Admin\AdminPermissionsController@update')->name('admin.permissions.update');
+Route::patch('/admin/permissions/{permission}', 'Admin\AdminPermissionsController@update')->name('admin.permissions.update');
 
 Route::get('/admin/rights', 'Admin\AdminRightsController@index')->name('admin.rights');
 Route::get('/admin/rights/create', 'Admin\AdminRightsController@create')->name('admin.rights.create');
 Route::get('/admin/rights/{right}', 'Admin\AdminRightsController@edit')->name('admin.rights.edit');
 Route::post('/admin/rights/store', 'Admin\AdminRightsController@store')->name('admin.rights.store');
-Route::post('/admin/rights/{right}', 'Admin\AdminRightsController@update')->name('admin.rights.update');
+Route::patch('/admin/rights/{right}', 'Admin\AdminRightsController@update')->name('admin.rights.update');
 
 Route::get('/admin/languages', 'Admin\AdminLanguagesController@index')->name('admin.languages');
 Route::get('/admin/languages/create', 'Admin\AdminLanguagesController@create')->name('admin.languages.create');
 Route::get('/admin/languages/{language}', 'Admin\AdminLanguagesController@edit')->name('admin.languages.edit');
 Route::post('/admin/languages/store', 'Admin\AdminLanguagesController@store')->name('admin.languages.store');
-Route::post('/admin/languages/{language}', 'Admin\AdminLanguagesController@update')->name('admin.languages.update');
+Route::patch('/admin/languages/{language}', 'Admin\AdminLanguagesController@update')->name('admin.languages.update');
 
 Route::get('/admin/users', 'Admin\AdminUsersController@index')->name('admin.users');
 Route::get('/admin/users/create', 'Admin\AdminUsersController@create')->name('admin.users.create');
 Route::get('/admin/users/{user}', 'Admin\AdminUsersController@edit')->name('admin.users.edit');
 Route::post('/admin/users/store', 'Admin\AdminUsersController@store')->name('admin.users.store');
-Route::post('/admin/users/{user}', 'Admin\AdminUsersController@update')->name('admin.users.update');
+Route::patch('/admin/users/{user}', 'Admin\AdminUsersController@update')->name('admin.users.update');
 
 Route::get('/admin/menus', 'Admin\AdminMenusController@index')->name('admin.menus');
 Route::get('/admin/menus/create', 'Admin\AdminMenusController@create')->name('admin.menus.create');
 Route::get('/admin/menus/{menu}', 'Admin\AdminMenusController@edit')->name('admin.menus.edit');
 Route::post('/admin/menus/store', 'Admin\AdminMenusController@store')->name('admin.menus.store');
-Route::post('/admin/menus/{menu}', 'Admin\AdminMenusController@update')->name('admin.menus.update');
+Route::patch('/admin/menus/{menu}', 'Admin\AdminMenusController@update')->name('admin.menus.update');
