@@ -60,6 +60,10 @@ class AdminLabelsController extends Controller
         $label = new Label($request->all());
         $label->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.labels');
+        }
+
         return redirect()->route('admin.labels.edit', ['label' => $label]);
     }
 
@@ -95,6 +99,10 @@ class AdminLabelsController extends Controller
         $this->authenticate('Label',__FUNCTION__, true);
 
         $label->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.labels');
+        }
 
         return redirect()->back();
     }

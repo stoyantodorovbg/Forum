@@ -73,6 +73,10 @@ class AdminUsersController extends Controller
 
         $user->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.users');
+        }
+
         return redirect()->route('admin.users.edit', ['user' => $user]);
     }
 
@@ -126,6 +130,10 @@ class AdminUsersController extends Controller
             $permissionsIds = explode(',', $request->permissions);
             array_pop($permissionsIds);
             $user->permissions()->sync($permissionsIds);
+        }
+
+        if($request->exit) {
+            return redirect()->route('admin.users');
         }
 
         return redirect()->back();

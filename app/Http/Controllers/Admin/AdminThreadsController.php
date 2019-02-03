@@ -64,6 +64,10 @@ class AdminThreadsController extends Controller
         $thread = new Thread($request->all());
         $thread->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.threads');
+        }
+
         return redirect()->route('admin.threads.edit', ['thread' => $thread]);
     }
 
@@ -97,6 +101,10 @@ class AdminThreadsController extends Controller
         $this->authenticate('Reply',__FUNCTION__, true);
 
         $thread->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.threads');
+        }
 
         return redirect()->back();
     }

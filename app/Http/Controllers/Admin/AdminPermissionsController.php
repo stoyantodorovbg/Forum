@@ -68,6 +68,10 @@ class AdminPermissionsController extends Controller
             $permission->rights()->sync($rightsIds);
         }
 
+        if($request->exit) {
+            return redirect()->route('admin.permissions');
+        }
+
         return redirect()->route('admin.permissions.edit', ['$permission' => $permission]);
     }
 
@@ -105,6 +109,10 @@ class AdminPermissionsController extends Controller
         $rightsIds = explode(',', $request->rights);
         array_pop($rightsIds);
         $permission->rights()->sync($rightsIds);
+
+        if($request->exit) {
+            return redirect()->route('admin.permissions');
+        }
 
         return redirect()->back();
     }

@@ -61,6 +61,10 @@ class AdminRepliesController extends Controller
         $reply = new Reply($request->all());
         $reply->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.replies');
+        }
+
         return redirect()->route('admin.replies.edit', ['reply' => $reply]);
     }
 
@@ -89,6 +93,10 @@ class AdminRepliesController extends Controller
         $this->authenticate('Reply',__FUNCTION__, true);
 
         $reply->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.replies');
+        }
 
         return redirect()->back();
     }

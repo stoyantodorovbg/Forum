@@ -60,6 +60,10 @@ class AdminChannelsController extends Controller
         $channel = new Channel($request->all());
         $channel->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.channels');
+        }
+
         return redirect()->route('admin.channels.edit', ['channel' => $channel]);
     }
 
@@ -95,6 +99,10 @@ class AdminChannelsController extends Controller
         $this->authenticate('Channel',__FUNCTION__, true);
 
         $channel->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.channels');
+        }
 
         return redirect()->back();
     }

@@ -72,6 +72,10 @@ class AdminMenusController extends Controller
         $menu = new Menu($request->all());
         $menu->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.menus');
+        }
+
         return redirect()->route('admin.menus.edit', ['menu' => $menu]);
     }
 
@@ -116,6 +120,10 @@ class AdminMenusController extends Controller
         $this->authenticate('Menu',__FUNCTION__, true);
 
         $menu->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.menus');
+        }
 
         return redirect()->back();
     }

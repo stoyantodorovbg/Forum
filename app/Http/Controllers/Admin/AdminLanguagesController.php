@@ -59,6 +59,10 @@ class AdminLanguagesController extends Controller
         $language = new Language($request->all());
         $language->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.languages');
+        }
+
         return redirect()->route('admin.languages.edit', ['language' => $language]);
     }
 
@@ -94,6 +98,10 @@ class AdminLanguagesController extends Controller
         $this->authenticate('Language',__FUNCTION__, true);
 
         $language->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.languages');
+        }
 
         return redirect()->back();
     }

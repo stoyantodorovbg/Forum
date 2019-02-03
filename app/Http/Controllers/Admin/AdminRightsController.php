@@ -56,6 +56,10 @@ class AdminRightsController extends Controller
         $right = new Right($request->all());
         $right->save();
 
+        if($request->exit) {
+            return redirect()->route('admin.rights');
+        }
+
         return redirect()->route('admin.rights.edit', ['right' => $right]);
     }
 
@@ -86,6 +90,10 @@ class AdminRightsController extends Controller
         $this->authenticate('Right',__FUNCTION__, true);
 
         $right->update($request->all());
+
+        if($request->exit) {
+            return redirect()->route('admin.rights');
+        }
 
         return redirect()->back();
     }

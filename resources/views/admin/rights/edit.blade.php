@@ -14,7 +14,7 @@
                     <a href="{{ route('admin.rights') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
-                    <button class="btn btn-danger saveAndExit" value="/admin/permissions">
+                    <button class="btn btn-danger saveAndExit" name="exit" value="true">
                         {{ label('save_exit') }}
                     </button>
                     <button class="btn btn-danger">{{ label('save') }}</button>
@@ -50,7 +50,9 @@
                     <a href="{{ route('admin.rights') }}">
                         <button class="btn btn-info" type="button">{{ label('exit_without_saving') }}</button>
                     </a>
-                    <button class="btn btn-danger saveAndExit" value="/admin/permissions">{{ label('save_exit') }}</button>
+                    <button class="btn btn-danger saveAndExit" name="exit" value="true">
+                        {{ label('save_exit') }}
+                    </button>
                     <button class="btn btn-danger">{{ label('save') }}</button>
                 </div>
             </div>
