@@ -59,6 +59,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 2,
             'position' => 1,
             'title' => 'Channels',
+            'link' => '/admin/channels'
         ]);
 
         // Forum id 6
@@ -66,6 +67,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 2,
             'position' => 2,
             'title' => 'Threads',
+            'link' => '/admin/threads'
         ]);
 
         // Forum id 7
@@ -73,6 +75,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 2,
             'position' => 3,
             'title' => 'Replies',
+            'link' => '/admin/replies'
         ]);
 
         // MENU Blog id 3
@@ -88,6 +91,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 3,
             'position' => 1,
             'title' => 'Articles',
+            'link' => '/admin/articles'
         ]);
 
         // Blog id 9
@@ -95,6 +99,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 3,
             'position' => 2,
             'title' => 'Comments',
+            'link' => '/admin/comments'
         ]);
 
         // MENU Users id 4
@@ -110,6 +115,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 4,
             'position' => 1,
             'title' => 'Users',
+            'link' => '/admin/users'
         ]);
 
         // MENU System id 5
@@ -125,6 +131,7 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 5,
             'position' => 1,
             'title' => 'Labels',
+            'link' => '/admin/labels'
         ]);
 
         // System id 12
@@ -132,56 +139,55 @@ class MenusTableSeeder extends Seeder
             'menu_id' => 5,
             'position' => 2,
             'title' => 'Pages',
+            'link' => '/admin/pages'
         ]);
 
         // System id 13
         DB::table('menu_items')->insert([
             'menu_id' => 5,
             'position' => 3,
-            'title' => 'Labels',
+            'title' => 'Blocks',
+            'link' => '/admin/blocks'
         ]);
 
-        // System i 14
+        // System id 14
         DB::table('menu_items')->insert([
             'menu_id' => 5,
             'position' => 4,
-            'title' => 'Blocks',
+            'title' => 'Menus',
+            'link' => '/admin/menus'
         ]);
 
         // System id 15
         DB::table('menu_items')->insert([
             'menu_id' => 5,
             'position' => 5,
-            'title' => 'Menus',
+            'title' => 'Roles',
+            'link' => '/admin/roles'
         ]);
 
         // System id 16
         DB::table('menu_items')->insert([
             'menu_id' => 5,
             'position' => 6,
-            'title' => 'Roles',
-        ]);
-
-        // System id 17
-        DB::table('menu_items')->insert([
-            'menu_id' => 5,
-            'position' => 7,
             'title' => 'Permissions',
-        ]);
-
-        // System id 18
-        DB::table('menu_items')->insert([
-            'menu_id' => 5,
-            'position' => 7,
-            'title' => 'Rights',
+            'link' => '/admin/permissions'
         ]);
 
         // System id 19
         DB::table('menu_items')->insert([
             'menu_id' => 5,
-            'position' => 8,
-            'title' => 'Languages',
+            'position' => 7,
+            'title' => 'Rights',
+            'link' => '/admin/rights'
         ]);
 
+        // System id 20
+        DB::table('menu_items')->insert([
+            'menu_id' => 5,
+            'position' => 8,
+            'title' => 'Languages',
+            'link' => '/admin/languages'
+        ]);
     }
 }

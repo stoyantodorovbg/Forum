@@ -1,0 +1,32 @@
+nav.admin-side {
+    width: 150px;
+    background-color: lightgreen;
+
+    ul.menu.admin-side-nav-main {
+        padding: 10px 0 0 10px;
+        li.main-item {
+            list-style-type: none;
+            margin: 10px 0 10px 0;
+
+            a.main-link {
+                background-color: white;
+                padding: 2px 4px 2px 4px;
+                border-radius: 7%;
+                font-weight: bolder;
+                color: darkviolet;
+                text-transform: uppercase;
+            }
+
+            ul.admin-side-nav-child {
+                li.child-item {
+                    list-style-type: none;
+                    margin: 5px 0 5px 0;
+
+                    a {
+                        color: darkviolet;
+                    }
+                }
+            }
+        }
+    }
+}
