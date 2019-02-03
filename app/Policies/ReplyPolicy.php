@@ -24,8 +24,10 @@ class ReplyPolicy
 
     public function create(User $user)
     {
-        if (! $lastReply = $user->fresh()->lastReply) return true;
-
-        return ! $lastReply->wasJustPublished();
+        if(!auth()->user()) {
+            return false;
+        } else {
+            return auth()->user()->hasRole('Banned');
+        }
     }
 }

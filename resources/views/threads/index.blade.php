@@ -8,7 +8,15 @@
                     <h1>
                         {{ label('forum_threads') }}
                     </h1>
+
                 </div>
+                @if($channelName)
+                    <div class="card-header m-2">
+                        <h2>
+                            {{ label('channel') . ' ' . $channelName }}
+                        </h2>
+                    </div>
+                @endif
                 @include('threads._list')
 
                 {{ $threads->render() }}
@@ -20,9 +28,9 @@
                             <h4 class>Search</h4>
                         </div>
                         <div class="card-body">
-                            <form method="GET" action="/threads/search">
+                            <form method="GET" action="">
                                 <div class="form-group">
-                                    <input type="text" placeholder="{{ label('enter_search_criterion') }}" name="q" class="form-control">
+                                    <input type="text" placeholder="{{ label('enter_search_criterion') }}" name="" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary" type="submit">{{ label('search') }}</button>

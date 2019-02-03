@@ -6,8 +6,7 @@
         <ais-index
                 app-id="{{ config('scout.algolia.id') }}"
                 api-key="{{ config('scout.algolia.key') }}"
-                index-name="threads"
-        >
+                index-name="threads">
             <ais-search-box></ais-search-box>
 
             <ais-refinement-list attribute-name="channel.name"></ais-refinement-list>

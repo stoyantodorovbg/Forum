@@ -43,7 +43,14 @@ class ThreadsController extends Controller
             return $threads;
         }
 
-        return view('threads.index', compact('threads', 'trending'));
+        $channelName = '';
+
+        if($channel) {
+            $channelName = $channel->name;
+        }
+
+        return view('threads.index',
+            compact('threads', 'trending', 'channelName'));
     }
 
     /**

@@ -42,12 +42,12 @@ class RepliesController extends Controller
             return response('This thread is locked', 422);
         }
 
-        if (Gate::denies('create', new Reply)) {
-            return response(
-                'Sorry, your could not replies twice per minute',
-                422
-            );
-        }
+//        if (Gate::denies('create', new Reply)) {
+//            return response(
+//                'Sorry, your could not replies twice per minute',
+//                422
+//            );
+//        }
 
         $this->validateReply();
 

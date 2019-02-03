@@ -21,9 +21,14 @@ nav.admin-side {
                 li.child-item {
                     list-style-type: none;
                     margin: 5px 0 5px 0;
-
                     a {
+                        padding: 2px 4px 2px 4px;
+                        border-radius: 7%;
                         color: darkviolet;
+                    }
+
+                    a:hover {
+                        background-color: #f5f8fa;
                     }
                 }
             }

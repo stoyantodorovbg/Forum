@@ -8,9 +8,7 @@ $factory->define(\App\Models\Thread::class, function (Faker $faker) {
         'user_id' => function() {
             return factory('App\User')->create()->id;
         },
-        'channel_id' => function() {
-            return factory('App\Models\Channel')->create()->id;
-        },
+        'channel_id' => rand ( 0 , 9 ),
         'title' => $title,
         'body' => $faker->paragraph,
         'slug' => str_slug($title),
