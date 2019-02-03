@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Traits\CheckUserRights;
 use App\Http\Controllers\Controller;

@@ -115,7 +115,7 @@ class MenusTableSeeder extends Seeder
         // MENU System id 5
         DB::table('menus')->insert([
             'menu_item_id' => 4,
-            'title' => 'Admin Side Menu',
+            'title' => 'System',
             'description' => 'Lists the System manageable content in the back-office',
             'status' => 1,
         ]);
